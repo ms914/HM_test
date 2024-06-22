@@ -8,364 +8,317 @@ knit: (function(input_file, encoding) {
       output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
 date: "`r Sys.Date()`"
 output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
+Hier ist eine kurze Formelsammlung für die wichtigsten Konzepte und
+Formeln der Aufgaben aus HM1-4:
 
-Hier ist eine kurze Formelsammlung für die wichtigsten Konzepte und Formeln der Aufgaben aus HM1-4:
-
----
+------------------------------------------------------------------------
 
 ### HM1
 
 #### Aufgabe 1: Konvergenz der Reihe
 
-1. **Geometrische Reihe**: Eine Reihe der Form \(\sum_{n=0}^{\infty} ar^n\) konvergiert für \(|r| < 1\).
-2. **Konvergenzradius**: Für \(\sum_{n=1}^{\infty} \frac{1}{n 3^n} (x-1)^n\):
-   \[
-   \text{Konvergenzradius } R = \lim_{n \to \infty} \left|\frac{a_n}{a_{n+1}}\right|
-   \]
+1.  **Geometrische Reihe**: Eine Reihe der Form
+    $\sum_{n=0}^{\infty} ar^n$ konvergiert für $|r| < 1$.
+2.  **Konvergenzradius**: Für
+    $\sum_{n=1}^{\infty} \frac{1}{n 3^n} (x-1)^n$: $$
+    \text{Konvergenzradius } R = \lim_{n \to \infty} \left|\frac{a_n}{a_{n+1}}\right|
+    $$
 
 #### Aufgabe 2: Untersuchung einer Funktion
 
-1. **Definitionsbereich**: \( f(x)=\frac{1}{x^2(x-3)} \)
-   \[
-   \text{Definitionsbereich } D_f = \mathbb{R} \setminus \{0, 3\}
-   \]
+1.  **Definitionsbereich**: $f(x)=\frac{1}{x^2(x-3)}$ $$
+    \text{Definitionsbereich } D_f = \mathbb{R} \setminus \{0, 3\}
+    $$
 
-2. **Nullstellen**: Setze \( f(x) = 0 \) und löse nach \( x \).
+2.  **Nullstellen**: Setze $f(x) = 0$ und löse nach $x$.
 
-3. **Extrema und Monotonie**:
-   \[
-   f'(x) = \text{Ableitung berechnen}
-   \]
-   \[
-   f''(x) = \text{zweite Ableitung berechnen}
-   \]
-   Nutze die Ableitungen zur Bestimmung der Kritischen Punkte und zur Klassifikation (Minimum/Maximum).
+3.  **Extrema und Monotonie**: $$
+    f'(x) = \text{Ableitung berechnen}
+    $$ $$
+    f''(x) = \text{zweite Ableitung berechnen}
+    $$ Nutze die Ableitungen zur Bestimmung der Kritischen Punkte und
+    zur Klassifikation (Minimum/Maximum).
 
-4. **Verhalten an den Rändern**:
-   \[
-   \lim_{x \to 0} f(x) \quad \text{und} \quad \lim_{x \to 3} f(x)
-   \]
+4.  **Verhalten an den Rändern**: $$
+    \lim_{x \to 0} f(x) \quad \text{und} \quad \lim_{x \to 3} f(x)
+    $$
 
-5. **Skizzierung**: Erstelle eine Skizze der Funktion basierend auf den obigen Analysen.
+5.  **Skizzierung**: Erstelle eine Skizze der Funktion basierend auf den
+    obigen Analysen.
 
 #### Aufgabe 3: Komplexe Zahlen in Polarform
 
-1. **Polarform**:
-   \[
-   z = re^{i\theta}, \quad r = |z|, \quad \theta = \arg(z)
-   \]
-   \[
-   (\sqrt{2} + i \sqrt{2})^3 = \left(2e^{i\frac{\pi}{4}}\right)^3 = 8e^{i\frac{3\pi}{4}}
-   \]
+1.  **Polarform**: $$
+    z = re^{i\theta}, \quad r = |z|, \quad \theta = \arg(z)
+    $$ $$
+    (\sqrt{2} + i \sqrt{2})^3 = \left(2e^{i\frac{\pi}{4}}\right)^3 = 8e^{i\frac{3\pi}{4}}
+    $$
 
-2. **Lösungen der Gleichung**:
-   \[
-   z^6 - (\sqrt{2} + \sqrt{2} i) z^2 = 0 \quad \Rightarrow z^2 (z^4 - (\sqrt{2} + \sqrt{2} i)) = 0
-   \]
+2.  **Lösungen der Gleichung**: $$
+    z^6 - (\sqrt{2} + \sqrt{2} i) z^2 = 0 \quad \Rightarrow z^2 (z^4 - (\sqrt{2} + \sqrt{2} i)) = 0
+    $$
 
 #### Aufgabe 4: Taylorpolynom und Restglied
 
-1. **Taylorpolynom**:
-   \[
-   g(x) = x^2 \ln(x), \quad \text{um } x=e
-   \]
-   \[
-   T_3(x) = g(e) + g'(e)(x-e) + \frac{g''(e)}{2!}(x-e)^2 + \frac{g'''(e)}{3!}(x-e)^3
-   \]
+1.  **Taylorpolynom**: $$
+    g(x) = x^2 \ln(x), \quad \text{um } x=e
+    $$ $$
+    T_3(x) = g(e) + g'(e)(x-e) + \frac{g''(e)}{2!}(x-e)^2 + \frac{g'''(e)}{3!}(x-e)^3
+    $$
 
-2. **Restgliedabschätzung**:
-   \[
-   R_n(x) = \frac{g^{(n+1)}(\xi)}{(n+1)!}(x-e)^{n+1}
-   \]
+2.  **Restgliedabschätzung**: $$
+    R_n(x) = \frac{g^{(n+1)}(\xi)}{(n+1)!}(x-e)^{n+1}
+    $$
 
 #### Aufgabe 5: Partialbruchzerlegung und Stammfunktion
 
-1. **Partialbruchzerlegung**:
-   \[
-   h(x) = \frac{x^2+4x-3}{x^3-3x-2} = \frac{A}{x-\alpha} + \frac{B}{x-\beta} + \frac{C}{x-\gamma}
-   \]
+1.  **Partialbruchzerlegung**: $$
+    h(x) = \frac{x^2+4x-3}{x^3-3x-2} = \frac{A}{x-\alpha} + \frac{B}{x-\beta} + \frac{C}{x-\gamma}
+    $$
 
-2. **Stammfunktion**:
-   \[
-   \int h(x) \, dx = \text{Berechnung der Stammfunktion}
-   \]
+2.  **Stammfunktion**: $$
+    \int h(x) \, dx = \text{Berechnung der Stammfunktion}
+    $$
 
 #### Aufgabe 6: Grenzwert und Integral
 
-1. **Grenzwert**:
-   \[
-   \lim_{y \to 1} \sqrt{1-y^2} \ln(\sqrt{1-y^2}) = ?
-   \]
+1.  **Grenzwert**: $$
+    \lim_{y \to 1} \sqrt{1-y^2} \ln(\sqrt{1-y^2}) = ?
+    $$
 
-2. **Integral**:
-   \[
-   I(y) = \int_0^y \ln(\sqrt{1-x^2}) \frac{x}{\sqrt{1-x^2}} \, dx
-   \]
+2.  **Integral**: $$
+    I(y) = \int_0^y \ln(\sqrt{1-x^2}) \frac{x}{\sqrt{1-x^2}} \, dx
+    $$
 
----
+------------------------------------------------------------------------
 
 ### HM2
 
 #### Aufgabe 1: Lineares Gleichungssystem
 
-1. **Lösung des Gleichungssystems**:
-   \[
-   \mathbf{A} \mathbf{x} = \mathbf{b}
-   \]
-   Nutze Gauß-Elimination oder Inverse Matrix zur Lösung.
+1.  **Lösung des Gleichungssystems**: $$
+    \mathbf{A} \mathbf{x} = \mathbf{b}
+    $$ Nutze Gauß-Elimination oder Inverse Matrix zur Lösung.
 
-2. **Rang der Matrix**:
-   \[
-   \text{Rang}(\mathbf{A}) = \text{Anzahl der Pivotelemente}
-   \]
+2.  **Rang der Matrix**: $$
+    \text{Rang}(\mathbf{A}) = \text{Anzahl der Pivotelemente}
+    $$
 
 #### Aufgabe 2: Parameterdarstellung und Schnittpunkt
 
-1. **Geradenparameterdarstellung**:
-   \[
-   \mathbf{g}(t) = \begin{pmatrix} 4 - 2t \\ -4 + 3t \\ 2 - 2t \end{pmatrix}
-   \]
+1.  **Geradenparameterdarstellung**: $$
+    \mathbf{g}(t) = \begin{pmatrix} 4 - 2t \\ -4 + 3t \\ 2 - 2t \end{pmatrix}
+    $$
 
-2. **Hesse-Normalform der Ebene**:
-   \[
-   E: \frac{a x + b y + c z - d}{\sqrt{a^2 + b^2 + c^2}} = 0
-   \]
+2.  **Hesse-Normalform der Ebene**: $$
+    E: \frac{a x + b y + c z - d}{\sqrt{a^2 + b^2 + c^2}} = 0
+    $$
 
-3. **Schnittpunkt / Abstand**:
-   Lösen der Gleichung \(\mathbf{g}(t) \) in \( E \).
+3.  **Schnittpunkt / Abstand**: Lösen der Gleichung $\mathbf{g}(t)$ in
+    $E$.
 
 #### Aufgabe 3: Eigenwerte und Eigenvektoren
 
-1. **Eigenwerte**:
-   \[
-   \det(\mathbf{A} - \lambda \mathbf{I}) = 0
-   \]
+1.  **Eigenwerte**: $$
+    \det(\mathbf{A} - \lambda \mathbf{I}) = 0
+    $$
 
-2. **Eigenvektoren**:
-   \[
-   (\mathbf{A} - \lambda \mathbf{I}) \mathbf{v} = 0
-   \]
+2.  **Eigenvektoren**: $$
+    (\mathbf{A} - \lambda \mathbf{I}) \mathbf{v} = 0
+    $$
 
 #### Aufgabe 4: Stationäre Punkte und Taylor-Polynom
 
-1. **Stationäre Punkte**:
-   \[
-   \nabla f = 0
-   \]
+1.  **Stationäre Punkte**: $$
+    \nabla f = 0
+    $$
 
-2. **Taylor-Polynom**:
-   \[
-   T_2(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0) + \frac{1}{2} \left( f_{xx}(x_0,y_0)(x-x_0)^2 + 2f_{xy}(x_0,y_0)(x-x_0)(y-y_0) + f_{yy}(x_0,y_0)(y-y_0)^2 \right)
-   \]
+2.  **Taylor-Polynom**: $$
+    T_2(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0) + \frac{1}{2} \left( f_{xx}(x_0,y_0)(x-x_0)^2 + 2f_{xy}(x_0,y_0)(x-x_0)(y-y_0) + f_{yy}(x_0,y_0)(y-y_0)^2 \right)
+    $$
 
 #### Aufgabe 5: Lagrange-Multiplikatoren
 
-1. **Lagrange-Gleichungen**:
-   \[
-   \nabla f = \lambda \nabla g
-   \]
+1.  **Lagrange-Gleichungen**: $$
+    \nabla f = \lambda \nabla g
+    $$
 
-2. **Ableitung entlang der Kurve**:
-   \[
-   \frac{d}{dx} f(x,y(x))
-   \]
+2.  **Ableitung entlang der Kurve**: $$
+    \frac{d}{dx} f(x,y(x))
+    $$
 
 #### Aufgabe 6: Integrale über Kreissegment
 
-1. **Integral**:
-   \[
-   \int_B f(x,y) \, dA
-   \]
+1.  **Integral**: $$
+    \int_B f(x,y) \, dA
+    $$
 
----
+------------------------------------------------------------------------
 
 ### HM3
 
 #### Aufgabe 1: Anfangswertprobleme und Exakte DGL
 
-1. **Lösung des Anfangswertproblems**:
-   \[
-   \frac{dx}{dt} = t x^2 + t, \quad x(0) = 0
-   \]
+1.  **Lösung des Anfangswertproblems**: $$
+    \frac{dx}{dt} = t x^2 + t, \quad x(0) = 0
+    $$
 
-2. **Exakte DGL**:
-   \[
-   \Phi_t + \Phi_x \dot{x} = 0
-   \]
+2.  **Exakte DGL**: $$
+    \Phi_t + \Phi_x \dot{x} = 0
+    $$
 
 #### Aufgabe 2: Lineares System
 
-1. **Fundamentalsystem**:
-   \[
-   \dot{x} = \mathbf{A} \mathbf{x}, \quad \mathbf{A} = \begin{pmatrix} 3 & -1 \\ 5 & -1 \end{pmatrix}
-   \]
+1.  **Fundamentalsystem**: $$
+    \dot{x} = \mathbf{A} \mathbf{x}, \quad \mathbf{A} = \begin{pmatrix} 3 & -1 \\ 5 & -1 \end{pmatrix}
+    $$
 
-2. **Allgemeine Lösung**:
-   \[
-   \mathbf{x}(t) = e^{\mathbf{A} t} \mathbf{x}_0 + \mathbf{A}^{-1}(\mathbf{b})
-   \]
+2.  **Allgemeine Lösung**: $$
+    \mathbf{x}(t) = e^{\mathbf{A} t} \mathbf{x}_0 + \mathbf{A}^{-1}(\mathbf{b})
+    $$
 
 #### Aufgabe 3: Partielle Differentialgleichung
 
-1. **Klassifikation**:
-   \[
-   2u_t - u_{xx} = 0 \quad \text{(parabolisch)}
-   \]
+1.  **Klassifikation**: $$
+    2u_t - u_{xx} = 0 \quad \text{(parabolisch)}
+    $$
 
-2. **Fourier-Koeffizienten**:
-   \[
-   f(x) = 1 \quad \text{für } x \in [0, \pi]
-   \]
+2.  **Fourier-Koeffizienten**: $$
+    f(x) = 1 \quad \text{für } x \in [0, \pi]
+    $$
 
 #### Aufgabe 4: Vektorfeld und Potential
 
-1. **Potential**:
-   \[
-   \nabla \phi = F
-   \]
+1.  **Potential**: $$
+    \nabla \phi = F
+    $$
 
-2. **Kurvenintegral**:
-   \[
-   \int_{\gamma} F \cdot d\mathbf{r}
-   \]
+2.  **Kurvenintegral**: $$
+    \int_{\gamma} F \cdot d\mathbf{r}
+    $$
 
 #### Aufgabe 5: Rotationsflächen
 
-1. **Parametrisierung der Fläche**:
-   \[
-   f(u,v)
-   \]
+1.  **Parametrisierung der Fläche**: $$
+    f(u,v)
+    $$
 
-2. **Tangential- und Normalenvektoren**:
-   \[
-   \mathbf{t}_u, \mathbf{t}_v, \mathbf{n} =\mathbf{t}_u \times \mathbf{t}_v
-   \]
+2.  **Tangential- und Normalenvektoren**: $$
+    \mathbf{t}_u, \mathbf{t}_v, \mathbf{n} =\mathbf{t}_u \times \mathbf{t}_v
+    $$
 
-3. **Oberflächenintegral**:
-   \[
-   \int_A F \cdot d\mathbf{n}
-   \]
+3.  **Oberflächenintegral**: $$
+    \int_A F \cdot d\mathbf{n}
+    $$
 
 #### Aufgabe 6: Kugelsegment
 
-1. **Kugelkoordinaten**:
-   \[
-   (r, \theta, \phi)
-   \]
+1.  **Kugelkoordinaten**: $$
+    (r, \theta, \phi)
+    $$
 
-2. **Fluss durch \(\partial K\)**:
-   \[
-   \int_{\partial K} F \cdot d\mathbf{n}
-   \]
+2.  **Fluss durch** $\partial K$: $$
+    \int_{\partial K} F \cdot d\mathbf{n}
+    $$
 
-3. **Stokes-Theorem**:
-   \[
-   \int_{\partial K \setminus B} F \cdot d\mathbf{n}
-   \]
+3.  **Stokes-Theorem**: $$
+    \int_{\partial K \setminus B} F \cdot d\mathbf{n}
+    $$
 
-HM 4
-
-Natürlich, hier setze ich die Formelsammlung für die Aufgaben fort:
+## HM 4
 
 **Aufgabe 1**
 
-a) Vektoriterationsalgorithmus für den betragsgrößten Eigenwert:
+a)  Vektoriterationsalgorithmus für den betragsgrößten Eigenwert:
 
-1. Berechnung von \( x^{(1)} \):
-   \[
-   x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \|}
-   \]
-   Berechnung von \( \| A x^{(0)} \| \):
-   \[
-   A x^{(0)} = \begin{pmatrix} 3 \\ 0 \end{pmatrix}, \quad \| A x^{(0)} \| = \sqrt{9} = 3
-   \]
-   Berechnung von \( x^{(1)} \):
-   \[
-   x^{(1)} = \frac{1}{3} \begin{pmatrix} 3 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
-   \]
+```{=html}
+<!-- -->
+```
+1.  Berechnung von $x^{(1)}$: $$
+    x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \|}
+    $$ Berechnung von $\| A x^{(0)} \|$: $$
+    A x^{(0)} = \begin{pmatrix} 3 \\ 0 \end{pmatrix}, \quad \| A x^{(0)} \| = \sqrt{9} = 3
+    $$ Berechnung von $x^{(1)}$: $$
+    x^{(1)} = \frac{1}{3} \begin{pmatrix} 3 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    $$
 
-2. Berechnung von \( x^{(2)} \):
-   \[
-   x^{(2)} = \frac{A x^{(1)}}{\| A x^{(1)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} \|}
-   \]
-   Berechnung von \( \| A x^{(1)} \| \):
-   \[
-   A x^{(1)} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad \| A x^{(1)} \| = \sqrt{5}
-   \]
-   Berechnung von \( x^{(2)} \):
-   \[
-   x^{(2)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} \frac{2}{\sqrt{5}} \\ \frac{1}{\sqrt{5}} \end{pmatrix}
-   \]
+2.  Berechnung von $x^{(2)}$: $$
+    x^{(2)} = \frac{A x^{(1)}}{\| A x^{(1)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} \|}
+    $$ Berechnung von $\| A x^{(1)} \|$: $$
+    A x^{(1)} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad \| A x^{(1)} \| = \sqrt{5}
+    $$ Berechnung von $x^{(2)}$: $$
+    x^{(2)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} \frac{2}{\sqrt{5}} \\ \frac{1}{\sqrt{5}} \end{pmatrix}
+    $$
 
-b) Vektoriterationsalgorithmus für den betragskleinsten Eigenwert:
+```{=html}
+<!-- -->
+```
+b)  Vektoriterationsalgorithmus für den betragskleinsten Eigenwert:
 
-1. Berechnung von \( x^{(1)} \):
-   \[
-   x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} \|}
-   \]
-   Berechnung von \( \| A x^{(0)} \| \):
-   \[
-   A x^{(0)} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}, \quad \| A x^{(0)} \| = \sqrt{5}
-   \]
-   Berechnung von \( x^{(1)} \):
-   \[
-   x^{(1)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix}
-   \]
+```{=html}
+<!-- -->
+```
+1.  Berechnung von $x^{(1)}$: $$
+    x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} \|}
+    $$ Berechnung von $\| A x^{(0)} \|$: $$
+    A x^{(0)} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}, \quad \| A x^{(0)} \| = \sqrt{5}
+    $$ Berechnung von $x^{(1)}$: $$
+    x^{(1)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix}
+    $$
 
-2. Berechnung von \( x^{(2)} \):
-   \[
-   x^{(2)} = \frac{A x^{(1)}}{\| A x^{(1)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix} \|}
-   \]
-   Berechnung von \( \| A x^{(1)} \| \):
-   \[
-   A x^{(1)} = \begin{pmatrix} \frac{0}{\sqrt{5}} \\ -\frac{3}{\sqrt{5}} \end{pmatrix}, \quad \| A x^{(1)} \| = 3
-   \]
-   Berechnung von \( x^{(2)} \):
-   \[
-   x^{(2)} = \frac{1}{3} \begin{pmatrix} 0 \\ -1 \end{pmatrix} = \begin{pmatrix} 0 \\ -\frac{1}{3} \end{pmatrix}
-   \]
+2.  Berechnung von $x^{(2)}$: $$
+    x^{(2)} = \frac{A x^{(1)}}{\| A x^{(1)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix} \|}
+    $$ Berechnung von $\| A x^{(1)} \|$: $$
+    A x^{(1)} = \begin{pmatrix} \frac{0}{\sqrt{5}} \\ -\frac{3}{\sqrt{5}} \end{pmatrix}, \quad \| A x^{(1)} \| = 3
+    $$ Berechnung von $x^{(2)}$: $$
+    x^{(2)} = \frac{1}{3} \begin{pmatrix} 0 \\ -1 \end{pmatrix} = \begin{pmatrix} 0 \\ -\frac{1}{3} \end{pmatrix}
+    $$
 
 **Aufgabe 2**
 
-a) Interpolationspolynom in der Newton-Basis:
-   \[
-   p(x) = 5 + (-4)(x + 1) + (-\frac{1}{2})(x + 1)x(x - 1)
-   \]
+a)  Interpolationspolynom in der Newton-Basis: $$
+    p(x) = 5 + (-4)(x + 1) + (-\frac{1}{2})(x + 1)x(x - 1)
+    $$
 
-b) Interpolationspolynom in der Monom-Basis:
-   \[
-   p(x) = 1 + (-3)x + (-\frac{1}{2})x^2 + (-\frac{1}{2})x^3
-   \]
+b)  Interpolationspolynom in der Monom-Basis: $$
+    p(x) = 1 + (-3)x + (-\frac{1}{2})x^2 + (-\frac{1}{2})x^3
+    $$
 
-c) Bisektionsverfahren:
-   - Schritt 1: Berechnung von \( p(1) \) und \( p(2) \), Bestimmung des neuen Intervalls
-   - Schritt 2: Berechnung von \( p(1.5) \) und Anpassung des Intervalls entsprechend
+c)  Bisektionsverfahren:
 
-d) Simpson-Regel:
-   - Berechnung von \( p(-1), p(0), p(1) \)
-   - Anwendung der Simpson-Regel auf \( [-1, 1] \)
+    -   Schritt 1: Berechnung von $p(1)$ und $p(2)$, Bestimmung des
+        neuen Intervalls
+    -   Schritt 2: Berechnung von $p(1.5)$ und Anpassung des Intervalls
+        entsprechend
+
+d)  Simpson-Regel:
+
+    -   Berechnung von $p(-1), p(0), p(1)$
+    -   Anwendung der Simpson-Regel auf $[-1, 1]$
 
 **Aufgabe 3**
 
-a) Lineares Ausgleichsproblem und Normalengleichungen:
-   \[
-   A^T A \begin{pmatrix} a \\ b \\ c \end{pmatrix} = A^T \begin{pmatrix} 0 \\ 0 \\ 0 \\ -1 \\ 1 \end{pmatrix}
-   \]
+a)  Lineares Ausgleichsproblem und Normalengleichungen: $$
+    A^T A \begin{pmatrix} a \\ b \\ c \end{pmatrix} = A^T \begin{pmatrix} 0 \\ 0 \\ 0 \\ -1 \\ 1 \end{pmatrix}
+    $$
 
-b) Lösung des Gleichungssystems mit Cholesky-Zerlegung:
-   - Berechnung von \( L \) und \( L^T \)
-   - Lösen von \( Ly = A^T b \) und \( L^T x = y \)
+b)  Lösung des Gleichungssystems mit Cholesky-Zerlegung:
+
+    -   Berechnung von $L$ und $L^T$
+    -   Lösen von $Ly = A^T b$ und $L^T x = y$
 
 **Aufgabe 4**
 
-a) Nichtlineares Ausgleichsproblem:
-   \[
-   \min_{x_1, x_2} \sum_{i=1}^{3} (f_i - (t_i + x_2)^2 x_1)^2
-   \]
+a)  Nichtlineares Ausgleichsproblem: $$
+    \min_{x_1, x_2} \sum_{i=1}^{3} (f_i - (t_i + x_2)^2 x_1)^2
+    $$
 
-b) Gauß-Newton-Verfahren:
-   - Berechnung von \( J \) (Jacobi-Matrix) und \( r \) (Residuenvektor)
-   - Berechnung von \( \Delta x \) und Aktualisierung von \( x^{(0)} \)
+b)  Gauß-Newton-Verfahren:
 
+    -   Berechnung von $J$ (Jacobi-Matrix) und $r$ (Residuenvektor)
+    -   Berechnung von $\Delta x$ und Aktualisierung von $x^{(0)}$
