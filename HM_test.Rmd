@@ -265,6 +265,107 @@ Hier ist eine kurze Formelsammlung für die wichtigsten Konzepte und Formeln der
    \int_{\partial K \setminus B} F \cdot d\mathbf{n}
    \]
 
----
+HM 4
 
-Diese Formelsammlung deckt die grundlegenden Konzepte und Formeln ab, die zur Lösung der Aufgaben in den Kursen HM1-4 benötigt werden.
+Natürlich, hier setze ich die Formelsammlung für die Aufgaben fort:
+
+**Aufgabe 1**
+
+a) Vektoriterationsalgorithmus für den betragsgrößten Eigenwert:
+
+1. Berechnung von \( x^{(1)} \):
+   \[
+   x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \|}
+   \]
+   Berechnung von \( \| A x^{(0)} \| \):
+   \[
+   A x^{(0)} = \begin{pmatrix} 3 \\ 0 \end{pmatrix}, \quad \| A x^{(0)} \| = \sqrt{9} = 3
+   \]
+   Berechnung von \( x^{(1)} \):
+   \[
+   x^{(1)} = \frac{1}{3} \begin{pmatrix} 3 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+   \]
+
+2. Berechnung von \( x^{(2)} \):
+   \[
+   x^{(2)} = \frac{A x^{(1)}}{\| A x^{(1)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} \|}
+   \]
+   Berechnung von \( \| A x^{(1)} \| \):
+   \[
+   A x^{(1)} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}, \quad \| A x^{(1)} \| = \sqrt{5}
+   \]
+   Berechnung von \( x^{(2)} \):
+   \[
+   x^{(2)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} \frac{2}{\sqrt{5}} \\ \frac{1}{\sqrt{5}} \end{pmatrix}
+   \]
+
+b) Vektoriterationsalgorithmus für den betragskleinsten Eigenwert:
+
+1. Berechnung von \( x^{(1)} \):
+   \[
+   x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} \|}
+   \]
+   Berechnung von \( \| A x^{(0)} \| \):
+   \[
+   A x^{(0)} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}, \quad \| A x^{(0)} \| = \sqrt{5}
+   \]
+   Berechnung von \( x^{(1)} \):
+   \[
+   x^{(1)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 1 \\ -2 \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix}
+   \]
+
+2. Berechnung von \( x^{(2)} \):
+   \[
+   x^{(2)} = \frac{A x^{(1)}}{\| A x^{(1)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ -\frac{2}{\sqrt{5}} \end{pmatrix} \|}
+   \]
+   Berechnung von \( \| A x^{(1)} \| \):
+   \[
+   A x^{(1)} = \begin{pmatrix} \frac{0}{\sqrt{5}} \\ -\frac{3}{\sqrt{5}} \end{pmatrix}, \quad \| A x^{(1)} \| = 3
+   \]
+   Berechnung von \( x^{(2)} \):
+   \[
+   x^{(2)} = \frac{1}{3} \begin{pmatrix} 0 \\ -1 \end{pmatrix} = \begin{pmatrix} 0 \\ -\frac{1}{3} \end{pmatrix}
+   \]
+
+**Aufgabe 2**
+
+a) Interpolationspolynom in der Newton-Basis:
+   \[
+   p(x) = 5 + (-4)(x + 1) + (-\frac{1}{2})(x + 1)x(x - 1)
+   \]
+
+b) Interpolationspolynom in der Monom-Basis:
+   \[
+   p(x) = 1 + (-3)x + (-\frac{1}{2})x^2 + (-\frac{1}{2})x^3
+   \]
+
+c) Bisektionsverfahren:
+   - Schritt 1: Berechnung von \( p(1) \) und \( p(2) \), Bestimmung des neuen Intervalls
+   - Schritt 2: Berechnung von \( p(1.5) \) und Anpassung des Intervalls entsprechend
+
+d) Simpson-Regel:
+   - Berechnung von \( p(-1), p(0), p(1) \)
+   - Anwendung der Simpson-Regel auf \( [-1, 1] \)
+
+**Aufgabe 3**
+
+a) Lineares Ausgleichsproblem und Normalengleichungen:
+   \[
+   A^T A \begin{pmatrix} a \\ b \\ c \end{pmatrix} = A^T \begin{pmatrix} 0 \\ 0 \\ 0 \\ -1 \\ 1 \end{pmatrix}
+   \]
+
+b) Lösung des Gleichungssystems mit Cholesky-Zerlegung:
+   - Berechnung von \( L \) und \( L^T \)
+   - Lösen von \( Ly = A^T b \) und \( L^T x = y \)
+
+**Aufgabe 4**
+
+a) Nichtlineares Ausgleichsproblem:
+   \[
+   \min_{x_1, x_2} \sum_{i=1}^{3} (f_i - (t_i + x_2)^2 x_1)^2
+   \]
+
+b) Gauß-Newton-Verfahren:
+   - Berechnung von \( J \) (Jacobi-Matrix) und \( r \) (Residuenvektor)
+   - Berechnung von \( \Delta x \) und Aktualisierung von \( x^{(0)} \)
+
