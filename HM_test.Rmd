@@ -1,5 +1,5 @@
 ---
-title: "HM_test"
+title: "HM1-4_Lösungswege"
 author: "Author"
 knit: (function(input_file, encoding) {
     out_dir <- '';
@@ -316,5 +316,3 @@ b)  Gauß-Newton-Verfahren:
 
     -   Berechnung von $J$ (Jacobi-Matrix) und $r$ (Residuenvektor)
     -   Berechnung von $\Delta x$ und Aktualisierung von $x^{(0)}$
-
-
