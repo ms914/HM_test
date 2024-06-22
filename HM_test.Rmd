@@ -230,15 +230,13 @@ Formeln der Aufgaben aus HM1-4:
     \int_{\partial K \setminus B} F \cdot d\mathbf{n}
     $$
 
-## HM 4
+### HM 4
 
 **Aufgabe 1**
 
 a)  Vektoriterationsalgorithmus für den betragsgrößten Eigenwert:
 
-```{=html}
-<!-- -->
-```
+
 1.  Berechnung von $x^{(1)}$: $$
     x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ 1 \end{pmatrix} \|}
     $$ Berechnung von $\| A x^{(0)} \|$: $$
@@ -255,14 +253,10 @@ a)  Vektoriterationsalgorithmus für den betragsgrößten Eigenwert:
     x^{(2)} = \frac{1}{\sqrt{5}} \begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} \frac{2}{\sqrt{5}} \\ \frac{1}{\sqrt{5}} \end{pmatrix}
     $$
 
-```{=html}
-<!-- -->
-```
+
 b)  Vektoriterationsalgorithmus für den betragskleinsten Eigenwert:
 
-```{=html}
-<!-- -->
-```
+
 1.  Berechnung von $x^{(1)}$: $$
     x^{(1)} = \frac{A x^{(0)}}{\| A x^{(0)} \|} = \frac{\begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix}}{\| \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} 1 \\ -1 \end{pmatrix} \|}
     $$ Berechnung von $\| A x^{(0)} \|$: $$
