@@ -316,3 +316,5 @@ b)  Gauß-Newton-Verfahren:
 
     -   Berechnung von $J$ (Jacobi-Matrix) und $r$ (Residuenvektor)
     -   Berechnung von $\Delta x$ und Aktualisierung von $x^{(0)}$
+
+
