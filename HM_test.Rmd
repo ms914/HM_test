@@ -13,6 +13,7 @@ editor_options:
     wrap: 72
 ---
 [Klausuraufgaben HM1-4](HM1-4_Klausuraufgaben.html)
+ [HM2_Lösung_chatGPT](https://chatgpt.com/share/1de56271-82b1-4199-a582-41394370b876)
 
 
 ### HM1
