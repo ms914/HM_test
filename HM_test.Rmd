@@ -12,6 +12,162 @@ editor_options:
   markdown: 
     wrap: 72
 ---
+in Worten:
+
+### HM1
+
+**Aufgabe 1 (7 Punkte)**
+
+Um zu bestimmen, für welche \(x \in \mathbb{R}\) die gegebene Reihe konvergiert, verwendet man den Konvergenzradius der Potenzreihe. Dieser Konvergenzradius bestimmt den Bereich der Werte von \(x\), für die die Reihe konvergiert.
+
+**Aufgabe 2 (14 Punkte)**
+
+Der Definitionsbereich der Funktion \(f(x) = \frac{1}{x^2(x-3)}\) umfasst alle \(x \in \mathbb{R}\) außer \(x = 0\) und \(x = 3\), da die Funktion an diesen Stellen nicht definiert ist. 
+- Nullstellen: \(f(x)\) hat keine Nullstellen, da der Zähler der Funktion stets 1 ist.
+- Extrema: Zur Bestimmung der Extrema berechnet man die erste und zweite Ableitung der Funktion und sucht nach kritischen Punkten.
+- Monotonieverhalten: Die Monotonie der Funktion kann durch die Untersuchung der Vorzeichen der ersten Ableitung festgestellt werden.
+- Verhalten an den Rändern: Die Funktion divergiert gegen unendlich oder minus unendlich, wenn \(x\) sich den nicht definierten Stellen \(0\) und \(3\) nähert.
+
+**Aufgabe 3 (5+5 Punkte)**
+
+a) Zur Darstellung in Polarform berechnet man den Betrag und den Argument der komplexen Zahl im Zähler und im Nenner und verwendet die Eigenschaften der Exponentialfunktion.
+
+b) Um die komplexen Lösungen der gegebenen Gleichung zu finden, faktorisiert man die Gleichung und verwendet die Lösungsformeln für komplexe Zahlen.
+
+**Aufgabe 4 (6+4 Punkte)**
+
+a) Das Taylorpolynom dritter Ordnung der Funktion \(g(x) = x^2 \ln(x)\) um den Entwicklungspunkt \(x = e\) wird durch Ableiten und Einsetzen in die Taylorreihe bestimmt.
+
+b) Der Fehler auf dem Intervall \([e, 2e]\) wird durch die Restgliedformel des Taylorpolynoms abgeschätzt.
+
+**Aufgabe 5 (7+2 Punkte)**
+
+a) Die Partialbruchzerlegung der Funktion \(h(x) = \frac{x^2 + 4x - 3}{x^3 - 3x - 2}\) wird durch das Aufspalten des Bruchs in einfachere Terme erreicht.
+
+b) Eine Stammfunktion von \(h(x)\) wird durch Integration der Partialbruchzerlegung gefunden.
+
+**Aufgabe 6 (4+6 Punkte)**
+
+a) Der Grenzwert des gegebenen Ausdrucks wird durch Untersuchung des Verhaltens des Logarithmus und der Wurzel bei Annäherung von \(y\) gegen 1 berechnet.
+
+b) Das Integral \(I(y)\) wird durch eine geeignete Substitution und die Anwendung von Integrationsregeln gelöst.
+
+### HM2
+
+**Aufgabe 1 (8 Punkte)**
+
+Zur Lösung des linearen Gleichungssystems verwendet man Methoden wie die Gauß-Elimination. Der Rang der Matrix wird durch Bestimmen der Anzahl linear unabhängiger Zeilen oder Spalten festgestellt.
+
+**Aufgabe 2 (7+3 Punkte)**
+
+a) Die Parameterdarstellung der Geraden \(g\) und die Hesse-Normalform der Ebene \(E\) werden durch geeignete Umformungen und Berechnungen bestimmt.
+
+b) Die Schnittpunktfrage wird durch Einsetzen der Geradenparameterdarstellung in die Ebenengleichung überprüft oder durch Abstandsberechnung entschieden.
+
+**Aufgabe 3 (8+3 Punkte)**
+
+a) Die Eigenwerte und Eigenvektoren der Matrix \(A\) werden durch Lösen des charakteristischen Polynoms und anschließende Berechnung der Eigenvektoren ermittelt.
+
+b) Die lineare Abbildung in der Basis der Eigenvektoren wird durch Transformation der Matrix \(A\) in die Diagonalform realisiert.
+
+**Aufgabe 4 (4+4+3 Punkte)**
+
+a) Die stationären Punkte der Funktion \(f(x,y) = (y^2 - x)\ln(x)\) werden durch Setzen der ersten Ableitungen gleich null gefunden.
+
+b) Zur Klassifizierung der stationären Punkte untersucht man das Vorzeichen der zweiten Ableitungen (Hesse-Matrix).
+
+c) Das Taylor-Polynom zweiten Grades wird durch Berechnung der notwendigen Ableitungen und Einsetzen in die Taylorreihe bestimmt.
+
+**Aufgabe 5 (7+3 Punkte)**
+
+a) Die Methode der Lagrange-Multiplikatoren wird verwendet, um die Extrema der Funktion \(f(x,y)\) unter der Nebenbedingung zu finden.
+
+b) Die Ableitung entlang der implizit durch die Nebenbedingung gegebenen Kurve wird durch Anwendung der Kettenregel berechnet.
+
+**Aufgabe 6 (10 Punkte)**
+
+Das Integral wird durch geeignete Transformationen und Integrationstechniken, unter Berücksichtigung der geometrischen Grenzen, gelöst.
+
+### HM3
+
+**Aufgabe 1 (10 Punkte)**
+
+a) Zur Lösung des Anfangswertproblems verwendet man Methoden wie Trennung der Variablen oder die Lösung bekannter Differentialgleichungen.
+
+b) Die Exaktheit der Differentialgleichung wird durch Überprüfung der Bedingung für exakte Differentialgleichungen gezeigt. Eine passende Funktion \(\Phi\) wird durch Integration gefunden, und die Lösung ergibt sich durch Einsetzen der Anfangsbedingungen.
+
+**Aufgabe 2 (10 Punkte)**
+
+a) Ein Fundamentalsystem der gegebenen homogenen linearen Differentialgleichung wird durch Bestimmung der Eigenwerte und Eigenvektoren der Matrix gefunden.
+
+b) Die allgemeine Lösung des inhomogenen Systems wird durch Variation der Konstanten oder eine andere geeignete Methode bestimmt.
+
+**Aufgabe 3 (10 Punkte)**
+
+a) Die Klassifizierung der partiellen Differentialgleichung erfolgt durch Untersuchung der Koeffizienten.
+
+b) Die Fourier-Koeffizienten der ungeraden periodischen Fortsetzung werden durch Integration der Funktion bestimmt.
+
+c) Die Lösung der PDE mit den gegebenen Anfangsbedingungen und Randbedingungen wird durch Trennung der Variablen oder eine andere geeignete Methode gefunden.
+
+**Aufgabe 4 (10 Punkte)**
+
+a) Ein Vektorfeld besitzt genau dann ein Potential, wenn seine Rotation (Curl) verschwindet. Die Bedingung wird durch Berechnung des Curls überprüft.
+
+b) Das Potential wird durch Integration des Vektorfeldes gefunden.
+
+c) Das Kurvenintegral wird durch direkte Berechnung entlang des gegebenen Weges durchgeführt.
+
+**Aufgabe 5 (10 Punkte)**
+
+a) Die Parametrisierung der Fläche entsteht durch die Rotation des Weges um die z-Achse.
+
+b) Tangentialvektoren und der Normalenvektor werden durch Differenzieren der Parametrisierung bestimmt.
+
+c) Das Oberflächenintegral wird durch Anwendung geeigneter Integrationsmethoden auf die gegebenen Funktionen und Parameterbereiche berechnet.
+
+**Aufgabe 6 (10 Punkte)**
+
+a) Das Volumen in Kugelkoordinaten wird durch geeignete Transformationen der gegebenen Grenzen und Integranden parametrisiert.
+
+b) Der Fluss wird durch Berechnung des Oberflächenintegrals des Vektorfeldes durch die Oberfläche des Kugelsegments bestimmt.
+
+c) Das Integral der Rotation des Vektorfeldes durch die Oberfläche wird durch Anwendung der Gaußschen Integralsätze berechnet.
+
+d) Das Integral entlang des Bodens des Kugelsegments wird mit Hilfe des Satzes von Stokes berechnet.
+
+### HM4
+
+**Aufgabe 1 (10 Punkte)**
+
+a) Zwei Iterationen des Vektoriterationsalgorithmus zur Approximation des betragsgrößten Eigenwertes werden durch wiederholtes Anwenden der Matrixmultiplikation und Normalisierung des Vektors durchgeführt.
+
+b) Die Iterationen zur Approximation des betragskleinsten Eigenwertes werden analog durchgeführt, wobei die Inverse der Matrix verwendet wird.
+
+**Aufgabe 2 (10 Punkte)**
+
+a) Das Interpolationspolynom in der Newton-Basis wird durch Berechnung der dividierten Differenzen und Aufbau des Newton-Schemas gefunden.
+
+b) Das Interpolationspolynom in der Monom-Basis wird durch Aufstellen und Lösen des zugehörigen linearen Gleichungssystems bestimmt.
+
+c) Die Nullstelle wird durch das Bisektionsverfahren angenähert, indem das Intervall schrittweise halbiert wird.
+
+d) Das Integral wird mit der Simpson-Regel berechnet, indem das Interpolationspolynom integriert und die Werte an den gegebenen Punkten verwendet werden.
+
+**Aufgabe 3 (10 Punkte)**
+
+a) Das lineare Ausgleichsproblem und die Normalengleichungen werden durch Minimierung der Fehlerquadratsumme aufgestellt.
+
+b) Das Gleichungssystem wird durch Anwendung der Cholesky-Zerlegung gelöst, wobei die Matrix in eine untere und obere Dreiecksmatrix zerlegt wird.
+
+**Aufgabe 4 (10 Punkte)**
+
+a) Das nichtlineare Ausgleichsproblem wird durch Aufstellen der zu minimierenden Funktion formuliert.
+
+b) Der erste Schritt des Gauß-Newton-Verfahrens wird durch Berechnung der Jacobimatrix und Lösung des linearen Gleichungssystems durchgeführt. Eine Verbesserung wird durch Vergleich der Fehler vor und nach dem Schritt festgestellt.
+
+
+---
 
 Hier ist eine kurze Formelsammlung für die wichtigsten Konzepte und
 Formeln der Aufgaben aus HM1-4:
@@ -317,158 +473,3 @@ b)  Gauß-Newton-Verfahren:
     -   Berechnung von $J$ (Jacobi-Matrix) und $r$ (Residuenvektor)
     -   Berechnung von $\Delta x$ und Aktualisierung von $x^{(0)}$
     
----
-in Worten:
-
-### HM1
-
-**Aufgabe 1 (7 Punkte)**
-
-Um zu bestimmen, für welche \(x \in \mathbb{R}\) die gegebene Reihe konvergiert, verwendet man den Konvergenzradius der Potenzreihe. Dieser Konvergenzradius bestimmt den Bereich der Werte von \(x\), für die die Reihe konvergiert.
-
-**Aufgabe 2 (14 Punkte)**
-
-Der Definitionsbereich der Funktion \(f(x) = \frac{1}{x^2(x-3)}\) umfasst alle \(x \in \mathbb{R}\) außer \(x = 0\) und \(x = 3\), da die Funktion an diesen Stellen nicht definiert ist. 
-- Nullstellen: \(f(x)\) hat keine Nullstellen, da der Zähler der Funktion stets 1 ist.
-- Extrema: Zur Bestimmung der Extrema berechnet man die erste und zweite Ableitung der Funktion und sucht nach kritischen Punkten.
-- Monotonieverhalten: Die Monotonie der Funktion kann durch die Untersuchung der Vorzeichen der ersten Ableitung festgestellt werden.
-- Verhalten an den Rändern: Die Funktion divergiert gegen unendlich oder minus unendlich, wenn \(x\) sich den nicht definierten Stellen \(0\) und \(3\) nähert.
-
-**Aufgabe 3 (5+5 Punkte)**
-
-a) Zur Darstellung in Polarform berechnet man den Betrag und den Argument der komplexen Zahl im Zähler und im Nenner und verwendet die Eigenschaften der Exponentialfunktion.
-
-b) Um die komplexen Lösungen der gegebenen Gleichung zu finden, faktorisiert man die Gleichung und verwendet die Lösungsformeln für komplexe Zahlen.
-
-**Aufgabe 4 (6+4 Punkte)**
-
-a) Das Taylorpolynom dritter Ordnung der Funktion \(g(x) = x^2 \ln(x)\) um den Entwicklungspunkt \(x = e\) wird durch Ableiten und Einsetzen in die Taylorreihe bestimmt.
-
-b) Der Fehler auf dem Intervall \([e, 2e]\) wird durch die Restgliedformel des Taylorpolynoms abgeschätzt.
-
-**Aufgabe 5 (7+2 Punkte)**
-
-a) Die Partialbruchzerlegung der Funktion \(h(x) = \frac{x^2 + 4x - 3}{x^3 - 3x - 2}\) wird durch das Aufspalten des Bruchs in einfachere Terme erreicht.
-
-b) Eine Stammfunktion von \(h(x)\) wird durch Integration der Partialbruchzerlegung gefunden.
-
-**Aufgabe 6 (4+6 Punkte)**
-
-a) Der Grenzwert des gegebenen Ausdrucks wird durch Untersuchung des Verhaltens des Logarithmus und der Wurzel bei Annäherung von \(y\) gegen 1 berechnet.
-
-b) Das Integral \(I(y)\) wird durch eine geeignete Substitution und die Anwendung von Integrationsregeln gelöst.
-
-### HM2
-
-**Aufgabe 1 (8 Punkte)**
-
-Zur Lösung des linearen Gleichungssystems verwendet man Methoden wie die Gauß-Elimination. Der Rang der Matrix wird durch Bestimmen der Anzahl linear unabhängiger Zeilen oder Spalten festgestellt.
-
-**Aufgabe 2 (7+3 Punkte)**
-
-a) Die Parameterdarstellung der Geraden \(g\) und die Hesse-Normalform der Ebene \(E\) werden durch geeignete Umformungen und Berechnungen bestimmt.
-
-b) Die Schnittpunktfrage wird durch Einsetzen der Geradenparameterdarstellung in die Ebenengleichung überprüft oder durch Abstandsberechnung entschieden.
-
-**Aufgabe 3 (8+3 Punkte)**
-
-a) Die Eigenwerte und Eigenvektoren der Matrix \(A\) werden durch Lösen des charakteristischen Polynoms und anschließende Berechnung der Eigenvektoren ermittelt.
-
-b) Die lineare Abbildung in der Basis der Eigenvektoren wird durch Transformation der Matrix \(A\) in die Diagonalform realisiert.
-
-**Aufgabe 4 (4+4+3 Punkte)**
-
-a) Die stationären Punkte der Funktion \(f(x,y) = (y^2 - x)\ln(x)\) werden durch Setzen der ersten Ableitungen gleich null gefunden.
-
-b) Zur Klassifizierung der stationären Punkte untersucht man das Vorzeichen der zweiten Ableitungen (Hesse-Matrix).
-
-c) Das Taylor-Polynom zweiten Grades wird durch Berechnung der notwendigen Ableitungen und Einsetzen in die Taylorreihe bestimmt.
-
-**Aufgabe 5 (7+3 Punkte)**
-
-a) Die Methode der Lagrange-Multiplikatoren wird verwendet, um die Extrema der Funktion \(f(x,y)\) unter der Nebenbedingung zu finden.
-
-b) Die Ableitung entlang der implizit durch die Nebenbedingung gegebenen Kurve wird durch Anwendung der Kettenregel berechnet.
-
-**Aufgabe 6 (10 Punkte)**
-
-Das Integral wird durch geeignete Transformationen und Integrationstechniken, unter Berücksichtigung der geometrischen Grenzen, gelöst.
-
-### HM3
-
-**Aufgabe 1 (10 Punkte)**
-
-a) Zur Lösung des Anfangswertproblems verwendet man Methoden wie Trennung der Variablen oder die Lösung bekannter Differentialgleichungen.
-
-b) Die Exaktheit der Differentialgleichung wird durch Überprüfung der Bedingung für exakte Differentialgleichungen gezeigt. Eine passende Funktion \(\Phi\) wird durch Integration gefunden, und die Lösung ergibt sich durch Einsetzen der Anfangsbedingungen.
-
-**Aufgabe 2 (10 Punkte)**
-
-a) Ein Fundamentalsystem der gegebenen homogenen linearen Differentialgleichung wird durch Bestimmung der Eigenwerte und Eigenvektoren der Matrix gefunden.
-
-b) Die allgemeine Lösung des inhomogenen Systems wird durch Variation der Konstanten oder eine andere geeignete Methode bestimmt.
-
-**Aufgabe 3 (10 Punkte)**
-
-a) Die Klassifizierung der partiellen Differentialgleichung erfolgt durch Untersuchung der Koeffizienten.
-
-b) Die Fourier-Koeffizienten der ungeraden periodischen Fortsetzung werden durch Integration der Funktion bestimmt.
-
-c) Die Lösung der PDE mit den gegebenen Anfangsbedingungen und Randbedingungen wird durch Trennung der Variablen oder eine andere geeignete Methode gefunden.
-
-**Aufgabe 4 (10 Punkte)**
-
-a) Ein Vektorfeld besitzt genau dann ein Potential, wenn seine Rotation (Curl) verschwindet. Die Bedingung wird durch Berechnung des Curls überprüft.
-
-b) Das Potential wird durch Integration des Vektorfeldes gefunden.
-
-c) Das Kurvenintegral wird durch direkte Berechnung entlang des gegebenen Weges durchgeführt.
-
-**Aufgabe 5 (10 Punkte)**
-
-a) Die Parametrisierung der Fläche entsteht durch die Rotation des Weges um die z-Achse.
-
-b) Tangentialvektoren und der Normalenvektor werden durch Differenzieren der Parametrisierung bestimmt.
-
-c) Das Oberflächenintegral wird durch Anwendung geeigneter Integrationsmethoden auf die gegebenen Funktionen und Parameterbereiche berechnet.
-
-**Aufgabe 6 (10 Punkte)**
-
-a) Das Volumen in Kugelkoordinaten wird durch geeignete Transformationen der gegebenen Grenzen und Integranden parametrisiert.
-
-b) Der Fluss wird durch Berechnung des Oberflächenintegrals des Vektorfeldes durch die Oberfläche des Kugelsegments bestimmt.
-
-c) Das Integral der Rotation des Vektorfeldes durch die Oberfläche wird durch Anwendung der Gaußschen Integralsätze berechnet.
-
-d) Das Integral entlang des Bodens des Kugelsegments wird mit Hilfe des Satzes von Stokes berechnet.
-
-### HM4
-
-**Aufgabe 1 (10 Punkte)**
-
-a) Zwei Iterationen des Vektoriterationsalgorithmus zur Approximation des betragsgrößten Eigenwertes werden durch wiederholtes Anwenden der Matrixmultiplikation und Normalisierung des Vektors durchgeführt.
-
-b) Die Iterationen zur Approximation des betragskleinsten Eigenwertes werden analog durchgeführt, wobei die Inverse der Matrix verwendet wird.
-
-**Aufgabe 2 (10 Punkte)**
-
-a) Das Interpolationspolynom in der Newton-Basis wird durch Berechnung der dividierten Differenzen und Aufbau des Newton-Schemas gefunden.
-
-b) Das Interpolationspolynom in der Monom-Basis wird durch Aufstellen und Lösen des zugehörigen linearen Gleichungssystems bestimmt.
-
-c) Die Nullstelle wird durch das Bisektionsverfahren angenähert, indem das Intervall schrittweise halbiert wird.
-
-d) Das Integral wird mit der Simpson-Regel berechnet, indem das Interpolationspolynom integriert und die Werte an den gegebenen Punkten verwendet werden.
-
-**Aufgabe 3 (10 Punkte)**
-
-a) Das lineare Ausgleichsproblem und die Normalengleichungen werden durch Minimierung der Fehlerquadratsumme aufgestellt.
-
-b) Das Gleichungssystem wird durch Anwendung der Cholesky-Zerlegung gelöst, wobei die Matrix in eine untere und obere Dreiecksmatrix zerlegt wird.
-
-**Aufgabe 4 (10 Punkte)**
-
-a) Das nichtlineare Ausgleichsproblem wird durch Aufstellen der zu minimierenden Funktion formuliert.
-
-b) Der erste Schritt des Gauß-Newton-Verfahrens wird durch Berechnung der Jacobimatrix und Lösung des linearen Gleichungssystems durchgeführt. Eine Verbesserung wird durch Vergleich der Fehler vor und nach dem Schritt festgestellt.
-
