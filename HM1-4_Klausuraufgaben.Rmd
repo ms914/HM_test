@@ -5,6 +5,7 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 [Lösungswege](index.html) [HM2_Lösung_chatGPT](https://chatgpt.com/share/1de56271-82b1-4199-a582-41394370b876)
+[HM2_Lösung](HM2_Klausur_Lösung_step_by_step.pdf)
 
 HM1
 
