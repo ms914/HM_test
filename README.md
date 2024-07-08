@@ -8,4 +8,10 @@ HM4: Numerik
 
 [link](https://ms914.github.io/HM_test/index.html)
 
-[link](https://ms914.github.io/HM_test/Schwingungen.html)
+HM2/4:
+
+TM2/4: [Festigkeitslehre](https://ms914.github.io/HM_test/Festigkeitslehre.html)     [Schwingungen](https://ms914.github.io/HM_test/Schwingungen.html)
+
+"Schreibe eine kurze Formelsammlung zu diesen Aufgaben" - "go on"
+
+"Erstelle eine tikz Beschreibung zu dieser Aufgabe" - "go on"
