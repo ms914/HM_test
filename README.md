@@ -8,7 +8,7 @@ HM4: Numerik
 
 [link](https://ms914.github.io/HM_test/index.html)
 
-HM2/4:
+HM3/4: [HM3](https://ms914.github.io/HM_test/HM3_Formelsammlung.html) [HM4](https://ms914.github.io/HM_test/HM4_Formelsammlung.html)
 
 TM2/4: [Festigkeitslehre](https://ms914.github.io/HM_test/Festigkeitslehre.html)     [Schwingungen](https://ms914.github.io/HM_test/Schwingungen.html)
 
