@@ -3,3 +3,5 @@
 [Festigkeitslehre](https://ms914.github.io/HM_test/Festigkeitslehre.html)     [Schwingungen](https://ms914.github.io/HM_test/Schwingungen.html)
 
 [link](https://ms914.github.io/HM_test/index.html)
+
+[SOH_Battery](https://ms914.github.io/HM_test/SOH_battery.html)
