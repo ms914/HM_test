@@ -1,0 +1,744 @@
+---
+title: "HM2_Formelsammlung"
+author: "Author"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Formelsammlung
+
+#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$
+
+1.  **Gleichungssystem lösen:**
+    -   Matrix $A$ und Vektor $b$ gegeben: $$
+        A =
+        \begin{pmatrix}
+          1 & 1 & 3 & 1 \\
+          2 & -1 & 0 & 1 \\
+          -3 & 2 & 1 & -2 \\
+          4 & 1 & 6 & 1
+        \end{pmatrix},
+        \quad
+        b =
+        \begin{pmatrix}
+          6 \\
+          -1 \\
+          1 \\
+          3
+        \end{pmatrix}
+        $$
+    -   Lösung mittels Gauss-Elimination oder inverser Matrix
+        $x = A^{-1}b$.
+2.  **Rang der Matrix** $A$:
+    -   Berechnung des Rangs durch Bestimmen der Anzahl der linearen
+        unabhängigen Zeilen.
+    -   Anwendung des Gauss-Jordan-Verfahrens oder QR-Zerlegung.
+
+#### Aufgabe 2: Gerade und Ebene im $\mathbb{R}^3$
+
+1.  **Parameterdarstellung der Geraden** $g$:
+    -   Umformung der Koordinatendarstellung: $$
+        g: \frac{4-x_1}{2} = \frac{4+x_2}{3} = \frac{2-x_3}{2}
+        $$
+    -   Auflösen nach einem Parameter $t$ (z.B. $x_1 = 4 - 2t$,
+        $x_2 = 4 + 3t$, $x_3 = 2 - 2t$).
+2.  **Hesse-Normalform der Ebene** $E$:
+    -   Ebene durch Punkte (3,1,2), (-1,3,2), (5,-2,4):
+    -   Berechnung des Normalvektors $\vec{n}$ durch Kreuzprodukt zweier
+        Richtungsvektoren.
+    -   Hesse-Normalform: $$
+        \frac{\vec{n} \cdot \vec{x} - d}{\|\vec{n}\|} = 0
+        $$
+    -   $d$ ist der Abstand des Ursprungs von der Ebene.
+3.  **Schnittpunkt oder Abstand:**
+    -   Lösen des LGS mit der Parameterdarstellung der Geraden und der
+        Ebenengleichung.
+    -   Falls kein Schnittpunkt: Berechnung des Abstands mit
+        Punkt-Ebene-Abstandsformel.
+
+#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix
+
+1.  **Eigenwerte:**
+    -   Bestimmung der Eigenwerte durch Lösen des charakteristischen
+        Polynoms: $$
+        \det(A - \lambda I) = 0
+        $$
+    -   Matrix $A$: $$
+        A =
+        \begin{pmatrix}
+          1 & -2 & 3 \\
+          1 & 0 & 1 \\
+          0 & 4 & -2
+        \end{pmatrix}
+        $$
+2.  **Eigenvektoren:**
+    -   Für jeden Eigenwert $\lambda$ Lösung des Gleichungssystems: $$
+        (A - \lambda I) \vec{v} = 0
+        $$
+3.  **Darstellung der linearen Abbildung in Basis** $B$:
+    -   Matrix $P$ der Eigenvektoren und diagonale Matrix $D$: $$
+        D = P^{-1}AP
+        $$
+
+#### Aufgabe 4: Stationäre Punkte und Taylor-Polynom
+
+1.  **Stationäre Punkte:**
+    -   Bestimmung der partiellen Ableitungen und Lösung der Gleichungen
+        $\nabla f = 0$: $$
+        f(x, y) = (y^2 - x) \ln(x)
+        $$
+2.  **Lokale Extrema:**
+    -   Berechnung der Hesse-Matrix und Anwendung des zweiten
+        Ableitungstests.
+3.  **Taylor-Polynom zweiten Grades:**
+    -   Berechnung der Ableitungen bis zur zweiten Ordnung und Bildung
+        des Taylor-Polynoms.
+
+#### Aufgabe 5: Lagrange-Multiplikatoren und Ableitung
+
+1.  **Lagrange-Multiplikatoren:**
+    -   Bestimmung der Kandidaten für lokale Extrema: $$
+        \mathcal{L}(x, y, \lambda) = f(x, y) + \lambda (g(x, y) - c)
+        $$
+2.  **Ableitung entlang der Kurve:**
+    -   Berechnung der totalen Ableitung unter Berücksichtigung der
+        Nebenbedingung.
+
+#### Aufgabe 6: Integral über ein Kreissegment
+
+1.  **Bestimmung des Integrals:**
+    -   Parametrisierung des Bereichs und Umformung in Polarkoordinaten
+        oder geeignetes Koordinatensystem.
+    -   Funktion $f(x,y) = \frac{2y}{x}$ über das Kreissegment $B$: $$
+        (x-2)^2 + y^2 = 4, \quad x + 2y = 4
+        $$
+    -   Berechnung des Integrals: $$
+        \iint_B \frac{2y}{x} \, dA
+        $$
+
+### Ausführliche Formelsammlung
+
+#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$
+
+1.  **Lösung des Gleichungssystems:**
+    -   Gegeben sind Matrix $A$ und Vektor $b$: $$
+        A =
+        \begin{pmatrix}
+          1 & 1 & 3 & 1 \\
+          2 & -1 & 0 & 1 \\
+          -3 & 2 & 1 & -2 \\
+          4 & 1 & 6 & 1
+        \end{pmatrix},
+        \quad
+        b =
+        \begin{pmatrix}
+          6 \\
+          -1 \\
+          1 \\
+          3
+        \end{pmatrix}
+        $$
+    -   Um das Gleichungssystem $Ax = b$ zu lösen, können folgende
+        Methoden verwendet werden:
+        -   **Gauss-Elimination**: Transformiere $A$ in die obere
+            Dreiecksform und löse das resultierende System durch
+            Rückwärtseinsetzen.
+        -   **Inverse Matrix**: Berechne die Inverse von $A$ (sofern sie
+            existiert) und löse $x = A^{-1}b$.
+2.  **Rang der Matrix** $A$:
+    -   Der Rang der Matrix $A$ ist die Anzahl der linear unabhängigen
+        Zeilen (oder Spalten).
+    -   Anwendung des **Gauss-Jordan-Verfahrens**:
+        -   Bringe $A$ in Zeilenstufenform.
+        -   Zähle die Anzahl der nicht-nullen Zeilen.
+    -   Alternativ: Verwendung der **QR-Zerlegung** oder
+        **LU-Zerlegung** zur Bestimmung des Rangs.
+
+#### Aufgabe 2: Gerade und Ebene im $\mathbb{R}^3$
+
+1.  **Parameterdarstellung der Geraden** $g$:
+    -   Gegebene Koordinatendarstellung: $$
+        g: \frac{4-x_1}{2} = \frac{4+x_2}{3} = \frac{2-x_3}{2}
+        $$
+    -   Setze einen Parameter $t$ und löse nach $x_1$, $x_2$ und $x_3$
+        auf: $$
+        x_1 = 4 - 2t, \quad x_2 = -4 + 3t, \quad x_3 = 2 - 2t
+        $$
+    -   Parameterdarstellung: $$
+        \vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix}
+        $$
+2.  **Hesse-Normalform der Ebene** $E$:
+    -   Ebene definiert durch Punkte (3,1,2), (-1,3,2), (5,-2,4):
+    -   Berechnung von zwei Richtungsvektoren: $$
+        \vec{v}_1 = \begin{pmatrix} -1 \\ 3 \\ 2 \end{pmatrix} - \begin{pmatrix} 3 \\ 1 \\ 2 \end{pmatrix} = \begin{pmatrix} -4 \\ 2 \\ 0 \end{pmatrix},
+        \quad
+        \vec{v}_2 = \begin{pmatrix} 5 \\ -2 \\ 4 \end{pmatrix} - \begin{pmatrix} 3 \\ 1 \\ 2 \end{pmatrix} = \begin{pmatrix} 2 \\ -3 \\ 2 \end{pmatrix}
+        $$
+    -   Normalvektor: $$
+        \vec{n} = \vec{v}_1 \times \vec{v}_2 = \begin{vmatrix}
+        \vec{i} & \vec{j} & \vec{k} \\
+        -4 & 2 & 0 \\ 
+        2 & -3 & 2
+        \end{vmatrix} = \begin{pmatrix} 4 \\ 8 \\ 8 \end{pmatrix}
+        $$
+    -   Normierung des Normalvektors: $$
+        \hat{n} = \frac{1}{\|\vec{n}\|} \vec{n} = \frac{1}{\sqrt{4^2 + 8^2 + 8^2}} \begin{pmatrix} 4 \\ 8 \\ 8 \end{pmatrix} = \frac{1}{12} \begin{pmatrix} 4 \\ 8 \\ 8 \end{pmatrix} = \begin{pmatrix} \frac{1}{3} \\ \frac{2}{3} \\ \frac{2}{3} \end{pmatrix}
+        $$
+    -   Hesse-Normalform: $$
+        \frac{\vec{n} \cdot \vec{x} - d}{\|\vec{n}\|} = 0
+        $$
+    -   Berechnung von $d$ mit einem Punkt (z.B. (3,1,2)): $$
+        d = \vec{n} \cdot \vec{p} = 4 \cdot 3 + 8 \cdot 1 + 8 \cdot 2 = 12 + 8 + 16 = 36
+        $$
+    -   Hesse-Normalform: $$
+        \frac{1}{3}x_1 + \frac{2}{3}x_2 + \frac{2}{3}x_3 - 3 = 0
+        $$
+3.  **Schnittpunkt oder Abstand:**
+    -   Lösen des LGS: $$
+        \vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix} \quad \text{in die Ebenengleichung einsetzen}
+        $$
+    -   Falls kein Schnittpunkt, berechne den Abstand: $$
+        d = \frac{| \vec{n} \cdot \vec{p} - d |}{\|\vec{n}\|}
+        $$
+
+#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix
+
+1.  **Eigenwerte:**
+    -   Bestimmung der Eigenwerte durch Lösen des charakteristischen
+        Polynoms: $$
+        \det(A - \lambda I) = 0
+        $$
+    -   Für Matrix $A$: $$
+        A =
+        \begin{pmatrix}
+          1 & -2 & 3 \\
+          1 & 0 & 1 \\
+          0 & 4 & -2
+        \end{pmatrix}
+        $$
+    -   Charakteristisches Polynom berechnen und Eigenwerte $\lambda$
+        finden.
+2.  **Eigenvektoren:**
+    -   Für jeden Eigenwert $\lambda$ das Gleichungssystem lösen: $$
+        (A - \lambda I) \vec{v} = 0
+        $$
+3.  **Darstellung der linearen Abbildung in Basis** $B$:
+    -   Matrix $P$ der Eigenvektoren: $$
+        P = [\vec{v}_1 \quad \vec{v}_2 \quad \vec{v}_3]
+        $$
+    -   Diagonalmatrix $D$: $$
+        D = P^{-1}AP
+        $$
+
+#### Aufgabe 4: Stationäre Punkte und Taylor-Polynom
+
+1.  **Stationäre Punkte:**
+    -   Berechnung der partiellen Ableitungen: $$
+        f_x(x, y) = \frac{\partial}{\partial x}((y^2 - x) \ln(x)), \quad f_y(x, y) = \frac{\partial}{\partial y}((y^2 - x) \ln(x))
+        $$
+    -   Lösen der Gleichungen $\nabla f = 0$ für $(x, y)$.
+2.  **Lokale Extrema:**
+    -   Berechnung der Hesse-Matrix: $$
+        H(f) = \begin{pmatrix}
+        f_{xx} & f_{xy} \\
+        f_{yx} & f_{yy}
+        \end{pmatrix}
+        $$
+    -   Anwendung des zweiten Ableitungstests.
+3.  **Taylor-Polynom zweiten Grades:**
+    -   Taylor-Entwicklung um den Punkt $(x_0, y_0) = (1, 2)$: $$
+        T_2(x, y) = f(x_0, y_0) + f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0) + \frac{1}{2}(f_{xx}(x_0, y_0)(x - x_0)^2 + 2f_{xy}(x_0, y_0)(x - x_0)(y - y_0) + f_{yy}(x_0, y_0)(y - y_0)^2)
+        $$
+
+#### Aufgabe 5: Lagrange-Multiplikatoren und Ableitung
+
+1.  **Lagrange-Multiplikatoren:**
+    -   Gegeben: $$
+        f(x,y) = (3x + 2y)x, \quad g(x,y) = 2x^3 + 3x^2y - 40 = 0
+        $$
+    -   Lagrange-Funktion: $$
+        \mathcal{L}(x, y, \lambda) = (3x + 2y)x + \lambda (2x^3 + 3x^2y - 40)
+        $$
+    -   Ableitungen: $$
+        \frac{\partial \mathcal{L}}{\partial x} = 0, \quad \frac{\partial \mathcal{L}}{\partial y} = 0, \quad \frac{\partial \mathcal{L}}{\partial \lambda} = 0
+        $$
+    -   Gleichungssystem lösen.
+2.  **Ableitung entlang der Kurve:**
+    -   Implizite Funktion $y(x)$ aus $g(x, y) = 0$ ableiten: $$
+        \frac{d}{dx} f(x, y(x))
+        $$
+
+#### Aufgabe 6: Integral über ein Kreissegment
+
+1.  **Bestimmung des Integrals:**
+    -   Parametrisierung des Bereichs und Umformung in Polarkoordinaten:
+        $$
+        f(x,y) = \frac{2y}{x}
+        $$
+    -   Kreissegment definiert durch: $$
+        (x-2)^2 + y^2 = 4, \quad x + 2y = 4
+        $$
+    -   Berechnung des Integrals über das Kreissegment $B$: $$
+        \iint_B \frac{2y}{x} \, dA
+        $$
+
+Diese Formelsammlung bietet die grundlegenden Ansätze und Formeln zur
+Bearbeitung der jeweiligen Aufgaben in der Klausur. Weitere Details und
+konkrete Berechnungen müssen individuell durchgeführt werden.
+
+### Ausführliche Formelsammlung (Fortsetzung)
+
+#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$ (Fortsetzung)
+
+1.  **Lösung des Gleichungssystems:**
+    -   Anwendung der Gauss-Elimination: $$
+        \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          2 & -1 & 0 & 1 & | & -1 \\
+          -3 & 2 & 1 & -2 & | & 1 \\
+          4 & 1 & 6 & 1 & | & 3
+        \end{pmatrix}
+        $$
+        -   Ziel ist es, die Matrix in obere Dreiecksform zu bringen und
+            das Gleichungssystem durch Rückwärtseinsetzen zu lösen.
+2.  **Berechnung des Rangs:**
+    -   Rang der Matrix $A$ durch Zeilenstufenform bestimmen: $$
+        \begin{pmatrix}
+          1 & 1 & 3 & 1 \\
+          0 & -3 & -6 & -1 \\
+          0 & 5 & 10 & 1 \\
+          0 & -3 & -6 & -1
+        \end{pmatrix}
+        $$
+    -   Da die dritte und vierte Zeile linear abhängig sind, hat die
+        Matrix Rang 3.
+
+#### Aufgabe 2: Gerade und Ebene im $\mathbb{R}^3$ (Fortsetzung)
+
+1.  **Schnittpunkt oder Abstand:**
+    -   Setze die Parameterdarstellung der Geraden in die
+        Ebenengleichung ein und löse nach $t$: $$
+        \vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix}
+        $$ $$
+        \hat{n} \cdot \vec{r}(t) = 3
+        $$ $$
+        \frac{1}{3}(4 - 2t) + \frac{2}{3}(-4 + 3t) + \frac{2}{3}(2 - 2t) = 3
+        $$
+    -   Falls kein Schnittpunkt, berechne den Abstand: $$
+        d = \frac{| \vec{n} \cdot \vec{p} - d |}{\|\vec{n}\|}
+        $$
+
+#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix (Fortsetzung)
+
+1.  **Eigenwerte und Eigenvektoren:**
+    -   Charakteristisches Polynom: $$
+        \det(A - \lambda I) = \begin{vmatrix}
+          1 - \lambda & -2 & 3 \\
+          1 & -\lambda & 1 \\
+          0 & 4 & -2 - \lambda
+        \end{vmatrix}
+        $$ $$
+        = (1 - \lambda)[(-\lambda)(-2 - \lambda) - 4] + 2[1(-2 - \lambda) - 4] + 3[1 \cdot 4 - 0]
+        $$
+    -   Eigenwerte $\lambda_1, \lambda_2, \lambda_3$ durch Lösen der
+        resultierenden Gleichung.
+2.  **Eigenvektoren:**
+    -   Für jeden Eigenwert $\lambda$ das Gleichungssystem: $$
+        (A - \lambda I) \vec{v} = 0
+        $$
+
+#### Aufgabe 4: Stationäre Punkte und Taylor-Polynom (Fortsetzung)
+
+1.  **Berechnung der partiellen Ableitungen:**
+    -   Partielle Ableitungen: $$
+        f_x = \frac{\partial}{\partial x}((y^2 - x) \ln(x)) = \frac{y^2 - x}{x} - \ln(x)
+        $$ $$
+        f_y = \frac{\partial}{\partial y}((y^2 - x) \ln(x)) = 2y \ln(x)
+        $$
+    -   Stationäre Punkte durch Lösen von $f_x = 0$ und $f_y = 0$.
+2.  **Hesse-Matrix und zweiter Ableitungstest:**
+    -   Hesse-Matrix: $$
+        H(f) = \begin{pmatrix}
+          f_{xx} & f_{xy} \\
+          f_{yx} & f_{yy}
+        \end{pmatrix} = \begin{pmatrix}
+          \frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \\
+          \frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2}
+        \end{pmatrix}
+        $$
+    -   Zweiter Ableitungstest zur Bestimmung der Natur der stationären
+        Punkte.
+3.  **Taylor-Polynom zweiten Grades:**
+    -   Taylor-Entwicklung um den Punkt $(x_0, y_0) = (1, 2)$: $$
+        T_2(x, y) = f(1, 2) + f_x(1, 2)(x - 1) + f_y(1, 2)(y - 2) + \frac{1}{2}(f_{xx}(1, 2)(x - 1)^2 + 2f_{xy}(1, 2)(x - 1)(y - 2) + f_{yy}(1, 2)(y - 2)^2)
+        $$
+
+#### Aufgabe 5: Lagrange-Multiplikatoren und Ableitung (Fortsetzung)
+
+1.  **Lagrange-Multiplikatoren:**
+    -   Gleichungen aufstellen und nach $x$, $y$ und $\lambda$ lösen: $$
+        \frac{\partial \mathcal{L}}{\partial x} = 6x + 2y + \lambda (6x^2 + 6xy) = 0
+        $$ $$
+        \frac{\partial \mathcal{L}}{\partial y} = 2x + \lambda (3x^2) = 0
+        $$ $$
+        \frac{\partial \mathcal{L}}{\partial \lambda} = 2x^3 + 3x^2y - 40 = 0
+        $$
+    - Berechnung der Determinante und auflösen nach $y$:        
+        $$
+        \left|\begin{array}{} f_x & g_x \\\\ f_y & g_y         \end{array}\right|=0
+        $$
+    -   Einsetzen in die Nebenbedinung liefert x-Werte
+    -   Einsetzen in $y=..$ liefert y-Werte
+
+2.  **Ableitung entlang der Kurve:**
+    -   Implizite Ableitung $y(x)$ aus der Nebenbedingung: $$
+        \frac{d}{dx} f(x, y(x)) = f_x(x, y) + f_y(x, y) \frac{dy}{dx}
+        $$
+
+#### Aufgabe 6: Integral über ein Kreissegment (Fortsetzung)
+
+1.  **Bestimmung des Integrals:**
+    -   Umformung in Polarkoordinaten: $$
+        x = 2 + r \cos(\theta), \quad y = r \sin(\theta)
+        $$
+    -   Bereichsgrenzen für $r$ und $\theta$ anhand der Kreis- und
+        Geradengleichungen: $$
+        \int_{\theta_1}^{\theta_2} \int_{r_1(\theta)}^{r_2(\theta)} \frac{2y}{x} r \, dr \, d\theta
+        $$
+    -   Berechnung der Grenzen und Auswertung des Integrals über das
+        Kreissegment $B$.
+
+Diese erweiterte Formelsammlung bietet detaillierte Ansätze und Formeln
+zur Lösung der Aufgaben. Weitere Schritte und konkrete Berechnungen
+müssen im Detail durchgeführt werden.
+
+### Ausführliche Formelsammlung (Fortsetzung)
+
+#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$ (Fortsetzung)
+
+1.  **Gauss-Elimination Beispiel:**
+    -   Ausgangsmatrix: $$
+        \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          2 & -1 & 0 & 1 & | & -1 \\
+          -3 & 2 & 1 & -2 & | & 1 \\
+          4 & 1 & 6 & 1 & | & 3
+        \end{pmatrix}
+        $$
+
+    -   Ziel: Nullstellen unterhalb der ersten Spalte: $$
+        R2 \leftarrow R2 - 2R1: \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          -3 & 2 & 1 & -2 & | & 1 \\
+          4 & 1 & 6 & 1 & | & 3
+        \end{pmatrix}
+        $$ $$
+        R3 \leftarrow R3 + 3R1: \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          0 & 5 & 10 & 1 & | & 19 \\
+          4 & 1 & 6 & 1 & | & 3
+        \end{pmatrix}
+        $$ $$
+        R4 \leftarrow R4 - 4R1: \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          0 & 5 & 10 & 1 & | & 19 \\
+          0 & -3 & -6 & -3 & | & -21
+        \end{pmatrix}
+        $$
+
+    -   Diese 3 Operationen können auch in einem durchgeführt werden
+
+    -   Nullstellen unterhalb der zweiten Spalte: $$
+        R3 \leftarrow R3 + \frac{5}{3}R2: \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          0 & 0 & 0 & 2 & | & 8 \\
+          0 & -3 & -6 & -3 & | & -21
+        \end{pmatrix}
+        $$ $$
+        R4 \leftarrow R4 - R2: \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          0 & 0 & 0 & 2 & | & 8 \\
+          0 & 0 & 0 & -2 & | & -8
+        \end{pmatrix}
+        $$
+
+    -   Diese 2 Operationen können auch in einem durchgeführt werden
+
+    -   Zurückwärtseinsetzen zur Bestimmung der Lösung $x$: $$
+        x_4 = 4, \quad x_3 = x_3, \quad x_2 = 3-2x_3, \quad x_1 = -1-x_3
+        $$ $$
+        x_4 = 4 
+        $$ $$
+          -3x_2-6x_3-4 = -13, \quad -3x_2-6x_3=-9, \quad x_2=3-2x_3 
+        $$ $$
+        x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1, \quad x_1=-1-x_3
+        $$
+
+#### Aufgabe 2: Gerade und Ebene im $\mathbb{R}^3$ (Fortsetzung)
+
+1.  **Schnittpunkt der Geraden mit der Ebene:**
+    -   Setze die Parameterdarstellung der Geraden in die
+        Ebenengleichung ein: $$
+        \hat{n} \cdot \vec{r}(t) = 3
+        $$ $$
+        \frac{1}{3}(4 - 2t) + \frac{2}{3}(-4 + 3t) + \frac{2}{3}(2 - 2t) = 3
+        $$ $$
+        \frac{4 - 2t - 8 + 6t + 4 - 4t}{3} = 3
+        $$ $$
+        \frac{-4 + 0t}{3} = 3
+        $$ $$
+        -4 + 0t = 9
+        $$
+    -   Kein gültiger Wert von $t$, daher kein Schnittpunkt.
+2.  **Berechnung des Abstands:**
+    -   Allgemeiner Abstand einer Geraden von einer Ebene: $$
+        d = \frac{|\hat{n} \cdot \vec{p} - d|}{\|\hat{n}\|}
+        $$ $$
+        d = \frac{| \frac{1}{3}4 + \frac{2}{3}(-4) + \frac{2}{3}2 - 3 |}{\|\hat{n}\|}
+        $$ $$
+        d = \frac{| \frac{4}{3} - \frac{8}{3} + \frac{4}{3} - 3 |}{\|\hat{n}\|}
+        $$ $$
+        d = \frac{| 0 - 3 |}{\sqrt{\left(\frac{1}{3}\right)^2 + \left(\frac{2}{3}\right)^2 + \left(\frac{2}{3}\right)^2}}
+        $$ $$
+        d = \frac{3}{\sqrt{\frac{1}{9} + \frac{4}{9} + \frac{4}{9}}}
+        $$ $$
+        d = \frac{3}{\sqrt{\frac{9}{9}}} = \frac{3}{1} = 3
+        $$
+
+#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix (Fortsetzung)
+
+1.  **Berechnung des charakteristischen Polynoms:**
+    -   Matrix $A$: $$
+        A =
+        \begin{pmatrix}
+          1 & -2 & 3 \\
+          1 & 0 & 1 \\
+          0 & 4 & -2
+        \end{pmatrix}
+        $$
+    -   Charakteristisches Polynom: $$
+        \det(A - \lambda I) = (1 - \lambda)((-\lambda)(-2 - \lambda) - 4) - 2(1(-2 - \lambda) - 4) + 3(1 \cdot 4 - 0)
+        $$ $$
+        = (1 - \lambda)(\lambda^2 + 2\lambda - 4) - 2(-2 - \lambda - 4) + 12
+        $$ $$
+        = (1 - \lambda)(\lambda^2 + 2\lambda - 4) + 2\lambda + 4 + 12
+        $$ $$
+        = (1 - \lambda)(\lambda^2 + 2\lambda - 4) + 2\lambda + 16
+        $$
+2.  **Lösen des charakteristischen Polynoms:**
+    -   Nullstellen des Polynoms geben die Eigenwerte
+        $\lambda_1, \lambda_2, \lambda_3$.
+3.  **Eigenvektoren:**
+    -   Für jeden Eigenwert $\lambda$ das Gleichungssystem: $$
+        (A - \lambda I) \vec{v} = 0
+        $$
+        -   Beispielsweise für $\lambda = 1$: $$
+            \begin{pmatrix}
+              1-1 & -2 & 3 \\
+              1 & 0-1 & 1 \\
+              0 & 4 & -2-1
+            \end{pmatrix}
+            \begin{pmatrix}
+              v_1 \\
+              v_2 \\
+              v_3
+            \end{pmatrix} = 0
+            $$ $$
+            \begin{pmatrix}
+              0 & -2 & 3 \\
+              1 & -1 & 1 \\
+              0 & 4 & -3
+            \end{pmatrix}
+            \begin{pmatrix}
+              v_1 \\
+              v_2 \\
+              v_3
+            \end{pmatrix} = 0
+            $$
+    -   Eigenvektoren bestimmen durch Lösen des Gleichungssystems.
+
+#### Aufgabe 4: Stationäre Punkte und Taylor-Polynom (Fortsetzung)
+
+1.  **Hesse-Matrix und zweiter Ableitungstest:**
+    -   Berechnung der Hesse-Matrix: $$
+        f_{xx} = \frac{\partial}{\partial x}\left(\frac{y^2 - x}{x} -\ln(x)\right) = \frac{-y^2 + x}{x^2} - \frac{1}{x}
+        $$ 
+        $$ f_{xy} =
+        \frac{\partial}{\partial y}\left(\frac{y^2 - x}{x} -
+        \ln(x)\right) = \frac{2y}{x}
+        $$
+        $$
+        f_{yy} = \frac{\partial}{\partial y}(2y \ln(x)) = 2\ln(x)
+        $$
+2.  **Stationäre Punkte überprüfen:**
+    -   Natur der stationären Punkte bestimmen durch Einsetzen in die
+        Hesse-Matrix: $$
+        H(f) = \begin{pmatrix}
+          \frac{-y^2 + x}{x^2} - \frac{1}{x} & \frac{2y}{x} \\
+          \frac{2y}{x} & 2\ln(x)
+        \end{pmatrix}
+        $$
+3.  **Taylor-Polynom zweiten Grades:**
+    -   Taylor-Entwicklung um den Punkt $(x_0, y_0) = (1, 2)$: $$
+        f(1, 2) = 0, \quad f_x(1, 2) = -1, \quad f_y(1, 2) = 4\ln(1) = 0
+        $$ $$
+        f_{xx}(1, 2) = -1, \quad f_{xy}(1, 2) = 4, \quad f_{yy}(1, 2) = 2\ln(1) = 0
+        $$ $$
+        T_2(x, y) = 0 - 1(x - 1) + 0(y - 2) + \frac{1}{2}(-1(x - 1)^2 + 8(x - 1)(y - 2))
+        $$
+
+#### Aufgabe 5: Lagrange-Multiplikatoren und Ableitung (Fortsetzung)
+
+1.  **Lagrange-Multiplikatoren:**
+
+    - Gegeben:$$
+        f(x,y) = (3x + 2y)x, \quad g(x,y) = 2x^3 + 3x^2y - 40 = 0
+        $$
+    -   Lagrange-Funktion: $$
+        \mathcal{L}(x, y, \lambda) = (3x + 2y)x + \lambda (2x^3 + 3x^2y - 40)
+        $$
+
+    -   nach $x$, $y$ und $\lambda$ lösen: $$
+        \frac{\partial \mathcal{L}}{\partial x} = 6x + 2y + \lambda (6x^2 + 6xy) = 0
+        $$ $$
+        \frac{\partial \mathcal{L}}{\partial y} = 2x + \lambda (3x^2) = 0
+        $$ $$
+        \frac{\partial \mathcal{L}}{\partial \lambda} = 2x^3 + 3x^2y - 40 = 0
+        $$
+    -   System lösen, um Kandidaten für lokale Extrema zu finden. 
+    - Es genügt, die partiellen Ableitungen von $f_x,f_y, g_x, g_y$ zu bilden:
+    - $$f_x=6x+2y,\quad f_y=2x$$
+    - $$g_x=6x^2+6y, \quad g_y=3x^2$$
+
+    - Berechne damit die J-Determinante $(f_x g_y - f_y g_x)=0$ 
+    - $$3x^2 (6x+2y) - 2x (6x^2 + 6xy) = 0$$
+    - ausklammern $6x^2$:
+    - $$6x^2(x-y)=0 \rightarrow x=0 \quad \text{und} \quad y=x$$
+ 
+    -  $y=x$ einsetzen in NB:
+    -  $$2x^3+3x^3-40=0 \rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
+    - $L: x \in \{0,2\}$
+    - y-Werte: (0,2)
+
+2.  **Ableitung entlang der Kurve:**
+
+    -   Implizite Ableitung $y(x)$ aus der Nebenbedingung: $$
+        g(x, y(x)) = 2x^3 + 3x^2y - 40 = 0
+        $$ $$
+        \frac{d}{dx} f(x, y(x)) = f_x + f_y \frac{dy}{dx}
+        $$
+    -   Berechne $\frac{dy}{dx}$ durch totale Differentiation von $g$:
+        $$
+        \frac{dg}{dx} = 6x^2 + 6xy + 3x^2\frac{dy}{dx} = 0
+        $$ $$
+        \frac{dy}{dx} = -\frac{6x^2 + 6xy}{3x^2}
+        $$ $$
+        \frac{dy}{dx} = -2 - 2y
+        $$
+
+#### Aufgabe 6: Integral über ein Kreissegment (Fortsetzung)
+
+1.  **Bestimmung des Integrals:**
+    -   Umformung in Polarkoordinaten: $$
+        x = 2 + r \cos(\theta), \quad y = r \sin(\theta)
+        $$
+    -   Bereichsgrenzen für $r$ und $\theta$ anhand der Kreis- und
+        Geradengleichungen: $$
+        (2 + r \cos(\theta) - 2)^2 + (r \sin(\theta))^2 = 4
+        $$ $$
+        r^2 = 4
+        $$ $$
+        r = 2
+        $$
+    -   Integral über das Kreissegment $B$: $$
+        \int_{0}^{\pi} \int_{0}^{2} \frac{2r \sin(\theta)}{2 + r \cos(\theta)} r \, dr \, d\theta
+        $$
+    -   Berechnung der Grenzen und Auswertung des Integrals über das
+        Kreissegment $B$.
+
+Diese erweiterte Formelsammlung bietet detaillierte Ansätze und Formeln
+zur Lösung der Aufgaben. Weitere Schritte und konkrete Berechnungen
+müssen im Detail durchgeführt werden.
+
+
+
+Hier ist der kompakte Python-Code mit `sympy`, der alle Aufgaben löst:
+
+``` python
+import sympy as sp
+
+# Aufgabe 1
+A = sp.Matrix([
+    [1, 1, 3, 1],
+    [2, -1, 0, 1],
+    [-3, 2, 1, -2],
+    [4, 1, 6, 1]
+])
+b = sp.Matrix([6, -1, 1, 3])
+x = A.LUsolve(b)
+rank_A = A.rank()
+
+# Aufgabe 2
+t = sp.symbols('t')
+g = sp.Matrix([4 - 2*t, -4 + 3*t, 2 - 2*t])
+p1 = sp.Matrix([3, 1, 2])
+p2 = sp.Matrix([-1, 3, 2])
+p3 = sp.Matrix([5, -2, 4])
+normal_vector = (p2 - p1).cross(p3 - p1)
+plane_eq = normal_vector.dot(sp.Matrix([sp.symbols('x1'), sp.symbols('x2'), sp.symbols('x3')]) - p1)
+distance = sp.Abs(plane_eq.subs({sp.symbols('x1'): g[0], sp.symbols('x2'): g[1], sp.symbols('x3'): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))
+
+# Aufgabe 3
+A2 = sp.Matrix([
+    [1, -2, 3],
+    [1, 0, 1],
+    [0, 4, -2]
+])
+eigenvals = A2.eigenvals()
+eigenvects = A2.eigenvects()
+
+# Aufgabe 4
+x, y = sp.symbols('x y')
+f = (y**2 - x) * sp.ln(x)
+stationary_points = sp.solve([sp.diff(f, x), sp.diff(f, y)], (x, y))
+hessian = sp.hessian(f, (x, y))
+taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()
+
+# Aufgabe 5
+x, y, l = sp.symbols('x y l', real = True)
+f5 = (3*x + 2*y)*x
+g5 = 2*x**3 + 3*x**2*y - 40
+L = sp.Lambda((x, y, l), f5 + l * g5)
+grad_L = [sp.diff(L(x, y, l), var) for var in (x, y, l)]
+lagrange_sol = sp.solve(grad_L, (x, y, l))
+dy_dx = -sp.diff(g5, x) / sp.diff(g5, y)
+df_dx = sp.diff(f5, x) + sp.diff(f5, y) * dy_dx
+
+# Aufgabe 6
+r, theta = sp.symbols('r theta')
+x_polar = 2 + r * sp.cos(theta)
+y_polar = r * sp.sin(theta)
+f6_polar = (2 * y_polar / x_polar) * r
+integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
+
+# Ergebnisse ausgeben
+(x, rank_A, g, normal_vector, distance, eigenvals, eigenvects, stationary_points, hessian, taylor_poly, lagrange_sol, df_dx, integral_result)
+```
+
+Dieser Code deckt alle Aufgaben kompakt und prägnant ab. Jede Aufgabe
+verwendet `sympy`, um symbolische Berechnungen durchzuführen,
+einschließlich Lösen von Gleichungssystemen, Eigenwertberechnungen,
+Ableitungen, Integration und Verwendung von Lagrange-Multiplikatoren.
+
