@@ -1180,6 +1180,8 @@ NB:</p></li>
 \rightarrow x^3=8 \rightarrow x=2\]</span></p></li>
 <li><p><span class="math inline">\(L: x \in \{0,2\}\)</span></p></li>
 <li><p>y-Werte: (0,2)</p></li>
+<li><p>Lösung: Gradient von f und g berechnen, Jacobidet = 0, einsetzen
+in NB.</p></li>
 </ul></li>
 <li><p><strong>Ableitung entlang der Kurve:</strong></p>
 <ul>
@@ -1227,6 +1229,61 @@ Kreissegment <span class="math inline">\(B\)</span>.</li>
 <p>Diese erweiterte Formelsammlung bietet detaillierte Ansätze und
 Formeln zur Lösung der Aufgaben. Weitere Schritte und konkrete
 Berechnungen müssen im Detail durchgeführt werden.</p>
+</div>
+</div>
+<div id="hm2-easy-instructions" class="section level3">
+<h3>HM2 Easy Instructions:</h3>
+<div id="aufgabe-1" class="section level4">
+<h4>Aufgabe 1:</h4>
+<ul>
+<li>Dreiecksmatrix erzeugen mit 6 Zeilenop.</li>
+<li>Nullzeile ist Rangverlust, liefert Geradengleichung oder
+Ebenengleichung in Parameterform</li>
+<li>Rückeinsetzen oder Gauss-Jordan</li>
+</ul>
+</div>
+<div id="aufgabe-2" class="section level4">
+<h4>Aufgabe 2:</h4>
+<ul>
+<li>Es gibt keine Koordinatendarstellung (=implizit) einer Gerade in
+3D</li>
+<li>hier: Umwandlung Koordinatendarstellung einer Gerade in
+Parameterform durch Einführung gemeinsamer Parameter</li>
+<li>Umwandlung 3 Koordinaten in Hesse-Normalform (Kreuzprodukt für
+Normale, durch Länge normieren)</li>
+<li>Schnittpunkt oder Abstand berechnen</li>
+</ul>
+</div>
+<div id="aufgabe-3" class="section level4">
+<h4>Aufgabe 3:</h4>
+<ul>
+<li>Eigenwerte aus charakter. Polynom (macht Matrix singulär, bzw.
+erzeugt Rangverlust)</li>
+<li>Eigenvektoren mit Kreuzprodukt, einsetzen oder Gauss (3. Eigenwert
+kann als Normalenvektor aus zwei ersten gebildet werden)</li>
+<li>diagonalisieren durch Falkschema mit der Inversen (manchmal einfach
+transponieren möglich)</li>
+<li>Inverse mit Gauss oder Adjunkte finden</li>
+</ul>
+</div>
+<div id="aufgabe-4" class="section level4">
+<h4>Aufgabe 4:</h4>
+<ul>
+<li>partielle Ableitungen für Jacobimatrix, weitere drei für
+Hesse-Matrix</li>
+</ul>
+</div>
+<div id="aufgabe-5" class="section level4">
+<h4>Aufgabe 5:</h4>
+<ul>
+<li>berechne die partiellen Ableitungen</li>
+<li>löse die Determinantengleichung für y</li>
+<li>setze y in die Nebenbedingung ein für x</li>
+<li>implizit: <span class="math inline">\(\frac{dy}{dx}=-\frac{g_x}{g_y}\)</span></li>
+<li><span class="math inline">\(\frac{df}{dx}=f_x+f_y*\frac{dy}{dx}\)</span> ####
+Aufgabe 6:</li>
+<li>Polarkoordinaten</li>
+</ul>
 <p>Hier ist der kompakte Python-Code mit <code>sympy</code>, der alle
 Aufgaben löst:</p>
 <pre class="python"><code>import sympy as sp
