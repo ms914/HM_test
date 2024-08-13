@@ -572,10 +572,10 @@ g: \frac{4-x_1}{2} = \frac{4+x_2}{3} = \frac{2-x_3}{2}
 \]</span></li>
 <li>Setze einen Parameter <span class="math inline">\(t\)</span> und
 löse nach <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> und <span class="math inline">\(x_3\)</span> auf: <span class="math display">\[
-x_1 = 4 - 2t, \quad x_2 = -4 + 3t, \quad x_3 = 2 - 2t
+x_1 = 4 - 2t, \quad x_2 = 4 + 3t, \quad x_3 = 2 - 2t
 \]</span></li>
 <li>Parameterdarstellung: <span class="math display">\[
-\vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t
+\vec{r}(t) = \begin{pmatrix} 4 \\ 4 \\ 2 \end{pmatrix} + t
 \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix}
 \]</span></li>
 </ul></li>
@@ -617,7 +617,7 @@ d = \vec{n} \cdot \vec{p} = 4 \cdot 3 + 8 \cdot 1 + 8 \cdot 2 = 12 + 8 +
 <li><strong>Schnittpunkt oder Abstand:</strong>
 <ul>
 <li>Lösen des LGS: <span class="math display">\[
-\vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t
+\vec{r}(t) = \begin{pmatrix} 4 \\ 4 \\ 2 \end{pmatrix} + t
 \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix} \quad \text{in die
 Ebenengleichung einsetzen}
 \]</span></li>
@@ -773,10 +773,10 @@ Gleichungssystem durch Rückwärtseinsetzen zu lösen.</li>
 <li>Rang der Matrix <span class="math inline">\(A\)</span> durch
 Zeilenstufenform bestimmen: <span class="math display">\[
 \begin{pmatrix}
-  1 &amp; 1 &amp; 3 &amp; 1 \\
-  0 &amp; -3 &amp; -6 &amp; -1 \\
-  0 &amp; 5 &amp; 10 &amp; 1 \\
-  0 &amp; -3 &amp; -6 &amp; -1
+  1 &amp;  1 &amp;  3 &amp;  1 | 6\\
+  0 &amp; -3 &amp; -6 &amp; -1 | -13 \\
+  0 &amp;  0 &amp;  0 &amp; -2 | 8 \\
+  0 &amp;  0 &amp;  0 &amp; -2 | 8
 \end{pmatrix}
 \]</span></li>
 <li>Da die dritte und vierte Zeile linear abhängig sind, hat die Matrix
@@ -791,12 +791,12 @@ Rang 3.</li>
 <ul>
 <li>Setze die Parameterdarstellung der Geraden in die Ebenengleichung
 ein und löse nach <span class="math inline">\(t\)</span>: <span class="math display">\[
-\vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t
+\vec{r}(t) = \begin{pmatrix} 4 \\ 4 \\ 2 \end{pmatrix} + t
 \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix}
 \]</span> <span class="math display">\[
 \hat{n} \cdot \vec{r}(t) = 3
 \]</span> <span class="math display">\[
-\frac{1}{3}(4 - 2t) + \frac{2}{3}(-4 + 3t) + \frac{2}{3}(2 - 2t) = 3
+\frac{1}{3}(4 - 2t) + \frac{2}{3}(4 + 3t) + \frac{2}{3}(2 - 2t) = 3
 \]</span></li>
 <li>Falls kein Schnittpunkt, berechne den Abstand: <span class="math display">\[
 d = \frac{| \vec{n} \cdot \vec{p} - d |}{\|\vec{n}\|}
@@ -1006,13 +1006,13 @@ x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1,
 ein: <span class="math display">\[
 \hat{n} \cdot \vec{r}(t) = 3
 \]</span> <span class="math display">\[
-\frac{1}{3}(4 - 2t) + \frac{2}{3}(-4 + 3t) + \frac{2}{3}(2 - 2t) = 3
+\frac{1}{3}(4 - 2t) + \frac{2}{3}(4 + 3t) + \frac{2}{3}(2 - 2t) = 3
 \]</span> <span class="math display">\[
-\frac{4 - 2t - 8 + 6t + 4 - 4t}{3} = 3
+\frac{4 - 2t + 8 + 6t + 4 - 4t}{3} = 3
 \]</span> <span class="math display">\[
-\frac{-4 + 0t}{3} = 3
+\frac{0 + 0t}{3} = 3
 \]</span> <span class="math display">\[
--4 + 0t = 9
+0 + 0t = 9
 \]</span></li>
 <li>Kein gültiger Wert von <span class="math inline">\(t\)</span>, daher
 kein Schnittpunkt.</li>
@@ -1022,17 +1022,18 @@ kein Schnittpunkt.</li>
 <li>Allgemeiner Abstand einer Geraden von einer Ebene: <span class="math display">\[
 d = \frac{|\hat{n} \cdot \vec{p} - d|}{\|\hat{n}\|}
 \]</span> <span class="math display">\[
-d = \frac{| \frac{1}{3}4 + \frac{2}{3}(-4) + \frac{2}{3}2 - 3
+d = \frac{| \frac{1}{3}4 + \frac{2}{3}(4) + \frac{2}{3}2 - 3
 |}{\|\hat{n}\|}
 \]</span> <span class="math display">\[
-d = \frac{| \frac{4}{3} - \frac{8}{3} + \frac{4}{3} - 3 |}{\|\hat{n}\|}
+d = \frac{| \frac{4}{3} + \frac{8}{3} + \frac{4}{3} - 3 |}{\|\hat{n}\|}
 \]</span> <span class="math display">\[
-d = \frac{| 0 - 3 |}{\sqrt{\left(\frac{1}{3}\right)^2 +
+d = \frac{| \frac{7}{3} |}{\sqrt{\left(\frac{1}{3}\right)^2 +
 \left(\frac{2}{3}\right)^2 + \left(\frac{2}{3}\right)^2}}
 \]</span> <span class="math display">\[
-d = \frac{3}{\sqrt{\frac{1}{9} + \frac{4}{9} + \frac{4}{9}}}
+d = \frac{\frac{7}{3}}{\sqrt{\frac{1}{9} + \frac{4}{9} + \frac{4}{9}}}
 \]</span> <span class="math display">\[
-d = \frac{3}{\sqrt{\frac{9}{9}}} = \frac{3}{1} = 3
+d = \frac{\frac{7}{3}}{\sqrt{\frac{9}{9}}} = \frac{\frac{7}{3}}{1} =
+\frac{7}{3}
 \]</span></li>
 </ul></li>
 </ol>
@@ -1301,7 +1302,7 @@ rank_A = A.rank()
 
 # Aufgabe 2
 t = sp.symbols(&#39;t&#39;)
-g = sp.Matrix([4 - 2*t, -4 + 3*t, 2 - 2*t])
+g = sp.Matrix([4 - 2*t, 4 + 3*t, 2 - 2*t])
 p1 = sp.Matrix([3, 1, 2])
 p2 = sp.Matrix([-1, 3, 2])
 p3 = sp.Matrix([5, -2, 4])
@@ -1344,11 +1345,6 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
 
 # Ergebnisse ausgeben
 (x, rank_A, g, normal_vector, distance, eigenvals, eigenvects, stationary_points, hessian, taylor_poly, lagrange_sol, df_dx, integral_result)</code></pre>
-<p>Dieser Code deckt alle Aufgaben kompakt und prägnant ab. Jede Aufgabe
-verwendet <code>sympy</code>, um symbolische Berechnungen durchzuführen,
-einschließlich Lösen von Gleichungssystemen, Eigenwertberechnungen,
-Ableitungen, Integration und Verwendung von
-Lagrange-Multiplikatoren.</p>
 </div>
 </div>
 
