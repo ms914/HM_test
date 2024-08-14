@@ -1354,6 +1354,124 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
 <p>Was fehlt: Eigenvektorberechnung Inverse berechnen mit Gauss</p>
 </div>
 </div>
+<div id="kurzlösung" class="section level3">
+<h3>Kurzlösung</h3>
+<div id="aufgabe-1-lineares-gleichungssystem-ax-b-fortsetzung-2" class="section level4">
+<h4>Aufgabe 1: Lineares Gleichungssystem <span class="math inline">\(Ax
+= b\)</span> (Fortsetzung)</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Gauss-Elimination Beispiel:</strong>
+<ul>
+<li>Ausgangsmatrix: <span class="math display">\[
+\begin{pmatrix}
+  1 &amp; 1 &amp; 3 &amp; 1 &amp; | &amp; 6 \\
+  2 &amp; -1 &amp; 0 &amp; 1 &amp; | &amp; -1 \\
+  -3 &amp; 2 &amp; 1 &amp; -2 &amp; | &amp; 1 \\
+  4 &amp; 1 &amp; 6 &amp; 1 &amp; | &amp; 3
+\end{pmatrix}
+\]</span></li>
+<li>Nullstellen unterhalb des Pivots der ersten Spalte (oft hilft es
+auch den Pivot auf 1 zu bringen, dann *-1/3)</li>
+<li><span class="math display">\[
+R2 \leftarrow R2 - 2R1,
+R3 \leftarrow R3 + 3R1,
+R4 \leftarrow R4 - 4R1, \quad \begin{pmatrix}
+  1 &amp; 1 &amp; 3 &amp; 1 &amp; | &amp; 6 \\
+  0 &amp; -3 &amp; -6 &amp; -1 &amp; | &amp; -13 \\
+  0 &amp; 5 &amp; 10 &amp; 1 &amp; | &amp; 19 \\
+  0 &amp; -3 &amp; -6 &amp; -3 &amp; | &amp; -21
+\end{pmatrix}
+\]</span></li>
+<li>Nullstellen unterhalb der zweiten Spalte: <span class="math display">\[
+R3 \leftarrow R3 + \frac{5}{3}R2,
+R4 \leftarrow R4 - R2, \quad \begin{pmatrix}
+  1 &amp; 1 &amp; 3 &amp; 1 &amp; | &amp; 6 \\
+  0 &amp; -3 &amp; -6 &amp; -1 &amp; | &amp; -13 \\
+  0 &amp; 0 &amp; 0 &amp; 2 &amp; | &amp; 8 \\
+  0 &amp; 0 &amp; 0 &amp; -2 &amp; | &amp; -8
+\end{pmatrix}
+\]</span> R3 und R4 sind linear abhängig: Rang=3</li>
+<li>Rückwärtseinsetzen zur Bestimmung der Lösung <span class="math inline">\(x\)</span>: <span class="math display">\[
+x_4 = 4, \quad x_3 = x_3, \quad x_2 = 3-2x_3, \quad x_1 = -1-x_3
+\]</span> <span class="math display">\[
+x_4 = 4
+\]</span> <span class="math display">\[
+  -3x_2-6x_3-4 = -13, \quad -3x_2-6x_3=-9, \quad x_2=3-2x_3
+\]</span> <span class="math display">\[
+x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1,
+\quad x_1=-1-x_3
+\]</span></li>
+</ul></li>
+</ol>
+</div>
+<div id="aufgabe-3-eigenwerte-und-eigenvektoren-einer-matrix-fortsetzung-2" class="section level4">
+<h4>Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix
+(Fortsetzung)</h4>
+<ol style="list-style-type: decimal">
+<li><strong>Berechnung des charakteristischen Polynoms:</strong>
+<ul>
+<li>Matrix <span class="math inline">\(A\)</span>: <span class="math display">\[
+A =
+\begin{pmatrix}
+  1 &amp; -2 &amp; 3 \\
+  1 &amp; 0 &amp; 1 \\
+  0 &amp; 4 &amp; -2
+\end{pmatrix}
+\]</span></li>
+</ul></li>
+<li><strong>Lösen des charakteristischen Polynoms:</strong>
+<ul>
+<li>Nullstellen des Polynoms geben die Eigenwerte <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3\)</span>. <span class="math display">\[\lambda_1=1\]</span>
+<ul>
+<li>Charakteristisches Polynom: Sarrus <span class="math display">\[
+\det(A - \lambda I) =
+-\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
+   \]</span> <span class="math display">\[ p=0, q=-4 , \pm
+\sqrt{4}\]</span> <span class="math display">\[ \lambda_2=2\]</span>
+<span class="math display">\[ \lambda_3=-2\]</span></li>
+</ul></li>
+</ul></li>
+<li><strong>Eigenvektoren:</strong>
+<ul>
+<li>Für jeden Eigenwert <span class="math inline">\(\lambda\)</span> das
+Gleichungssystem: <span class="math display">\[
+(A - \lambda I) \vec{v} = 0
+\]</span>
+<ul>
+<li>Beispielsweise für <span class="math inline">\(\lambda = 1\)</span>:
+<span class="math display">\[
+\begin{pmatrix}
+  1-1 &amp; -2 &amp; 3 \\
+  1 &amp; 0-1 &amp; 1 \\
+  0 &amp; 4 &amp; -2-1
+\end{pmatrix}
+\begin{pmatrix}
+  v_1 \\
+  v_2 \\
+  v_3
+\end{pmatrix} = 0
+\]</span> <span class="math display">\[
+\begin{pmatrix}
+  0 &amp; -2 &amp; 3 \\
+  1 &amp; -1 &amp; 1 \\
+  0 &amp; 4 &amp; -3
+\end{pmatrix}
+\begin{pmatrix}
+  v_1 \\
+  v_2 \\
+  v_3
+\end{pmatrix} = 0
+\]</span></li>
+</ul></li>
+<li>Eigenvektoren bestimmen durch Lösen des Gleichungssystems oder
+Kreuzprodukt Z1xZ2</li>
+<li><span class="math display">\[\begin {pmatrix} 0\\-2\\3 \end
+{pmatrix} \times \begin {pmatrix} 1\\-1\\1 \end {pmatrix}=\begin
+{pmatrix} 2\\3\\1 \end {pmatrix}\]</span></li>
+</ul></li>
+</ol>
+</div>
+</div>
 
 
 

@@ -780,5 +780,104 @@ Was fehlt:
 Eigenvektorberechnung
 Inverse berechnen mit Gauss
 
+### Kurzlösung
+
+#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$ (Fortsetzung)
+
+1.  **Gauss-Elimination Beispiel:**
+    -   Ausgangsmatrix: $$
+        \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          2 & -1 & 0 & 1 & | & -1 \\
+          -3 & 2 & 1 & -2 & | & 1 \\
+          4 & 1 & 6 & 1 & | & 3
+        \end{pmatrix}
+        $$
+    - Nullstellen unterhalb des Pivots der ersten Spalte (oft hilft es auch den Pivot auf 1 zu bringen, dann *-1/3)
+    -   $$
+        R2 \leftarrow R2 - 2R1,
+        R3 \leftarrow R3 + 3R1,
+        R4 \leftarrow R4 - 4R1, \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          0 & 5 & 10 & 1 & | & 19 \\
+          0 & -3 & -6 & -3 & | & -21
+        \end{pmatrix}
+        $$
+    -   Nullstellen unterhalb der zweiten Spalte: 
+        $$
+        R3 \leftarrow R3 + \frac{5}{3}R2,
+        R4 \leftarrow R4 - R2, \quad \begin{pmatrix}
+          1 & 1 & 3 & 1 & | & 6 \\
+          0 & -3 & -6 & -1 & | & -13 \\
+          0 & 0 & 0 & 2 & | & 8 \\
+          0 & 0 & 0 & -2 & | & -8
+        \end{pmatrix}
+        $$
+        R3 und R4 sind linear abhängig: Rang=3
+    -   Rückwärtseinsetzen zur Bestimmung der Lösung $x$: $$
+        x_4 = 4, \quad x_3 = x_3, \quad x_2 = 3-2x_3, \quad x_1 = -1-x_3
+        $$ $$
+        x_4 = 4 
+        $$ $$
+          -3x_2-6x_3-4 = -13, \quad -3x_2-6x_3=-9, \quad x_2=3-2x_3 
+        $$ $$
+        x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1, \quad x_1=-1-x_3
+        $$
+        
+#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix (Fortsetzung)
+
+1.  **Berechnung des charakteristischen Polynoms:**
+    -   Matrix $A$: $$
+        A =
+        \begin{pmatrix}
+          1 & -2 & 3 \\
+          1 & 0 & 1 \\
+          0 & 4 & -2
+        \end{pmatrix}
+        $$
+   
+2.  **Lösen des charakteristischen Polynoms:**
+    -   Nullstellen des Polynoms geben die Eigenwerte
+        $\lambda_1, \lambda_2, \lambda_3$.
+        $$\lambda_1=1$$
+         -  Charakteristisches Polynom: Sarrus
+    $$ \det(A - \lambda I) = -\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
+   $$
+   $$ p=0, q=-4 , \pm \sqrt{4}$$
+   $$ \lambda_2=2$$
+   $$ \lambda_3=-2$$
+   
+3.  **Eigenvektoren:**
+    -   Für jeden Eigenwert $\lambda$ das Gleichungssystem: $$
+        (A - \lambda I) \vec{v} = 0
+        $$
+        -   Beispielsweise für $\lambda = 1$: $$
+            \begin{pmatrix}
+              1-1 & -2 & 3 \\
+              1 & 0-1 & 1 \\
+              0 & 4 & -2-1
+            \end{pmatrix}
+            \begin{pmatrix}
+              v_1 \\
+              v_2 \\
+              v_3
+            \end{pmatrix} = 0
+            $$ $$
+            \begin{pmatrix}
+              0 & -2 & 3 \\
+              1 & -1 & 1 \\
+              0 & 4 & -3
+            \end{pmatrix}
+            \begin{pmatrix}
+              v_1 \\
+              v_2 \\
+              v_3
+            \end{pmatrix} = 0
+            $$
+    -   Eigenvektoren bestimmen durch Lösen des Gleichungssystems oder Kreuzprodukt Z1xZ2
+    - $$\begin {pmatrix} 0\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\-1\\1 \end {pmatrix}=\begin {pmatrix} 2\\3\\1 \end {pmatrix}$$
+
+
 
 
