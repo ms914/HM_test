@@ -11,7 +11,7 @@
 
 <meta name="author" content="Author A" />
 
-<meta name="date" content="2024-08-14" />
+<meta name="date" content="2024-08-15" />
 
 <title>HM2_Formelsammlung</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">HM2_Formelsammlung</h1>
 <h4 class="author">Author A</h4>
-<h4 class="date">2024-08-14</h4>
+<h4 class="date">2024-08-15</h4>
 
 </div>
 
@@ -1136,16 +1136,19 @@ H(f) = \begin{pmatrix}
 </ul></li>
 <li><strong>Taylor-Polynom zweiten Grades:</strong>
 <ul>
-<li>Taylor-Entwicklung um den Punkt <span class="math inline">\((x_0,
+<li><p>Taylor-Entwicklung um den Punkt <span class="math inline">\((x_0,
 y_0) = (1, 2)\)</span>: <span class="math display">\[
-f(1, 2) = 0, \quad f_x(1, 2) = -1, \quad f_y(1, 2) = 4\ln(1) = 0
+f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad f_y(1, 2) = 4\ln(1) = 0
 \]</span> <span class="math display">\[
-f_{xx}(1, 2) = -1, \quad f_{xy}(1, 2) = 4, \quad f_{yy}(1, 2) = 2\ln(1)
+f_{xx}(1, 2) = -5, \quad f_{xy}(1, 2) = 4, \quad f_{yy}(1, 2) = 2\ln(1)
 = 0
 \]</span> <span class="math display">\[
-T_2(x, y) = 0 - 1(x - 1) + 0(y - 2) + \frac{1}{2}(-1(x - 1)^2 + 8(x -
+T_2(x, y) = 0 + 3(x - 1) + 0(y - 2) + \frac{1}{2}(-5(x - 1)^2 + 4(x -
 1)(y - 2))
-\]</span></li>
+\]</span></p>
+<p><span class="math display">\[
+T_2(x, y) = 3(x - 1) - \frac{5}{2}(x - 1)^2 + 4(x - 1)(y - 2))
+\]</span></p></li>
 </ul></li>
 </ol>
 </div>
@@ -1421,14 +1424,14 @@ A =
 </ul></li>
 <li><strong>Lösen des charakteristischen Polynoms:</strong>
 <ul>
-<li>Nullstellen des Polynoms geben die Eigenwerte <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3\)</span>. <span class="math display">\[\lambda_1=1\]</span>
+<li><p>Nullstellen des Polynoms geben die Eigenwerte <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3\)</span>.</p>
 <ul>
 <li>Charakteristisches Polynom: Sarrus <span class="math display">\[
 \det(A - \lambda I) =
 -\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
    \]</span> <span class="math display">\[ p=0, q=-4 , \pm
-\sqrt{4}\]</span> <span class="math display">\[ \lambda_2=2\]</span>
-<span class="math display">\[ \lambda_3=-2\]</span></li>
+\sqrt{4}\]</span> <span class="math display">\[\lambda_1=-1\]</span>
+<span class="math display">\[ \lambda_2=2\]</span> <span class="math display">\[ \lambda_3=-2\]</span></li>
 </ul></li>
 </ul></li>
 <li><strong>Eigenvektoren:</strong>
@@ -1438,12 +1441,12 @@ Gleichungssystem: <span class="math display">\[
 (A - \lambda I) \vec{v} = 0
 \]</span>
 <ul>
-<li>Beispielsweise für <span class="math inline">\(\lambda = 1\)</span>:
-<span class="math display">\[
+<li>Beispielsweise für <span class="math inline">\(\lambda =
+-1\)</span>: <span class="math display">\[
 \begin{pmatrix}
-  1-1 &amp; -2 &amp; 3 \\
-  1 &amp; 0-1 &amp; 1 \\
-  0 &amp; 4 &amp; -2-1
+  1+1 &amp; -2 &amp; 3 \\
+  1 &amp; 0+1 &amp; 1 \\
+  0 &amp; 4 &amp; -2+1
 \end{pmatrix}
 \begin{pmatrix}
   v_1 \\
@@ -1452,9 +1455,9 @@ Gleichungssystem: <span class="math display">\[
 \end{pmatrix} = 0
 \]</span> <span class="math display">\[
 \begin{pmatrix}
-  0 &amp; -2 &amp; 3 \\
-  1 &amp; -1 &amp; 1 \\
-  0 &amp; 4 &amp; -3
+  2 &amp; -2 &amp; 3 \\
+  1 &amp; 1 &amp; 1 \\
+  0 &amp; 4 &amp; -1
 \end{pmatrix}
 \begin{pmatrix}
   v_1 \\
@@ -1465,11 +1468,71 @@ Gleichungssystem: <span class="math display">\[
 </ul></li>
 <li>Eigenvektoren bestimmen durch Lösen des Gleichungssystems oder
 Kreuzprodukt Z1xZ2</li>
-<li><span class="math display">\[\begin {pmatrix} 0\\-2\\3 \end
-{pmatrix} \times \begin {pmatrix} 1\\-1\\1 \end {pmatrix}=\begin
-{pmatrix} 2\\3\\1 \end {pmatrix}\]</span></li>
 </ul></li>
 </ol>
+<p><span class="math display">\[\begin {pmatrix} 2\\-2\\3 \end {pmatrix}
+\times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -5\\1\\4
+\end {pmatrix}=4\begin {pmatrix} -5/4\\1/4\\1 \end
+{pmatrix}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\lambda=2\)</span> <span class="math display">\[
+        \begin{pmatrix}
+          1-2 &amp; -2 &amp; 3 \\
+          1 &amp; 0-2 &amp; 1 \\
+          0 &amp; 4 &amp; -2-2
+        \end{pmatrix}
+        \begin{pmatrix}
+          v_1 \\
+          v_2 \\
+          v_3
+        \end{pmatrix} = 0
+        \]</span> <span class="math display">\[
+        \begin{pmatrix}
+          -1 &amp; -2 &amp; 3 \\
+          1 &amp; -2 &amp; 1 \\
+          0 &amp; 4 &amp; -4
+        \end{pmatrix}
+        \begin{pmatrix}
+          v_1 \\
+          v_2 \\
+          v_3
+        \end{pmatrix} = 0
+        \]</span> Hier ändern sich nur die Elemente in der Spur um 1.
+<span class="math display">\[\begin {pmatrix} -1\\-2\\3 \end {pmatrix}
+\times \begin {pmatrix} 1\\-2\\1 \end {pmatrix}=\begin {pmatrix}
+-2-3(-2)\\-(-1-3)\\2-(-2) \end {pmatrix}=\begin {pmatrix} 4\\4\\4 \end
+{pmatrix}=4\begin {pmatrix} 1\\1\\1 \end {pmatrix}\]</span></p>
+<ul>
+<li><span class="math inline">\(\lambda=-2\)</span></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+            \begin{pmatrix}
+              1+2 &amp; -2 &amp; 3 \\
+              1 &amp; 0+2 &amp; 1 \\
+              0 &amp; 4 &amp; -2+2
+            \end{pmatrix}
+            \begin{pmatrix}
+              v_1 \\
+              v_2 \\
+              v_3
+            \end{pmatrix} = 0
+            \]</span> <span class="math display">\[
+            \begin{pmatrix}
+              3 &amp; -2 &amp; 3 \\
+              1 &amp; 2 &amp; 1 \\
+              0 &amp; 4 &amp; 0
+            \end{pmatrix}
+            \begin{pmatrix}
+              v_1 \\
+              v_2 \\
+              v_3
+            \end{pmatrix} = 0
+            \]</span></p>
+<p><span class="math display">\[ \begin {pmatrix} 3\\-2\\3 \end
+{pmatrix} \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin
+{pmatrix} -2-3\\-(3-3)\\3-(-2) \end {pmatrix}=\begin {pmatrix} -5\\0\\5
+\end {pmatrix}=5\begin {pmatrix} -1\\0\\1 \end {pmatrix}\]</span></p>
 </div>
 </div>
 
