@@ -613,35 +613,38 @@ müssen im Detail durchgeführt werden.
 
 1.  **Lagrange-Multiplikatoren:**
 
-    - Gegeben:$$
-        f(x,y) = (3x + 2y)x, \quad g(x,y) = 2x^3 + 3x^2y - 40 = 0
-        $$
-    -   Lagrange-Funktion: $$
-        \mathcal{L}(x, y, \lambda) = (3x + 2y)x + \lambda (2x^3 + 3x^2y - 40)
-        $$
+  - Gegeben:
+  $$
+  f(x,y) = (3x + 2y)x, \quad g(x,y) = 2x^3 + 3x^2y - 40 = 0
+  $$
+  -   Lagrange-Funktion: 
+  $$
+  \mathcal{L}(x, y, \lambda) = (3x + 2y)x + \lambda (2x^3 + 3x^2y - 40)
+  $$
 
-    -   nach $x$, $y$ und $\lambda$ lösen: $$
+  -   nach $x$, $y$ und $\lambda$ ableiten: 
+  $$
         \frac{\partial \mathcal{L}}{\partial x} = 6x + 2y + \lambda (6x^2 + 6xy) = 0
-        $$ $$
+  $$ $$
         \frac{\partial \mathcal{L}}{\partial y} = 2x + \lambda (3x^2) = 0
-        $$ $$
+  $$ $$
         \frac{\partial \mathcal{L}}{\partial \lambda} = 2x^3 + 3x^2y - 40 = 0
-        $$
-    -   System lösen, um Kandidaten für lokale Extrema zu finden. 
-    - Es genügt, die partiellen Ableitungen von $f_x,f_y, g_x, g_y$ zu bilden:
-    - $$f_x=6x+2y,\quad f_y=2x$$
-    - $$g_x=6x^2+6y, \quad g_y=3x^2$$
+  $$
+  -   System lösen, um Kandidaten für lokale Extrema zu finden (l eliminieren) 
+  - Es genügt, die partiellen Ableitungen von $f_x,f_y, g_x, g_y$ zu bilden:
+  - $$f_x=6x+2y,\quad f_y=2x$$
+  - $$g_x=6x^2+6y, \quad g_y=3x^2$$
 
-    - Berechne damit die J-Determinante $(f_x g_y - f_y g_x)=0$ 
-    - $$3x^2 (6x+2y) - 2x (6x^2 + 6xy) = 0$$
-    - ausklammern $6x^2$:
-    - $$6x^2(x-y)=0 \rightarrow x=0 \quad \text{und} \quad y=x$$
+  - Berechne damit die Determinante $(f_x g_y - f_y g_x)=0$ und löse nach y auf.
+  - $$3x^2 (6x+2y) - 2x (6x^2 + 6xy) = 0$$
+  - ausklammern $6x^2$:
+  - $$6x^2(x-y)=0$$
+  - Wird nur Null für $y=x$
  
-    -  $y=x$ einsetzen in NB:
-    -  $$2x^3+3x^3-40=0 \rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
-    - $L: x \in \{0,2\}$
-    - y-Werte: (0,2)
-    - Lösung: Gradient von f und g berechnen, Jacobidet = 0, einsetzen in NB.
+  -  $y=x$ einsetzen in NB:
+  -  $$2x^3+3x^3-40=0 \rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
+    
+  
 
 2.  **Ableitung entlang der Kurve:**
 
@@ -751,6 +754,7 @@ A2 = sp.Matrix([
 ])
 eigenvals = A2.eigenvals()
 eigenvects = A2.eigenvects()
+P, D = A2.diagonalize()
 
 # Aufgabe 4
 x, y = sp.symbols('x y')
@@ -783,19 +787,43 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
 
 ### Kurzlösung
 
-#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$ (Fortsetzung)
+#### Aufgabe 1: Lineares Gleichungssystem $Ax = b$
 
-1.  **Gauss-Elimination Beispiel:**
-    -   Ausgangsmatrix: $$
+**Aufgabe 1 (8 Punkte)**
+
+Gegeben sei ein lineares Gleichungssystem  ***Ax=b*** mit der Koeffizientenmatrix und der rechten Seite
+
+$$ A=
+\begin{pmatrix}
+   1&1& 3& 1\\
+   2& -1& 0& 1&\\
+   -3& 2& 1& -2&\\
+   4& 1& 6& 1&
+\end{pmatrix}
+$$ , 
+
+$$ b=
+\begin{pmatrix}
+   6\\
+   -1\\
+   1\\
+   3
+\end{pmatrix}
+$$
+$$
+$$
+Bestimmen Sie die Lösung des Gleichungssystems. Wie ist der Rang der Matrix A?
+
+  -   Ausgangsmatrix: $$
         \begin{pmatrix}
           1 & 1 & 3 & 1 & | & 6 \\
           2 & -1 & 0 & 1 & | & -1 \\
           -3 & 2 & 1 & -2 & | & 1 \\
           4 & 1 & 6 & 1 & | & 3
         \end{pmatrix}
-        $$
-    - Nullstellen unterhalb des Pivots der ersten Spalte (oft hilft es auch den Pivot auf 1 zu bringen, dann *-1/3)
-    -   $$
+$$
+  - Nullstellen unterhalb des Pivots der ersten Spalte (oft hilft es auch den Pivot auf 1 zu bringen, dann *-1/3)
+  -   $$
         R2 \leftarrow R2 - 2R1,
         R3 \leftarrow R3 + 3R1,
         R4 \leftarrow R4 - 4R1, \quad \begin{pmatrix}
@@ -804,9 +832,9 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
           0 & 5 & 10 & 1 & | & 19 \\
           0 & -3 & -6 & -3 & | & -21
         \end{pmatrix}
-        $$
-    -   Nullstellen unterhalb der zweiten Spalte: 
-        $$
+$$
+  -   Nullstellen unterhalb der zweiten Spalte: 
+$$
         R3 \leftarrow R3 + \frac{5}{3}R2,
         R4 \leftarrow R4 - R2, \quad \begin{pmatrix}
           1 & 1 & 3 & 1 & | & 6 \\
@@ -814,19 +842,81 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
           0 & 0 & 0 & 2 & | & 8 \\
           0 & 0 & 0 & -2 & | & -8
         \end{pmatrix}
-        $$
+$$
         R3 und R4 sind linear abhängig: Rang=3
-    -   Rückwärtseinsetzen zur Bestimmung der Lösung $x$: $$
+  -   Rückwärtseinsetzen zur Bestimmung der Lösung $x$: $$
         x_4 = 4, \quad x_3 = x_3, \quad x_2 = 3-2x_3, \quad x_1 = -1-x_3
-        $$ $$
+$$ $$
         x_4 = 4 
-        $$ $$
+$$ $$
           -3x_2-6x_3-4 = -13, \quad -3x_2-6x_3=-9, \quad x_2=3-2x_3 
-        $$ $$
+$$ $$
         x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1, \quad x_1=-1-x_3
-        $$
+$$
+
+
+```{python}
+import sympy as sp
+# Aufgabe 1
+A = sp.Matrix([
+    [1, 1, 3, 1],
+    [2, -1, 0, 1],
+    [-3, 2, 1, -2],
+    [4, 1, 6, 1]
+])
+b = sp.Matrix([6, -1, 1, 3])
+#x = A.LUsolve(b)
+print(A.rank())
+print(A.rref())
+```
         
-#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix (Fortsetzung)
+####Aufgabe 2 (7+3 Punkte)**
+
+Im dreidimensionalen Raum $R3$ seien eine Gerade in Koordinatendarstellung
+
+$g: \frac{4-x_1}{2}=\frac{4+x_2}{3}=\frac{2-x_3}{2}$
+
+sowie eine Ebene E durch die drei Punkte (3,1,2), (-1,3,2), (5,-2,4).
+
+a) Geben Sie eine Parameterdarstellung der Geraden $g$ und die Hesse-Normalform der Ebene $E$ an.
+
+b) Entscheiden Sie ob die Gerade $g$ und die Ebene $E$ sich in einem Punkt schneiden.
+
+- Wenn ja, berechnen Sie die Koordinaten des Schnittpunkts.
+
+- Wenn nein, berechnen Sie den Abstand der Geraden von der Ebene.
+
+```{python}
+# Aufgabe 2
+t = sp.symbols('t')
+g = sp.Matrix([4 - 2*t, 4 + 3*t, 2 - 2*t])
+p1 = sp.Matrix([3, 1, 2])
+p2 = sp.Matrix([-1, 3, 2])
+p3 = sp.Matrix([5, -2, 4])
+normal_vector = (p2 - p1).cross(p3 - p1)
+plane_eq = normal_vector.dot(sp.Matrix([sp.symbols('x1'), sp.symbols('x2'), sp.symbols('x3')]) - p1)
+distance = sp.Abs(plane_eq.subs({sp.symbols('x1'): g[0], sp.symbols('x2'): g[1], sp.symbols('x3'): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))
+```
+        
+#### Aufgabe 3: Eigenwerte und Eigenvektoren einer Matrix
+
+**Aufgabe 3 (8 + 3 Punkte)**
+
+Gegeben sei die Matrix
+
+$$
+A=
+\begin{pmatrix}
+   1& -2& 3\\
+   1& 0& 1&\\
+   0& 4& -2&
+\end{pmatrix}
+$$
+
+a) Berechnen Sie alle Eigenwerte und zugehörigen Eigenvektoren von $A$.
+
+b) Drücken Sie die lineare Abbildung $y=Ax$ in einer Basis $B$ aus, die durch die Eigenvektoren von $A$ gebildet wird.
+
 
 1.  **Berechnung des charakteristischen Polynoms:**
     -   Matrix $A$: $$
@@ -879,7 +969,7 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
             $$
     -   Eigenvektoren bestimmen durch Lösen des Gleichungssystems oder Kreuzprodukt Z1xZ2
  
-$$\begin {pmatrix} 2\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -5\\1\\4 \end {pmatrix}=4\begin {pmatrix} -5/4\\1/4\\1 \end {pmatrix}$$
+$$\begin {pmatrix} 2\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -5\\1\\4 \end {pmatrix}$$
     
   - $\lambda=2$
   $$
@@ -935,9 +1025,93 @@ $$
             $$
             
 $$ \begin {pmatrix} 3\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -2-3\\-(3-3)\\3-(-2) \end {pmatrix}=\begin {pmatrix} -5\\0\\5 \end {pmatrix}=5\begin {pmatrix} -1\\0\\1 \end {pmatrix}$$
+            $$B=\begin{pmatrix}
+              -5 & 1 & -1 \\
+              1 & 1 & 0 \\
+              4 & 1 & 1
+            \end{pmatrix}$$
+            $$D=\begin{pmatrix}
+              -1 & 0 & 0 \\
+              0 & 2 & 0 \\
+              0 & 0 & -2
+            \end{pmatrix}$$
+
+```{python}
+# Aufgabe 3
+A2 = sp.Matrix([
+    [1, -2, 3],
+    [1, 0, 1],
+    [0, 4, -2]
+])
+eigenvals = A2.eigenvals()
+eigenvects = A2.eigenvects()
+P, D = A2.diagonalize()
+print(P)
+print(D)
+```
             
+#### Aufgabe 4 (4+4+3 Punkte)
+Gegeben sei die Funktion $f(x,y)=(y^2-x)ln(x)$ mit $x>0$ und $y\in ℝ$.
+
+a) Berechnen Sie alle stationären Punkte von $f$.
+
+b) Überprüfen Sie, bei welchen stationären Punkten es sich um lokale Extrema handelt und geben Sie gegebenenfalls an, ob es sich jeweils um ein lokales Minimum oder Maximum handelt.
+
+c) Bestimmen sie das Taylor-Polynom zweiten Grades von $f$ mit Entwicklungspunkt $(x_0, y_0)=(1,2)$.
+
+```{python}
+# Aufgabe 4
+x, y = sp.symbols('x y')
+f = (y**2 - x) * sp.ln(x)
+stationary_points = sp.solve([sp.diff(f, x), sp.diff(f, y)], (x, y))
+hessian = sp.hessian(f, (x, y))
+#taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()
+```
+  
+
+#### Aufgabe 5 (7 + 3 Punkte)
+
+a) Bestimmen Sie mit der Methode der Lagrange-Multiplikatoren die Kandidaten für lokale Extrema der Funktion
+
+$$f(x,y)=(3x+2y)x$$
+
+unter der Nebenbedingung
+
+$$2x^3+3x^2y=40$$
+
+b) Berechnen Sie die Ableitung der Funktion $f$ entlang der implizit durch die Nebenbedingungen gegebenen Kurve $x \mapsto (x,(y(x))$.
+
+  - $$f_x=6x+2y,\quad f_y=2x$$
+  - $$g_x=6x^2+6xy, \quad g_y=3x^2$$
+  - Det: $(f_x g_y - f_y g_x)=3x^2 (6x+2y) - 2x (6x^2 + 6xy) = 0$
+  - $$6x^2(x-y)=0 \rightarrow y=x$$
+  - $y=x$ einsetzen in NB:
+  - $$2x^3+3x^3-40=0 $$
+  - $$\rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
+  - $$\frac{dy}{dx}=-\frac{g_x}{g_y}=-\frac{6x^2+6xy}{3x^2}=--\frac{2x+2y}{x}$$
+  - $$f_y*\frac{dy}{dx}=-2x\frac{2x+2y}{x}=-4x-4y$$
+  - $$f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y $$
+  
     
 
+```{python}
+# Aufgabe 5
+x, y, l = sp.symbols('x y l', real = True)
+f5 = (3*x + 2*y)*x
+g5 = 2*x**3 + 3*x**2*y - 40
+L = sp.Lambda((x, y, l), f5 + l * g5)
+grad_L = [sp.diff(L(x, y, l), var) for var in (x, y, l)]
+lagrange_sol = sp.solve(grad_L, (x, y, l))
+dy_dx = -sp.diff(g5, x) / sp.diff(g5, y)
+df_dx = sp.diff(f5, x) + sp.diff(f5, y) * dy_dx
+print(sp.diff(f5,x), sp.diff(f5,y))
+print(sp.diff(g5,x), sp.diff(g5,y))
+print(lagrange_sol)
+print(dy_dx.simplify())
+print(df_dx.simplify())
+```
 
+#### Aufgabe 6 (10  Punkte)
 
+Berechnen Sie das Integral der Funktion $f(x,y)=2y/x$ über das Kreissegment $B$, das von der Kreislinie mit der Gleichung $(x-2)^2+y^2=4$ und der Geraden mit der Gleichung $x+2y=4$ begrenzt wird (siehe Abbildung 1).
 
