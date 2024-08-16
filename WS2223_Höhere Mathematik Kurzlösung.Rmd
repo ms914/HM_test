@@ -3,8 +3,8 @@ title: "WS2223_Höhere Mathematik II_Kurzlösung"
 author: "Author"
 date: "`r Sys.Date()`"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 editor_options:
   markdown:
     wrap: 72
@@ -225,7 +225,7 @@ print(D)
 
 #### Aufgabe 4 (4+4+3 Punkte)
 
-Gegeben sei die Funktion $f(x,y)=(y^2-x)ln(x)$ mit $x>0$ und $y\in ℝ$.
+Gegeben sei die Funktion $f(x,y)=(y^2-x)ln(x)$ mit $x>0$ und $y\in R$.
 
 a)  Berechnen Sie alle stationären Punkte von $f$.
 
@@ -261,16 +261,16 @@ $$2x^3+3x^2y=40$$
 b)  Berechnen Sie die Ableitung der Funktion $f$ entlang der implizit
     durch die Nebenbedingungen gegebenen Kurve $x \mapsto (x,(y(x))$.
 
-    -   $$f_x=6x+2y,\quad f_y=2x$$
-    -   $$g_x=6x^2+6xy, \quad g_y=3x^2$$
-    -   $$Det: (f_x g_y - f_y g_x)=3x^2 (6x+2y) - 2x (6x^2 + 6xy) = 0$$
-    -   $$6x^2(x-y)=0 \rightarrow y=x$$
-    -   $y=x$ einsetzen in NB:
-    -   $$2x^3+3x^3-40=0 $$
-    -   $$\rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
-    -   $$\frac{dy}{dx}=-\frac{g_x}{g_y}=-\frac{6x^2+6xy}{3x^2}=--\frac{2x+2y}{x}$$
-    -   $$f_y*\frac{dy}{dx}=-2x\frac{2x+2y}{x}=-4x-4y$$
-    -   $$f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y $$
+    $$f_x=6x+2y,\quad f_y=2x$$
+    $$g_x=6x^2+6xy, \quad g_y=3x^2$$
+    $$Det: (f_x g_y - f_y g_x)=3x^2 (6x+2y) - 2x (6x^2 + 6xy) = 0$$
+    $$6x^2(x-y)=0 \rightarrow y=x$$
+    $y=x$ einsetzen in NB:
+    $$2x^3+3x^3-40=0 $$
+    $$\rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
+    $$\frac{dy}{dx}=-\frac{g_x}{g_y}=-\frac{6x^2+6xy}{3x^2}=--\frac{2x+2y}{x}$$
+    $$f_y*\frac{dy}{dx}=-2x\frac{2x+2y}{x}=-4x-4y$$
+    $$f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y $$
 
 ```{python}
 # Aufgabe 5
