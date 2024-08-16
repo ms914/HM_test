@@ -717,7 +717,7 @@ müssen im Detail durchgeführt werden.
 
 
 
-Hier ist der kompakte Python-Code mit `sympy`, der alle Aufgaben löst:
+Hier ist der kompakte Python-Code mit `sympy`, der alle Aufgaben löst: https://live.sympy.org
 
 ``` python
 import sympy as sp
@@ -780,9 +780,6 @@ integral_result = sp.integrate(f6_polar, (r, 0, 2), (theta, 0, sp.pi))
 (x, rank_A, g, normal_vector, distance, eigenvals, eigenvects, stationary_points, hessian, taylor_poly, lagrange_sol, df_dx, integral_result)
 ```
 
-Was fehlt:
-Eigenvektorberechnung
-Inverse berechnen mit Gauss
 
 ### Kurzlösung
 
