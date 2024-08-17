@@ -11,7 +11,7 @@
 
 <meta name="author" content="Author" />
 
-<meta name="date" content="2024-08-16" />
+<meta name="date" content="2024-08-17" />
 
 <title>WS2223_Höhere Mathematik II_Kurzlösung</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">WS2223_Höhere Mathematik II_Kurzlösung</h1>
 <h4 class="author">Author</h4>
-<h4 class="date">2024-08-16</h4>
+<h4 class="date">2024-08-17</h4>
 
 </div>
 
@@ -387,18 +387,15 @@ Matrix A?</p>
    -3 &amp; 2 &amp; 1 &amp; -2 &amp; | &amp; 1 \\
    4 &amp; 1 &amp; 6 &amp; 1 &amp; | &amp; 3
 \end{pmatrix}
-    \]</span> <span class="math display">\[
-R2 \leftarrow R2 - 2R1,
-R3 \leftarrow R3 + 3R1,
-R4 \leftarrow R4 - 4R1, \quad \begin{pmatrix}
+    \]</span> <span class="math inline">\(R2 \leftarrow R2 - 2R1, R3
+\leftarrow R3 + 3R1, R4 \leftarrow R4 - 4R1:\)</span> <span class="math display">\[ \begin{pmatrix}
    1 &amp; 1 &amp; 3 &amp; 1 &amp; | &amp; 6 \\
    0 &amp; -3 &amp; -6 &amp; -1 &amp; | &amp; -13 \\
    0 &amp; 5 &amp; 10 &amp; 1 &amp; | &amp; 19 \\
    0 &amp; -3 &amp; -6 &amp; -3 &amp; | &amp; -21
 \end{pmatrix}
-    \]</span> <span class="math display">\[
-R3 \leftarrow R3 + \frac{5}{3}R2,
-R4 \leftarrow R4 - R2, \quad \begin{pmatrix}
+    \]</span> <span class="math inline">\(R3 \leftarrow R3 +
+\frac{5}{3}R2, R4 \leftarrow R4 - R2\)</span> <span class="math display">\[\begin{pmatrix}
    1 &amp; 1 &amp; 3 &amp; 1 &amp; | &amp; 6 \\
    0 &amp; -3 &amp; -6 &amp; -1 &amp; | &amp; -13 \\
    0 &amp; 0 &amp; 0 &amp; 2 &amp; | &amp; 8 \\
@@ -417,6 +414,7 @@ x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1,
     \]</span></li>
 </ul>
 <pre class="python"><code>import sympy as sp
+
 # Aufgabe 1
 A = sp.Matrix([
     [1, 1, 3, 1],
@@ -425,15 +423,15 @@ A = sp.Matrix([
     [4, 1, 6, 1]
 ])
 b = sp.Matrix([6, -1, 1, 3])
-#x = A.LUsolve(b)
-print(A.rank())</code></pre>
-<pre><code>## 3</code></pre>
-<pre class="python"><code>print(A.rref())</code></pre>
+augmented_matrix=A.row_join(b)
+print(augmented_matrix.rref())</code></pre>
 <pre><code>## (Matrix([
-## [1, 0, 1, 0],
-## [0, 1, 2, 0],
-## [0, 0, 0, 1],
-## [0, 0, 0, 0]]), (0, 1, 3))</code></pre>
+## [1, 0, 1, 0, -1],
+## [0, 1, 2, 0,  3],
+## [0, 0, 0, 1,  4],
+## [0, 0, 0, 0,  0]]), (0, 1, 3))</code></pre>
+<pre class="python"><code>print(A.rank())</code></pre>
+<pre><code>## 3</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-2-73-punkte" class="section level4">
@@ -482,20 +480,19 @@ A=
 <li><p>Berechnen Sie alle Eigenwerte und zugehörigen Eigenvektoren von
 <span class="math inline">\(A\)</span>.</p></li>
 <li><p>Drücken Sie die lineare Abbildung <span class="math inline">\(y=Ax\)</span> in einer Basis <span class="math inline">\(B\)</span> aus, die durch die Eigenvektoren von
-<span class="math inline">\(A\)</span> gebildet wird.</p>
-<ul>
-<li>Nullstellen des Polynoms geben die Eigenwerte <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3\)</span>.<span class="math display">\[ \det(A - \lambda I) =
--\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
-\]</span> <span class="math display">\[ p=0, q=-4 , \pm
-\sqrt{4}\]</span> <span class="math display">\[\lambda_1=-1\]</span>
-<span class="math display">\[ \lambda_2=2\]</span> <span class="math display">\[ \lambda_3=-2\]</span></li>
-</ul></li>
+<span class="math inline">\(A\)</span> gebildet wird.</p></li>
 </ol>
+<p>Nullstellen des char. Polynoms geben die Eigenwerte <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3\)</span>.<span class="math display">\[ \det(A - \lambda I) =
+-\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
+        \]</span> <span class="math display">\[ p=0, q=-4 , \pm
+\sqrt{4}\]</span> <span class="math display">\[\lambda_1=-1\]</span>
+<span class="math display">\[ \lambda_2=2\]</span> <span class="math display">\[ \lambda_3=-2\]</span></p>
 <p>Eigenvektoren:</p>
 <p>Für jeden Eigenwert <span class="math inline">\(\lambda\)</span> das
 Gleichungssystem: <span class="math display">\[
         (A - \lambda I) \vec{v} = 0
-        \]</span> - Beispielsweise für <span class="math inline">\(\lambda = -1\)</span>: <span class="math display">\[
+        \]</span> Beispielsweise für <span class="math inline">\(\lambda
+= -1\)</span>: <span class="math display">\[
             \begin{pmatrix}
               1+1 &amp; -2 &amp; 3 \\
               1 &amp; 0+1 &amp; 1 \\
@@ -517,11 +514,11 @@ Gleichungssystem: <span class="math display">\[
               v_2 \\
               v_3
             \end{pmatrix} = 0
-            \]</span> - Eigenvektoren bestimmen durch Lösen des
-Gleichungssystems oder Kreuzprodukt Z1xZ2<span class="math display">\[
+            \]</span> Eigenvektoren bestimmen durch Lösen des
+Gleichungssystems oder Kreuzprodukt Zeile 1 x Zeile 2<span class="math display">\[
         \begin {pmatrix} 2\\-2\\3 \end {pmatrix} \times \begin {pmatrix}
 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -5\\1\\4 \end {pmatrix}
-        \]</span> - <span class="math inline">\(\lambda = 2\)</span>:
+        \]</span> <span class="math inline">\(\lambda = 2\)</span>:
 <span class="math display">\[\begin{pmatrix}1-2 &amp; -2 &amp; 3 \\1
 &amp; 0-2 &amp; 1 \\0 &amp; 4 &amp; -2-2\end{pmatrix}\]</span> <span class="math display">\[\begin{pmatrix}v_1 \\v_2 \\v_3\end{pmatrix} =
 0\]</span> <span class="math display">\[\begin{pmatrix}-1 &amp; -2 &amp;
@@ -531,7 +528,7 @@ Gleichungssystems oder Kreuzprodukt Z1xZ2<span class="math display">\[
 {pmatrix} \times \begin {pmatrix} 1\\-2\\1 \end {pmatrix}=\begin
 {pmatrix} -2-3(-2)\\-(-1-3)\\2-(-2) \end {pmatrix}=\begin {pmatrix}
 4\\4\\4 \end {pmatrix}=4\begin {pmatrix} 1\\1\\1 \end {pmatrix}\]</span>
-- <span class="math inline">\(\lambda=-2\)</span>:</p>
+<span class="math inline">\(\lambda=-2\)</span>:</p>
 <p><span class="math display">\[\begin{pmatrix}1+2 &amp; -2 &amp; 3 \\1
 &amp; 0+2 &amp; 1 \\0 &amp; 4 &amp; -2+2\end{pmatrix}\begin{pmatrix}v_1
 \\v_2 \\v_3\end{pmatrix} = 0\]</span> <span class="math display">\[\begin{pmatrix}3 &amp; -2 &amp; 3 \\1 &amp; 2
@@ -541,20 +538,25 @@ Gleichungssystems oder Kreuzprodukt Z1xZ2<span class="math display">\[
 \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix}
 -2-3\\-(3-3)\\3-(-2) \end {pmatrix}=\begin {pmatrix} -5\\0\\5 \end
 {pmatrix}=5\begin {pmatrix} -1\\0\\1 \end {pmatrix}\]</span>
-Diagonalisieren:</p>
-<p><span class="math display">\[P^{-1}DP=\begin{pmatrix}
-              0 &amp; 0 &amp; 0 \\
-              0 &amp; 0 &amp; 0 \\
-              0 &amp; 0 &amp; 0
+Diagonalisieren: Inverse <span class="math inline">\(P^{-1}\)</span>
+berechnen (P|I)-&gt;(I|<span class="math inline">\(P^{-1}\)</span>)</p>
+<p><span class="math display">\[D=P^{-1}AP=\begin{pmatrix}
+              1 &amp; -3 &amp; 2 \\
+              -1/3 &amp; 2/3 &amp; -1/3 \\
+              1/3 &amp; 1/3 &amp; 1/3
             \end{pmatrix}\begin{pmatrix}
-              -1 &amp; 0 &amp; 0 \\
-              0 &amp; 2 &amp; 0 \\
-              0 &amp; 0 &amp; -2
+              1 &amp; -2 &amp; 3 \\
+              1 &amp; 0 &amp; 1 \\
+              0 &amp; 4 &amp; -2
             \end{pmatrix}
             \begin{pmatrix}
               -5 &amp; 1 &amp; -1 \\
               1 &amp; 1 &amp; 0 \\
               4 &amp; 1 &amp; 1
+            \end{pmatrix}=\begin{pmatrix}
+              -1 &amp; 0 &amp; 0 \\
+              0 &amp; 2 &amp; 0 \\
+              0 &amp; 0 &amp; -2
             \end{pmatrix}
             \]</span></p>
 <pre class="python"><code># Aufgabe 3
@@ -566,15 +568,21 @@ A2 = sp.Matrix([
 eigenvals = A2.eigenvals()
 eigenvects = A2.eigenvects()
 P, D = A2.diagonalize()
-print(P)</code></pre>
-<pre><code>## Matrix([[-1, -5, 1], [0, 1, 1], [1, 4, 1]])</code></pre>
+augmented_matrix=P.row_join(sp.eye(3))
+print(augmented_matrix.rref())</code></pre>
+<pre><code>## (Matrix([
+## [1, 0, 0,    1,  -3,    2],
+## [0, 1, 0, -1/3, 2/3, -1/3],
+## [0, 0, 1,  1/3, 1/3,  1/3]]), (0, 1, 2))</code></pre>
+<pre class="python"><code>print(P.inv())</code></pre>
+<pre><code>## Matrix([[1, -3, 2], [-1/3, 2/3, -1/3], [1/3, 1/3, 1/3]])</code></pre>
 <pre class="python"><code>print(D)</code></pre>
 <pre><code>## Matrix([[-2, 0, 0], [0, -1, 0], [0, 0, 2]])</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-4-443-punkte" class="section level4">
 <h4>Aufgabe 4 (4+4+3 Punkte)</h4>
-<p>Gegeben sei die Funktion <span class="math inline">\(f(x,y)=(y^2-x)ln(x)\)</span> mit <span class="math inline">\(x&gt;0\)</span> und <span class="math inline">\(y\in ℝ\)</span>.</p>
+<p>Gegeben sei die Funktion <span class="math inline">\(f(x,y)=(y^2-x)ln(x)\)</span> mit <span class="math inline">\(x&gt;0\)</span> und <span class="math inline">\(y\in R\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Berechnen Sie alle stationären Punkte von <span class="math inline">\(f\)</span>.</p></li>
 <li><p>Überprüfen Sie, bei welchen stationären Punkten es sich um lokale
@@ -582,12 +590,51 @@ Extrema handelt und geben Sie gegebenenfalls an, ob es sich jeweils um
 ein lokales Minimum oder Maximum handelt.</p></li>
 <li><p>Bestimmen sie das Taylor-Polynom zweiten Grades von <span class="math inline">\(f\)</span> mit Entwicklungspunkt <span class="math inline">\((x_0, y_0)=(1,2)\)</span>.</p></li>
 </ol>
+<p><strong>Berechnung der partiellen Ableitungen:</strong> - Partielle
+Ableitungen: <span class="math display">\[
+        f_x = \frac{\partial}{\partial x}((y^2 - x) \ln(x)) = \frac{y^2
+- x}{x} - \ln(x)
+        \]</span> <span class="math display">\[
+        f_y = \frac{\partial}{\partial y}((y^2 - x) \ln(x)) = 2y \ln(x)
+        \]</span> - Stationäre Punkte durch Lösen von <span class="math inline">\(f_x = 0\)</span> und <span class="math inline">\(f_y = 0\)</span>. - <span class="math display">\[\frac{y^2 - x}{x} - \ln(x) = 0\]</span> - <span class="math display">\[2y \ln(x)=0\]</span> - <span class="math display">\[P1: x=1, y=1\]</span> - <span class="math display">\[P2: x=1, y=-1\]</span> - <span class="math display">\[P3: x=1/e, y=0\]</span> <strong>Hesse-Matrix und
+zweiter Ableitungstest:</strong> - Berechnung der Hesse-Matrix: <span class="math display">\[
+        f_{xx} = \frac{\partial}{\partial x}\left(\frac{y^2 - x}{x}
+-\ln(x)\right) = \frac{-y^2 + x}{x^2} - \frac{2}{x}
+        \]</span> <span class="math display">\[ f_{xy} =
+        \frac{\partial}{\partial y}\left(\frac{y^2 - x}{x} -
+        \ln(x)\right) = \frac{2y}{x}
+        \]</span> <span class="math display">\[
+        f_{yy} = \frac{\partial}{\partial y}(2y \ln(x)) = 2\ln(x)
+        \]</span> <strong>Stationäre Punkte überprüfen:</strong> - Natur
+der stationären Punkte bestimmen durch Einsetzen in die Hesse-Matrix:
+<span class="math display">\[
+        H(f) = \begin{pmatrix}
+          \frac{-y^2 + x}{x^2} - \frac{2}{x} &amp; \frac{2y}{x} \\
+          \frac{2y}{x} &amp; 2\ln(x)
+        \end{pmatrix}
+        \]</span> P1/P2: Sattelpunkt (Spur -/+) P3: Maximum (Spur -/-)
+<strong>Taylor-Polynom zweiten Grades:</strong> - Taylor-Entwicklung um
+den Punkt <span class="math inline">\((x_0, y_0) = (1, 2)\)</span>:
+<span class="math display">\[
+        f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad f_y(1, 2) = 4\ln(1) = 0
+        \]</span> <span class="math display">\[
+        f_{xx}(1, 2) = -5, \quad f_{xy}(1, 2) = 4, \quad f_{yy}(1, 2) =
+2\ln(1) = 0
+        \]</span> <span class="math display">\[
+        T_2(x, y) = 0 + 3(x - 1) + 0(y - 2) + \frac{1}{2}(-5(x - 1)^2 +
+4(x - 1)(y - 2))
+        \]</span></p>
+<pre><code>    $$
+    T_2(x, y) = 3(x - 1) - \frac{5}{2}(x - 1)^2 + 4(x - 1)(y - 2))
+    $$</code></pre>
 <pre class="python"><code># Aufgabe 4
 x, y = sp.symbols(&#39;x y&#39;)
 f = (y**2 - x) * sp.ln(x)
 stationary_points = sp.solve([sp.diff(f, x), sp.diff(f, y)], (x, y))
 hessian = sp.hessian(f, (x, y))
-#taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()</code></pre>
+#taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()
+print(stationary_points)</code></pre>
+<pre><code>## [(1, -1), (1, 1), (exp(-1), 0)]</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-5-7-3-punkte" class="section level4">
@@ -603,23 +650,14 @@ Kandidaten für lokale Extrema der Funktion</li>
 <li><p>Berechnen Sie die Ableitung der Funktion <span class="math inline">\(f\)</span> entlang der implizit durch die
 Nebenbedingungen gegebenen Kurve <span class="math inline">\(x \mapsto
 (x,(y(x))\)</span>.</p>
-<ul>
-<li><span class="math display">\[f_x=6x+2y,\quad f_y=2x\]</span></li>
-<li><span class="math display">\[g_x=6x^2+6xy, \quad
-g_y=3x^2\]</span></li>
-<li><span class="math display">\[Det: (f_x g_y - f_y g_x)=3x^2 (6x+2y) -
-2x (6x^2 + 6xy) = 0\]</span></li>
-<li><span class="math display">\[6x^2(x-y)=0 \rightarrow
-y=x\]</span></li>
-<li><span class="math inline">\(y=x\)</span> einsetzen in NB:</li>
-<li><span class="math display">\[2x^3+3x^3-40=0 \]</span></li>
-<li><span class="math display">\[\rightarrow 5x^3-40=0 \rightarrow x^3=8
-\rightarrow x=2\]</span></li>
-<li><span class="math display">\[\frac{dy}{dx}=-\frac{g_x}{g_y}=-\frac{6x^2+6xy}{3x^2}=--\frac{2x+2y}{x}\]</span></li>
-<li><span class="math display">\[f_y*\frac{dy}{dx}=-2x\frac{2x+2y}{x}=-4x-4y\]</span></li>
-<li><span class="math display">\[f_x+f_y*\frac{dy}{dx}=
-6x+2y-4x-4y=2x-2y \]</span></li>
-</ul></li>
+<p><span class="math display">\[f_x=6x+2y,\quad f_y=2x\]</span> <span class="math display">\[g_x=6x^2+6xy, \quad g_y=3x^2\]</span> <span class="math display">\[Det: (f_x g_y - f_y g_x)=3x^2 (6x+2y) - 2x (6x^2
++ 6xy) = 0\]</span> <span class="math display">\[6x^2(x-y)=0 \rightarrow
+y=x\]</span> <span class="math inline">\(y=x\)</span> einsetzen in NB:
+<span class="math display">\[2x^3+3x^3-40=0 \]</span> <span class="math display">\[\rightarrow 5x^3-40=0 \rightarrow x^3=8
+\rightarrow x=2\]</span> <span class="math display">\[\frac{dy}{dx}=-\frac{g_x}{g_y}=-\frac{6x^2+6xy}{3x^2}=--\frac{2x+2y}{x}\]</span>
+<span class="math display">\[f_y*\frac{dy}{dx}=-2x\frac{2x+2y}{x}=-4x-4y\]</span>
+<span class="math display">\[f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y
+\]</span></p></li>
 </ol>
 <pre class="python"><code># Aufgabe 5
 x, y, l = sp.symbols(&#39;x y l&#39;, real = True)
@@ -648,6 +686,53 @@ print(sp.diff(f5,x), sp.diff(f5,y))</code></pre>
 Gleichung <span class="math inline">\((x-2)^2+y^2=4\)</span> und der
 Geraden mit der Gleichung <span class="math inline">\(x+2y=4\)</span>
 begrenzt wird (siehe Abbildung 1).</p>
+<p>Schnittpunkte: Einsetzen Geradengleichung in Kreislinie</p>
+<p><span class="math display">\[y=\frac{4-x}{2}=2-\frac{x}{2}\]</span>
+<span class="math display">\[(x-2)^2+(2-\frac{x}{2})^2-4=0\]</span></p>
+<p><span class="math display">\[x^2-4x+4+4-2x+\frac{x^2}{4}-4=0\]</span>
+<span class="math display">\[-6x+4+\frac{5x^2}{4}=0\]</span> <span class="math display">\[-24x+16+5x^2=0\]</span> <span class="math display">\[5x^2-24x+16=0\]</span> <span class="math display">\[x^2-\frac{24}{5}x+\frac{16}{5}=0\]</span> <span class="math display">\[p=-\frac{24}{5}, \quad q=\frac{16}{5}\]</span>
+<span class="math display">\[\frac{12}{5}\pm\sqrt{(\frac{12}{5})^2-\frac{16}{5}}\]</span>
+<span class="math display">\[\frac{12}{5}\pm\sqrt{\frac{144}{25}-\frac{80}{25}}\]</span>
+<span class="math display">\[\frac{12}{5}\pm\sqrt{\frac{64}{25}}\]</span>
+<span class="math display">\[\frac{12}{5}\pm\frac{8}{5}\]</span> <span class="math display">\[x_1=4, \quad x_2=\frac{4}{5}\]</span> <span class="math display">\[\int_{4/5}^4\int_{y=(4-x)/2)}^{y=\sqrt{-(x-2)^2+4}}\frac{2y}{x}dydx\]</span>
+<span class="math display">\[\int_{4/5}^4|\frac{y^2}{x}|_{y=(4-x)/2)}^{y=\sqrt{-(x-2)^2+4}}dx\]</span>
+<span class="math display">\[\int_{4/5}^4\frac{-(x-2)^2+4}{x}-\frac{((4-x)/2)^2}{x}dx\]</span>
+<span class="math display">\[\int_{4/5}^4\frac{-x^2-4+2x+4}{x}-\frac{4+x^2/4-4x}{x}dx\]</span>
+<span class="math display">\[\int_{4/5}^4\frac{-x^2+2x}{x}+\frac{-4-x^2/4+4x}{x}dx\]</span>
+<span class="math display">\[\int_{4/5}^4 -x+2 -4/x -x/4 + 4 dx\]</span>
+<span class="math display">\[\int_{4/5}^4 -\frac{5}{4}x + 6 -
+\frac{4}{x}  dx\]</span></p>
+<p><span class="math display">\[-\frac{5}{8}x^2+6x-4\ln(x)|_{4/5}^4\]</span>
+<span class="math display">\[-\frac{5}{8}4^2+6*4-4\ln(4)-(-\frac{5}{8}\frac{4}{5}^2+6*\frac{4}{5}-4\ln(4/5))\]</span>
+<span class="math display">\[14-4\ln(4)-\frac{22}{5}+4\ln(4/5))\]</span>
+<span class="math display">\[\frac{70}{5}-4\ln(4)-\frac{22}{5}+4\ln(4)-4\ln(5)))\]</span>
+<span class="math display">\[\frac{48}{5}-4\ln(5)))\]</span></p>
+<pre class="python"><code>import sympy as sp
+x, y = sp.symbols(&#39;x y&#39;)
+circle_eq = (x - 2)**2 + y**2 - 4
+line_eq = x + 2*y - 4
+y_circle_upper = sp.sqrt(4 - (x - 2)**2)
+y_circle_lower = -sp.sqrt(4 - (x - 2)**2)
+y_line = (4 - x) / 2
+
+# Bestimmung der Schnittpunkte
+intersection_points = sp.solve([circle_eq, line_eq], [x, y])
+x1, y1 = intersection_points[0]
+x2, y2 = intersection_points[1]
+
+# Bestimmung der Integrationsgrenzen
+x_min = min(x1, x2)
+x_max = max(x1, x2)
+
+# Funktion f(x, y)
+f = 2*y/x
+
+# Berechnung des Doppelintegrals
+integral = sp.integrate(sp.integrate(f, (y, y_line, y_circle_upper)), (x, x_min, x_max))
+#integral_value = integral.evalf()
+
+print(integral)</code></pre>
+<pre><code>## -4*log(4) + 4*log(4/5) + 48/5</code></pre>
 </div>
 
 

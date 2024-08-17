@@ -13,6 +13,7 @@ editor_options:
 
 #### Aufgabe 1: Lineares Gleichungssystem $Ax = b$ (8 Punkte)
 
+
 Gegeben sei ein lineares Gleichungssystem ***Ax=b*** mit der
 Koeffizientenmatrix und der rechten Seite
 
@@ -43,19 +44,16 @@ der Matrix A?
         4 & 1 & 6 & 1 & | & 3
       \end{pmatrix}
     $$
-    $$
-      R2 \leftarrow R2 - 2R1,
-      R3 \leftarrow R3 + 3R1,
-      R4 \leftarrow R4 - 4R1, \quad \begin{pmatrix}
+    $R2 \leftarrow R2 - 2R1, R3 \leftarrow R3 + 3R1, R4 \leftarrow R4 - 4R1:$
+      $$ \begin{pmatrix}
         1 & 1 & 3 & 1 & | & 6 \\
         0 & -3 & -6 & -1 & | & -13 \\
         0 & 5 & 10 & 1 & | & 19 \\
         0 & -3 & -6 & -3 & | & -21
       \end{pmatrix}
     $$
-    $$
-      R3 \leftarrow R3 + \frac{5}{3}R2,
-      R4 \leftarrow R4 - R2, \quad \begin{pmatrix}
+    $R3 \leftarrow R3 + \frac{5}{3}R2, R4 \leftarrow R4 - R2$
+    $$\begin{pmatrix}
         1 & 1 & 3 & 1 & | & 6 \\
         0 & -3 & -6 & -1 & | & -13 \\
         0 & 0 & 0 & 2 & | & 8 \\
@@ -75,6 +73,8 @@ der Matrix A?
 
 ```{python}
 import sympy as sp
+from sympy import pprint
+
 # Aufgabe 1
 A = sp.Matrix([
     [1, 1, 3, 1],
@@ -83,9 +83,10 @@ A = sp.Matrix([
     [4, 1, 6, 1]
 ])
 b = sp.Matrix([6, -1, 1, 3])
-#x = A.LUsolve(b)
+augmented_matrix=A.row_join(b)
+pprint(augmented_matrix.rref())
 print(A.rank())
-print(A.rref())
+
 ```
 
 \pagebreak
@@ -109,7 +110,37 @@ b)  Entscheiden Sie ob die Gerade $g$ und die Ebene $E$ sich in einem
 
 -   Wenn nein, berechnen Sie den Abstand der Geraden von der Ebene.
 
+
+Setze die Parameterdarstellung der Geraden in die
+        Ebenengleichung ein: $$
+        \hat{n} \cdot \vec{r}(t) = 3
+        $$ $$
+        \frac{1}{3}(4 - 2t) + \frac{2}{3}(4 + 3t) + \frac{2}{3}(2 - 2t) = 3
+        $$ $$
+        \frac{4 - 2t + 8 + 6t + 4 - 4t}{3} = 3
+        $$ $$
+        \frac{0 + 0t}{3} = 3
+        $$ $$
+        0 + 0t = 9
+        $$
+Kein gültiger Wert von $t$, daher kein Schnittpunkt und Abstand berechnen
+
+Allgemeiner Abstand einer Geraden von einer Ebene: $$
+        d = \frac{|\hat{n} \cdot \vec{p} - d|}{\|\hat{n}\|}
+        $$ $$
+        d = \frac{| \frac{1}{3}4 + \frac{2}{3}(4) + \frac{2}{3}2 - 3 |}{\|\hat{n}\|}
+        $$ $$
+        d = \frac{| \frac{4}{3} + \frac{8}{3} + \frac{4}{3} - 3 |}{\|\hat{n}\|}
+        $$ $$
+        d = \frac{| \frac{7}{3} |}{\sqrt{\left(\frac{1}{3}\right)^2 + \left(\frac{2}{3}\right)^2 + \left(\frac{2}{3}\right)^2}}
+        $$ $$
+        d = \frac{\frac{7}{3}}{\sqrt{\frac{1}{9} + \frac{4}{9} + \frac{4}{9}}}
+        $$ $$
+        d = \frac{\frac{7}{3}}{\sqrt{\frac{9}{9}}} = \frac{\frac{7}{3}}{1} = \frac{7}{3}
+        $$
+
 ```{python}
+import sympy as sp
 # Aufgabe 2
 t = sp.symbols('t')
 g = sp.Matrix([4 - 2*t, 4 + 3*t, 2 - 2*t])
@@ -119,6 +150,7 @@ p3 = sp.Matrix([5, -2, 4])
 normal_vector = (p2 - p1).cross(p3 - p1)
 plane_eq = normal_vector.dot(sp.Matrix([sp.symbols('x1'), sp.symbols('x2'), sp.symbols('x3')]) - p1)
 distance = sp.Abs(plane_eq.subs({sp.symbols('x1'): g[0], sp.symbols('x2'): g[1], sp.symbols('x3'): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))
+print(distance)
 ```
 
 \pagebreak
@@ -141,7 +173,7 @@ a)  Berechnen Sie alle Eigenwerte und zugehörigen Eigenvektoren von $A$.
 b)  Drücken Sie die lineare Abbildung $y=Ax$ in einer Basis $B$ aus, die
     durch die Eigenvektoren von $A$ gebildet wird.
 
-    -   Nullstellen des Polynoms geben die Eigenwerte
+Nullstellen des char. Polynoms geben die Eigenwerte
         $\lambda_1, \lambda_2, \lambda_3$.$$ \det(A - \lambda I) = -\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
         $$ $$ p=0, q=-4 , \pm \sqrt{4}$$ $$\lambda_1=-1$$
         $$ \lambda_2=2$$ $$ \lambda_3=-2$$
@@ -151,7 +183,7 @@ Eigenvektoren:
 Für jeden Eigenwert $\lambda$ das Gleichungssystem: $$
         (A - \lambda I) \vec{v} = 0
         $$
-    -   Beispielsweise für $\lambda = -1$: $$
+Beispielsweise für $\lambda = -1$: $$
             \begin{pmatrix}
               1+1 & -2 & 3 \\
               1 & 0+1 & 1 \\
@@ -174,40 +206,46 @@ Für jeden Eigenwert $\lambda$ das Gleichungssystem: $$
               v_3
             \end{pmatrix} = 0
             $$
-    -   Eigenvektoren bestimmen durch Lösen des Gleichungssystems oder
-        Kreuzprodukt Z1xZ2$$
+Eigenvektoren bestimmen durch Lösen des Gleichungssystems oder
+        Kreuzprodukt Zeile 1 x Zeile 2$$
         \begin {pmatrix} 2\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -5\\1\\4 \end {pmatrix}
         $$
-    -   $\lambda = 2$:
+$\lambda = 2$:
         $$\begin{pmatrix}1-2 & -2 & 3 \\1 & 0-2 & 1 \\0 & 4 & -2-2\end{pmatrix}$$
         $$\begin{pmatrix}v_1 \\v_2 \\v_3\end{pmatrix} = 0$$
         $$\begin{pmatrix}-1 & -2 & 3 \\1 & -2 & 1 \\0 & 4 &-4\end{pmatrix}\begin{pmatrix}v_1 \\v_2 \\v_3\end{pmatrix} = 0$$
         $$\begin {pmatrix} -1\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\-2\\1 \end {pmatrix}=\begin {pmatrix} -2-3(-2)\\-(-1-3)\\2-(-2) \end {pmatrix}=\begin {pmatrix} 4\\4\\4 \end {pmatrix}=4\begin {pmatrix} 1\\1\\1 \end {pmatrix}$$
-    -   $\lambda=-2$:
+$\lambda=-2$:
 
 $$\begin{pmatrix}1+2 & -2 & 3 \\1 & 0+2 & 1 \\0 & 4 & -2+2\end{pmatrix}\begin{pmatrix}v_1 \\v_2 \\v_3\end{pmatrix} = 0$$
     $$\begin{pmatrix}3 & -2 & 3 \\1 & 2 & 1 \\0 & 4 & 0\end{pmatrix}\begin{pmatrix}v_1 \\v_2 \\v_3\end{pmatrix} = 0$$
 
 $$\begin {pmatrix} 3\\-2\\3 \end {pmatrix} \times \begin {pmatrix} 1\\1\\1 \end {pmatrix}=\begin {pmatrix} -2-3\\-(3-3)\\3-(-2) \end {pmatrix}=\begin {pmatrix} -5\\0\\5 \end {pmatrix}=5\begin {pmatrix} -1\\0\\1 \end {pmatrix}$$
-Diagonalisieren:
+Diagonalisieren: Inverse $P^{-1}$ berechnen (P|I)->(I|$P^{-1}$)
 
-$$P^{-1}DP=\begin{pmatrix}
-              0 & 0 & 0 \\
-              0 & 0 & 0 \\
-              0 & 0 & 0
+$$D=P^{-1}AP=\begin{pmatrix}
+              1 & -3 & 2 \\
+              -1/3 & 2/3 & -1/3 \\
+              1/3 & 1/3 & 1/3
             \end{pmatrix}\begin{pmatrix}
-              -1 & 0 & 0 \\
-              0 & 2 & 0 \\
-              0 & 0 & -2
+              1 & -2 & 3 \\
+              1 & 0 & 1 \\
+              0 & 4 & -2
             \end{pmatrix}
             \begin{pmatrix}
               -5 & 1 & -1 \\
               1 & 1 & 0 \\
               4 & 1 & 1
+            \end{pmatrix}=\begin{pmatrix}
+              -1 & 0 & 0 \\
+              0 & 2 & 0 \\
+              0 & 0 & -2
             \end{pmatrix}
             $$
 
 ```{python}
+import sympy as sp
+from sympy import pprint
 # Aufgabe 3
 A2 = sp.Matrix([
     [1, -2, 3],
@@ -217,8 +255,12 @@ A2 = sp.Matrix([
 eigenvals = A2.eigenvals()
 eigenvects = A2.eigenvects()
 P, D = A2.diagonalize()
-print(P)
-print(D)
+augmented_matrix=P.row_join(sp.eye(3))
+
+pprint(P)
+pprint(P.inv())
+pprint(D)
+pprint(augmented_matrix.rref())
 ```
 
 \pagebreak
@@ -236,13 +278,66 @@ b)  Überprüfen Sie, bei welchen stationären Punkten es sich um lokale
 c)  Bestimmen sie das Taylor-Polynom zweiten Grades von $f$ mit
     Entwicklungspunkt $(x_0, y_0)=(1,2)$.
 
+
+    
+
+Partielle Ableitungen: $$
+        f_x = \frac{\partial}{\partial x}((y^2 - x) \ln(x)) = \frac{y^2 - x}{x} - \ln(x)
+        $$ $$
+        f_y = \frac{\partial}{\partial y}((y^2 - x) \ln(x)) = 2y \ln(x)
+        $$
+Stationäre Punkte durch Lösen von $f_x = 0$ und $f_y = 0$.
+$$\frac{y^2 - x}{x} - \ln(x) = 0$$
+$$2y \ln(x)=0$$
+$$P1: x=1, y=1$$
+$$P2: x=1, y=-1$$
+$$P3: x=1/e, y=0$$
+Berechnung der Hesse-Matrix: $$
+        f_{xx} = \frac{\partial}{\partial x}\left(\frac{y^2 - x}{x} -\ln(x)\right) = \frac{-y^2 + x}{x^2} - \frac{2}{x}
+        $$ 
+        $$ f_{xy} =
+        \frac{\partial}{\partial y}\left(\frac{y^2 - x}{x} -
+        \ln(x)\right) = \frac{2y}{x}
+        $$
+        $$
+        f_{yy} = \frac{\partial}{\partial y}(2y \ln(x)) = 2\ln(x)
+        $$
+
+Natur der stationären Punkte bestimmen durch Einsetzen in die Hesse-Matrix: $$
+        H(f) = \begin{pmatrix}
+          \frac{-y^2 + x}{x^2} - \frac{2}{x} & \frac{2y}{x} \\
+          \frac{2y}{x} & 2\ln(x)
+        \end{pmatrix}
+        $$
+        P1/P2: Sattelpunkt (Spur -/+)
+        P3: Maximum (Spur -/-) 
+
+Taylor-Entwicklung um den Punkt $(x_0, y_0) = (1, 2)$:
+$$T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_xx(x-x_0)^2+\frac{1}{2}f_yy(y-y_0)^2+f_xy(x-x_0)(y-y0)$$
+
+$$f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad f_y(1, 2) = 4\ln(1) = 0
+        $$ $$
+        f_{xx}(1, 2) = -5, \quad f_{xy}(1, 2) = 4, \quad f_{yy}(1, 2) = 2\ln(1) = 0
+        $$ $$
+        T_2(x, y) = 0 + 3(x - 1) + 0(y - 2) + \frac{1}{2}(-5(x - 1)^2 + 4(x - 1)(y - 2))
+        $$
+        
+$$T_2(x, y) = 3(x - 1) - \frac{5}{2}(x - 1)^2 + 4(x - 1)(y - 2))
+$$
+
+
 ```{python}
+import sympy as sp
+from sympy import pprint
+
 # Aufgabe 4
 x, y = sp.symbols('x y')
 f = (y**2 - x) * sp.ln(x)
 stationary_points = sp.solve([sp.diff(f, x), sp.diff(f, y)], (x, y))
 hessian = sp.hessian(f, (x, y))
 #taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()
+pprint(stationary_points)
+pprint(hessian)
 ```
 
 \pagebreak
@@ -273,6 +368,8 @@ b)  Berechnen Sie die Ableitung der Funktion $f$ entlang der implizit
     $$f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y $$
 
 ```{python}
+import sympy as sp
+from sympy import pprint
 # Aufgabe 5
 x, y, l = sp.symbols('x y l', real = True)
 f5 = (3*x + 2*y)*x
@@ -297,3 +394,63 @@ Berechnen Sie das Integral der Funktion $f(x,y)=2y/x$ über das
 Kreissegment $B$, das von der Kreislinie mit der Gleichung
 $(x-2)^2+y^2=4$ und der Geraden mit der Gleichung $x+2y=4$ begrenzt wird
 (siehe Abbildung 1).
+
+Schnittpunkte: Einsetzen Geradengleichung in Kreislinie
+
+$$y=\frac{4-x}{2}=2-\frac{x}{2}$$
+$$(x-2)^2+(2-\frac{x}{2})^2-4=0$$
+
+$$x^2-4x+4+4-2x+\frac{x^2}{4}-4=0$$
+$$-6x+4+\frac{5x^2}{4}=0$$
+$$-24x+16+5x^2=0$$
+$$5x^2-24x+16=0$$
+$$x^2-\frac{24}{5}x+\frac{16}{5}=0$$
+$$p=-\frac{24}{5}, \quad q=\frac{16}{5}$$
+$$\frac{12}{5}\pm\sqrt{(\frac{12}{5})^2-\frac{16}{5}}$$
+$$\frac{12}{5}\pm\sqrt{\frac{144}{25}-\frac{80}{25}}$$
+$$\frac{12}{5}\pm\sqrt{\frac{64}{25}}$$
+$$\frac{12}{5}\pm\frac{8}{5}$$
+$$x_1=4, \quad x_2=\frac{4}{5}$$
+$$\int_{4/5}^4\int_{y=(4-x)/2)}^{y=\sqrt{-(x-2)^2+4}}\frac{2y}{x}dydx$$
+$$\int_{4/5}^4|\frac{y^2}{x}|_{y=(4-x)/2)}^{y=\sqrt{-(x-2)^2+4}}dx$$
+$$\int_{4/5}^4\frac{-(x-2)^2+4}{x}-\frac{((4-x)/2)^2}{x}dx$$ 
+$$\int_{4/5}^4\frac{-x^2-4+2x+4}{x}-\frac{4+x^2/4-4x}{x}dx$$ 
+$$\int_{4/5}^4\frac{-x^2+2x}{x}+\frac{-4-x^2/4+4x}{x}dx$$
+$$\int_{4/5}^4 -x+2 -4/x -x/4 + 4 dx$$
+$$\int_{4/5}^4 -\frac{5}{4}x + 6 - \frac{4}{x}  dx$$
+
+
+$$-\frac{5}{8}x^2+6x-4\ln(x)|_{4/5}^4$$
+$$-\frac{5}{8}4^2+6*4-4\ln(4)-(-\frac{5}{8}\frac{4}{5}^2+6*\frac{4}{5}-4\ln(4/5))$$
+$$14-4\ln(4)-\frac{22}{5}+4\ln(4/5))$$
+$$\frac{70}{5}-4\ln(4)-\frac{22}{5}+4\ln(4)-4\ln(5)))$$
+$$\frac{48}{5}-4\ln(5)))$$
+```{python}
+import sympy as sp
+x, y = sp.symbols('x y')
+circle_eq = (x - 2)**2 + y**2 - 4
+line_eq = x + 2*y - 4
+y_circle_upper = sp.sqrt(4 - (x - 2)**2)
+y_circle_lower = -sp.sqrt(4 - (x - 2)**2)
+y_line = (4 - x) / 2
+
+# Bestimmung der Schnittpunkte
+intersection_points = sp.solve([circle_eq, line_eq], [x, y])
+x1, y1 = intersection_points[0]
+x2, y2 = intersection_points[1]
+
+# Bestimmung der Integrationsgrenzen
+x_min = min(x1, x2)
+x_max = max(x1, x2)
+
+# Funktion f(x, y)
+f = 2*y/x
+
+# Berechnung des Doppelintegrals
+integral = sp.integrate(sp.integrate(f, (y, y_line, y_circle_upper)), (x, x_min, x_max))
+#integral_value = integral.evalf()
+
+print(integral)
+```
+
+
