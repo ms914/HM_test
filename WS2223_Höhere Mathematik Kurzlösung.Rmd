@@ -3,12 +3,13 @@ title: "WS2223_Höhere Mathematik II_Kurzlösung"
 author: "Author"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 editor_options:
   markdown:
     wrap: 72
 ---
+
 
 
 #### Aufgabe 1: Lineares Gleichungssystem $Ax = b$ (8 Punkte)
@@ -243,9 +244,12 @@ $$D=P^{-1}AP=\begin{pmatrix}
             $$
 
 ```{python}
-import sympy as sp
-from sympy import pprint
 # Aufgabe 3
+import sympy as sp
+#from sympy import pprint
+#from sympy import init_printing
+#sp.init_printing(use_latex='mathjax')
+#init_printing() 
 A2 = sp.Matrix([
     [1, -2, 3],
     [1, 0, 1],
@@ -255,11 +259,11 @@ eigenvals = A2.eigenvals()
 eigenvects = A2.eigenvects()
 P, D = A2.diagonalize()
 augmented_matrix=P.row_join(sp.eye(3))
-
-pprint(P)
-pprint(P.inv())
-pprint(D)
-pprint(augmented_matrix.rref())
+sp.pprint(P)
+#pprint(P)
+#pprint(P.inv())
+#pprint(D)
+#pprint(augmented_matrix.rref())
 ```
 
 \pagebreak

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Author" />
 
-<meta name="date" content="2024-08-17" />
+<meta name="date" content="2024-08-18" />
 
 <title>WS2223_Höhere Mathematik II_Kurzlösung</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">WS2223_Höhere Mathematik II_Kurzlösung</h1>
 <h4 class="author">Author</h4>
-<h4 class="date">2024-08-17</h4>
+<h4 class="date">2024-08-18</h4>
 
 </div>
 
@@ -414,6 +414,7 @@ x_1+(3-2x_3)+3x_3+4 = 6, \quad x_1 + 3x_3-2x_3=-1, \quad x_1+x_3=-1,
     \]</span></li>
 </ul>
 <pre class="python"><code>import sympy as sp
+from sympy import pprint
 
 # Aufgabe 1
 A = sp.Matrix([
@@ -424,12 +425,14 @@ A = sp.Matrix([
 ])
 b = sp.Matrix([6, -1, 1, 3])
 augmented_matrix=A.row_join(b)
-print(augmented_matrix.rref())</code></pre>
-<pre><code>## (Matrix([
-## [1, 0, 1, 0, -1],
-## [0, 1, 2, 0,  3],
-## [0, 0, 0, 1,  4],
-## [0, 0, 0, 0,  0]]), (0, 1, 3))</code></pre>
+pprint(augmented_matrix.rref())</code></pre>
+<pre><code>##  [1  0  1  0  -1]            
+##  [              ]            
+##  [0  1  2  0  3 ]            
+## ([              ], (0, 1, 3))
+##  [0  0  0  1  4 ]            
+##  [              ]            
+##  [0  0  0  0  0 ]</code></pre>
 <pre class="python"><code>print(A.rank())</code></pre>
 <pre><code>## 3</code></pre>
 <div style="page-break-after: always;"></div>
@@ -453,7 +456,40 @@ Schnittpunkts.</p></li>
 <li><p>Wenn nein, berechnen Sie den Abstand der Geraden von der
 Ebene.</p></li>
 </ul>
-<pre class="python"><code># Aufgabe 2
+<p>Setze die Parameterdarstellung der Geraden in die Ebenengleichung
+ein: <span class="math display">\[
+        \hat{n} \cdot \vec{r}(t) = 3
+        \]</span> <span class="math display">\[
+        \frac{1}{3}(4 - 2t) + \frac{2}{3}(4 + 3t) + \frac{2}{3}(2 - 2t)
+= 3
+        \]</span> <span class="math display">\[
+        \frac{4 - 2t + 8 + 6t + 4 - 4t}{3} = 3
+        \]</span> <span class="math display">\[
+        \frac{0 + 0t}{3} = 3
+        \]</span> <span class="math display">\[
+        0 + 0t = 9
+        \]</span> Kein gültiger Wert von <span class="math inline">\(t\)</span>, daher kein Schnittpunkt und Abstand
+berechnen</p>
+<p>Allgemeiner Abstand einer Geraden von einer Ebene: <span class="math display">\[
+        d = \frac{|\hat{n} \cdot \vec{p} - d|}{\|\hat{n}\|}
+        \]</span> <span class="math display">\[
+        d = \frac{| \frac{1}{3}4 + \frac{2}{3}(4) + \frac{2}{3}2 - 3
+|}{\|\hat{n}\|}
+        \]</span> <span class="math display">\[
+        d = \frac{| \frac{4}{3} + \frac{8}{3} + \frac{4}{3} - 3
+|}{\|\hat{n}\|}
+        \]</span> <span class="math display">\[
+        d = \frac{| \frac{7}{3} |}{\sqrt{\left(\frac{1}{3}\right)^2 +
+\left(\frac{2}{3}\right)^2 + \left(\frac{2}{3}\right)^2}}
+        \]</span> <span class="math display">\[
+        d = \frac{\frac{7}{3}}{\sqrt{\frac{1}{9} + \frac{4}{9} +
+\frac{4}{9}}}
+        \]</span> <span class="math display">\[
+        d = \frac{\frac{7}{3}}{\sqrt{\frac{9}{9}}} =
+\frac{\frac{7}{3}}{1} = \frac{7}{3}
+        \]</span></p>
+<pre class="python"><code>import sympy as sp
+# Aufgabe 2
 t = sp.symbols(&#39;t&#39;)
 g = sp.Matrix([4 - 2*t, 4 + 3*t, 2 - 2*t])
 p1 = sp.Matrix([3, 1, 2])
@@ -461,7 +497,9 @@ p2 = sp.Matrix([-1, 3, 2])
 p3 = sp.Matrix([5, -2, 4])
 normal_vector = (p2 - p1).cross(p3 - p1)
 plane_eq = normal_vector.dot(sp.Matrix([sp.symbols(&#39;x1&#39;), sp.symbols(&#39;x2&#39;), sp.symbols(&#39;x3&#39;)]) - p1)
-distance = sp.Abs(plane_eq.subs({sp.symbols(&#39;x1&#39;): g[0], sp.symbols(&#39;x2&#39;): g[1], sp.symbols(&#39;x3&#39;): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))</code></pre>
+distance = sp.Abs(plane_eq.subs({sp.symbols(&#39;x1&#39;): g[0], sp.symbols(&#39;x2&#39;): g[1], sp.symbols(&#39;x3&#39;): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))
+print(distance)</code></pre>
+<pre><code>## 7/3</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-3-eigenwerte-und-eigenvektoren-einer-matrix-8-3-punkte" class="section level4">
@@ -485,8 +523,8 @@ A=
 <p>Nullstellen des char. Polynoms geben die Eigenwerte <span class="math inline">\(\lambda_1, \lambda_2, \lambda_3\)</span>.<span class="math display">\[ \det(A - \lambda I) =
 -\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
         \]</span> <span class="math display">\[ p=0, q=-4 , \pm
-\sqrt{4}\]</span> <span class="math display">\[\lambda_1=-1\]</span>
-<span class="math display">\[ \lambda_2=2\]</span> <span class="math display">\[ \lambda_3=-2\]</span></p>
+\sqrt{4}\]</span> <span class="math display">\[\lambda_1=-1,\quad
+\lambda_2=2, \quad \lambda_3=-2\]</span></p>
 <p>Eigenvektoren:</p>
 <p>Für jeden Eigenwert <span class="math inline">\(\lambda\)</span> das
 Gleichungssystem: <span class="math display">\[
@@ -560,6 +598,11 @@ berechnen (P|I)-&gt;(I|<span class="math inline">\(P^{-1}\)</span>)</p>
             \end{pmatrix}
             \]</span></p>
 <pre class="python"><code># Aufgabe 3
+import sympy as sp
+#from sympy import pprint
+#from sympy import init_printing
+#sp.init_printing(use_latex=&#39;mathjax&#39;)
+#init_printing() 
 A2 = sp.Matrix([
     [1, -2, 3],
     [1, 0, 1],
@@ -569,15 +612,16 @@ eigenvals = A2.eigenvals()
 eigenvects = A2.eigenvects()
 P, D = A2.diagonalize()
 augmented_matrix=P.row_join(sp.eye(3))
-print(augmented_matrix.rref())</code></pre>
-<pre><code>## (Matrix([
-## [1, 0, 0,    1,  -3,    2],
-## [0, 1, 0, -1/3, 2/3, -1/3],
-## [0, 0, 1,  1/3, 1/3,  1/3]]), (0, 1, 2))</code></pre>
-<pre class="python"><code>print(P.inv())</code></pre>
-<pre><code>## Matrix([[1, -3, 2], [-1/3, 2/3, -1/3], [1/3, 1/3, 1/3]])</code></pre>
-<pre class="python"><code>print(D)</code></pre>
-<pre><code>## Matrix([[-2, 0, 0], [0, -1, 0], [0, 0, 2]])</code></pre>
+sp.pprint(P)</code></pre>
+<pre><code>## [-1  -5  1]
+## [         ]
+## [0   1   1]
+## [         ]
+## [1   4   1]</code></pre>
+<pre class="python"><code>#pprint(P)
+#pprint(P.inv())
+#pprint(D)
+#pprint(augmented_matrix.rref())</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-4-443-punkte" class="section level4">
@@ -590,14 +634,13 @@ Extrema handelt und geben Sie gegebenenfalls an, ob es sich jeweils um
 ein lokales Minimum oder Maximum handelt.</p></li>
 <li><p>Bestimmen sie das Taylor-Polynom zweiten Grades von <span class="math inline">\(f\)</span> mit Entwicklungspunkt <span class="math inline">\((x_0, y_0)=(1,2)\)</span>.</p></li>
 </ol>
-<p><strong>Berechnung der partiellen Ableitungen:</strong> - Partielle
-Ableitungen: <span class="math display">\[
+<p>Partielle Ableitungen: <span class="math display">\[
         f_x = \frac{\partial}{\partial x}((y^2 - x) \ln(x)) = \frac{y^2
 - x}{x} - \ln(x)
         \]</span> <span class="math display">\[
         f_y = \frac{\partial}{\partial y}((y^2 - x) \ln(x)) = 2y \ln(x)
-        \]</span> - Stationäre Punkte durch Lösen von <span class="math inline">\(f_x = 0\)</span> und <span class="math inline">\(f_y = 0\)</span>. - <span class="math display">\[\frac{y^2 - x}{x} - \ln(x) = 0\]</span> - <span class="math display">\[2y \ln(x)=0\]</span> - <span class="math display">\[P1: x=1, y=1\]</span> - <span class="math display">\[P2: x=1, y=-1\]</span> - <span class="math display">\[P3: x=1/e, y=0\]</span> <strong>Hesse-Matrix und
-zweiter Ableitungstest:</strong> - Berechnung der Hesse-Matrix: <span class="math display">\[
+        \]</span> Stationäre Punkte durch Lösen von <span class="math inline">\(f_x = 0\)</span> und <span class="math inline">\(f_y = 0\)</span>. <span class="math display">\[\frac{y^2 - x}{x} - \ln(x) = 0\]</span> <span class="math display">\[2y \ln(x)=0\]</span> <span class="math display">\[P1: x=1, y=1\]</span> <span class="math display">\[P2: x=1, y=-1\]</span> <span class="math display">\[P3: x=1/e, y=0\]</span> Berechnung der
+Hesse-Matrix: <span class="math display">\[
         f_{xx} = \frac{\partial}{\partial x}\left(\frac{y^2 - x}{x}
 -\ln(x)\right) = \frac{-y^2 + x}{x^2} - \frac{2}{x}
         \]</span> <span class="math display">\[ f_{xy} =
@@ -605,18 +648,19 @@ zweiter Ableitungstest:</strong> - Berechnung der Hesse-Matrix: <span class="mat
         \ln(x)\right) = \frac{2y}{x}
         \]</span> <span class="math display">\[
         f_{yy} = \frac{\partial}{\partial y}(2y \ln(x)) = 2\ln(x)
-        \]</span> <strong>Stationäre Punkte überprüfen:</strong> - Natur
-der stationären Punkte bestimmen durch Einsetzen in die Hesse-Matrix:
-<span class="math display">\[
+        \]</span></p>
+<p>Natur der stationären Punkte bestimmen durch Einsetzen in die
+Hesse-Matrix: <span class="math display">\[
         H(f) = \begin{pmatrix}
           \frac{-y^2 + x}{x^2} - \frac{2}{x} &amp; \frac{2y}{x} \\
           \frac{2y}{x} &amp; 2\ln(x)
         \end{pmatrix}
-        \]</span> P1/P2: Sattelpunkt (Spur -/+) P3: Maximum (Spur -/-)
-<strong>Taylor-Polynom zweiten Grades:</strong> - Taylor-Entwicklung um
-den Punkt <span class="math inline">\((x_0, y_0) = (1, 2)\)</span>:
-<span class="math display">\[
-        f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad f_y(1, 2) = 4\ln(1) = 0
+        \]</span> P1/P2: Sattelpunkt (Spur -/+) P3: Maximum (Spur
+-/-)</p>
+<p>Taylor-Entwicklung um den Punkt <span class="math inline">\((x_0,
+y_0) = (1, 2)\)</span>: <span class="math display">\[T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_xx(x-x_0)^2+\frac{1}{2}f_yy(y-y_0)^2+f_xy(x-x_0)(y-y0)\]</span></p>
+<p><span class="math display">\[f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad
+f_y(1, 2) = 4\ln(1) = 0
         \]</span> <span class="math display">\[
         f_{xx}(1, 2) = -5, \quad f_{xy}(1, 2) = 4, \quad f_{yy}(1, 2) =
 2\ln(1) = 0
@@ -624,17 +668,31 @@ den Punkt <span class="math inline">\((x_0, y_0) = (1, 2)\)</span>:
         T_2(x, y) = 0 + 3(x - 1) + 0(y - 2) + \frac{1}{2}(-5(x - 1)^2 +
 4(x - 1)(y - 2))
         \]</span></p>
-<pre><code>    $$
-    T_2(x, y) = 3(x - 1) - \frac{5}{2}(x - 1)^2 + 4(x - 1)(y - 2))
-    $$</code></pre>
-<pre class="python"><code># Aufgabe 4
+<p><span class="math display">\[T_2(x, y) = 3(x - 1) - \frac{5}{2}(x -
+1)^2 + 4(x - 1)(y - 2))
+\]</span></p>
+<pre class="python"><code>import sympy as sp
+from sympy import pprint
+
+# Aufgabe 4
 x, y = sp.symbols(&#39;x y&#39;)
 f = (y**2 - x) * sp.ln(x)
 stationary_points = sp.solve([sp.diff(f, x), sp.diff(f, y)], (x, y))
 hessian = sp.hessian(f, (x, y))
 #taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()
-print(stationary_points)</code></pre>
-<pre><code>## [(1, -1), (1, 1), (exp(-1), 0)]</code></pre>
+pprint(stationary_points)</code></pre>
+<pre><code>##                     -1     
+## [(1, -1), (1, 1), (e  , 0)]</code></pre>
+<pre class="python"><code>pprint(hessian)</code></pre>
+<pre><code>## [            2          ]
+## [  2   -x + y     2*y   ]
+## [- - - -------    ---   ]
+## [  x       2       x    ]
+## [         x             ]
+## [                       ]
+## [     2*y               ]
+## [     ---       2*log(x)]
+## [      x                ]</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-5-7-3-punkte" class="section level4">
@@ -659,7 +717,9 @@ y=x\]</span> <span class="math inline">\(y=x\)</span> einsetzen in NB:
 <span class="math display">\[f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y
 \]</span></p></li>
 </ol>
-<pre class="python"><code># Aufgabe 5
+<pre class="python"><code>import sympy as sp
+from sympy import pprint
+# Aufgabe 5
 x, y, l = sp.symbols(&#39;x y l&#39;, real = True)
 f5 = (3*x + 2*y)*x
 g5 = 2*x**3 + 3*x**2*y - 40
