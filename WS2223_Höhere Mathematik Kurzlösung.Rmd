@@ -175,8 +175,7 @@ b)  Drücken Sie die lineare Abbildung $y=Ax$ in einer Basis $B$ aus, die
 
 Nullstellen des char. Polynoms geben die Eigenwerte
         $\lambda_1, \lambda_2, \lambda_3$.$$ \det(A - \lambda I) = -\lambda^3-\lambda^2+4\lambda+4=-(\lambda+1)(\lambda^2+4)=0
-        $$ $$ p=0, q=-4 , \pm \sqrt{4}$$ $$\lambda_1=-1$$
-        $$ \lambda_2=2$$ $$ \lambda_3=-2$$
+        $$ $$ p=0, q=-4 , \pm \sqrt{4}$$ $$\lambda_1=-1,\quad \lambda_2=2, \quad \lambda_3=-2$$
 
 Eigenvektoren:
 
@@ -338,52 +337,6 @@ hessian = sp.hessian(f, (x, y))
 #taylor_poly = f.series(x, 1, 3).removeO().series(y, 2, 3).removeO()
 pprint(stationary_points)
 pprint(hessian)
-```
-```{python}
-import sympy as sp
-import matplotlib.pyplot as plt
-import numpy as np
-
-# Define symbols and function
-x, y = sp.symbols('x y')
-f = (y**2 - x) * sp.ln(x)
-
-# Compute stationary points
-stationary_points = sp.solve([sp.diff(f, x), sp.diff(f, y)], (x, y))
-
-# Compute Hessian matrix
-hessian = sp.hessian(f, (x, y))
-
-# Display stationary points and Hessian
-pprint(stationary_points)
-pprint(hessian)
-
-# Define the function for numerical evaluation
-f_num = sp.lambdify((x, y), f, 'numpy')
-
-# Create a grid of values for x and y
-x_vals = np.linspace(0.1, 2, 400)  # Avoid zero since ln(0) is undefined
-y_vals = np.linspace(-2, 2, 400)
-X, Y = np.meshgrid(x_vals, y_vals)
-Z = f_num(X, Y)
-
-# Plotting
-plt.figure(figsize=(10, 8))
-plt.contourf(X, Y, Z, levels=50, cmap='viridis')
-plt.colorbar(label='f(x, y)')
-
-# Plot stationary points
-stationary_points_numeric = [(1, -1), (1, 1), (np.exp(-1), 0)]
-for point in stationary_points_numeric:
-    plt.plot(point[0], point[1], 'ro')
-    plt.text(point[0] + 0.02, point[1] + 0.02, f'({point[0]:.2f}, {point[1]:.2f})', color='white', fontsize=12)
-
-plt.title(r'Contour Plot of $f(x, y) = (y^2 - x)\ln(x)$ with Stationary Points')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.grid(True)
-plt.show()
-
 ```
 \pagebreak
 
