@@ -11,7 +11,7 @@
 
 <meta name="author" content="Author" />
 
-<meta name="date" content="2024-08-18" />
+<meta name="date" content="2024-08-20" />
 
 <title>WS2223_Höhere Mathematik II_Kurzlösung</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">WS2223_Höhere Mathematik II_Kurzlösung</h1>
 <h4 class="author">Author</h4>
-<h4 class="date">2024-08-18</h4>
+<h4 class="date">2024-08-20</h4>
 
 </div>
 
@@ -464,10 +464,10 @@ g: \frac{4-x_1}{2} = \frac{4+x_2}{3} = \frac{2-x_3}{2}
 \]</span></li>
 <li>Setze einen Parameter <span class="math inline">\(t\)</span> und
 löse nach <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> und <span class="math inline">\(x_3\)</span> auf: <span class="math display">\[
-x_1 = 4 - 2t, \quad x_2 = 4 + 3t, \quad x_3 = 2 - 2t
+x_1 = 4 - 2t, \quad x_2 = -4 + 3t, \quad x_3 = 2 - 2t
 \]</span></li>
 <li>Parameterdarstellung: <span class="math display">\[
-\vec{r}(t) = \begin{pmatrix} 4 \\ 4 \\ 2 \end{pmatrix} + t
+\vec{r}(t) = \begin{pmatrix} 4 \\ -4 \\ 2 \end{pmatrix} + t
 \begin{pmatrix} -2 \\ 3 \\ -2 \end{pmatrix}
 \]</span></li>
 </ul></li>
@@ -519,9 +519,9 @@ d = \frac{| \vec{n} \cdot \vec{p} - d |}{\|\vec{n}\|}
 Ebenengleichung ein: <span class="math display">\[
 \hat{n} \cdot \vec{r}(t) = 3
 \]</span> <span class="math display">\[
-\frac{1}{3}(4 - 2t) + \frac{2}{3}(4 + 3t) + \frac{2}{3}(2 - 2t) = 3
+\frac{1}{3}(4 - 2t) + \frac{2}{3}(-4 + 3t) + \frac{2}{3}(2 - 2t) = 3
 \]</span> <span class="math display">\[
-\frac{4 - 2t + 8 + 6t + 4 - 4t}{3} = 3
+\frac{4 - 2t - 8 + 6t + 4 - 4t}{3} = 3
 \]</span> <span class="math display">\[
 \frac{0 + 0t}{3} = 3
 \]</span> <span class="math display">\[
@@ -533,33 +533,40 @@ daher kein Schnittpunkt und Abstand berechnen</li>
 <p>Allgemeiner Abstand einer Geraden von einer Ebene: <span class="math display">\[
         d = \frac{|\hat{n} \cdot \vec{p} - d|}{\|\hat{n}\|}
         \]</span> <span class="math display">\[
-        d = \frac{| \frac{1}{3}4 + \frac{2}{3}(4) + \frac{2}{3}2 - 3
+        d = \frac{| \frac{1}{3}4 + \frac{2}{3}(-4) + \frac{2}{3}2 - 3
 |}{\|\hat{n}\|}
         \]</span> <span class="math display">\[
-        d = \frac{| \frac{4}{3} + \frac{8}{3} + \frac{4}{3} - 3
+        d = \frac{| \frac{4}{3} - \frac{8}{3} + \frac{4}{3} - 3
 |}{\|\hat{n}\|}
         \]</span> <span class="math display">\[
-        d = \frac{| \frac{7}{3} |}{\sqrt{\left(\frac{1}{3}\right)^2 +
+        d = \frac{| -3 |}{\sqrt{\left(\frac{1}{3}\right)^2 +
 \left(\frac{2}{3}\right)^2 + \left(\frac{2}{3}\right)^2}}
         \]</span> <span class="math display">\[
-        d = \frac{\frac{7}{3}}{\sqrt{\frac{1}{9} + \frac{4}{9} +
-\frac{4}{9}}}
+        d = \frac{3}{\sqrt{\frac{1}{9} + \frac{4}{9} + \frac{4}{9}}}
         \]</span> <span class="math display">\[
-        d = \frac{\frac{7}{3}}{\sqrt{\frac{9}{9}}} =
-\frac{\frac{7}{3}}{1} = \frac{7}{3}
+        d = \frac{-3}{\sqrt{\frac{9}{9}}} = \frac{3}{1} = 3
         \]</span></p>
 <pre class="python"><code>import sympy as sp
+from sympy import pprint
 # Aufgabe 2
 t = sp.symbols(&#39;t&#39;)
-g = sp.Matrix([4 - 2*t, 4 + 3*t, 2 - 2*t])
+g = sp.Matrix([4 - 2*t, -4 + 3*t, 2 - 2*t])
 p1 = sp.Matrix([3, 1, 2])
 p2 = sp.Matrix([-1, 3, 2])
 p3 = sp.Matrix([5, -2, 4])
 normal_vector = (p2 - p1).cross(p3 - p1)
 plane_eq = normal_vector.dot(sp.Matrix([sp.symbols(&#39;x1&#39;), sp.symbols(&#39;x2&#39;), sp.symbols(&#39;x3&#39;)]) - p1)
 distance = sp.Abs(plane_eq.subs({sp.symbols(&#39;x1&#39;): g[0], sp.symbols(&#39;x2&#39;): g[1], sp.symbols(&#39;x3&#39;): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))
-print(distance)</code></pre>
-<pre><code>## 7/3</code></pre>
+pprint(normal_vector)</code></pre>
+<pre><code>## [4]
+## [ ]
+## [8]
+## [ ]
+## [8]</code></pre>
+<pre class="python"><code>pprint(plane_eq)</code></pre>
+<pre><code>## 4*x1 + 8*x2 + 8*x3 - 36</code></pre>
+<pre class="python"><code>print(distance)</code></pre>
+<pre><code>## 3</code></pre>
 <div style="page-break-after: always;"></div>
 </div>
 <div id="aufgabe-3-eigenwerte-und-eigenvektoren-einer-matrix-8-3-punkte" class="section level4">
