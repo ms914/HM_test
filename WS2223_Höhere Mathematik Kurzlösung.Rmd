@@ -414,7 +414,7 @@ b)  Berechnen Sie die Ableitung der Funktion $f$ entlang der implizit
     $$\rightarrow 5x^3-40=0 \rightarrow x^3=8 \rightarrow x=2$$
     $$\frac{dy}{dx}=-\frac{g_x}{g_y}=-\frac{6x^2+6xy}{3x^2}=--\frac{2x+2y}{x}$$
     $$f_y*\frac{dy}{dx}=-2x\frac{2x+2y}{x}=-4x-4y$$
-    $$f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y $$
+    $$f_x(x,y(x))=f_x+f_y*\frac{dy}{dx}= 6x+2y-4x-4y=2x-2y $$
 
 ```{python}
 import sympy as sp
