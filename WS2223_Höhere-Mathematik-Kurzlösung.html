@@ -11,7 +11,7 @@
 
 <meta name="author" content="Author" />
 
-<meta name="date" content="2024-08-20" />
+<meta name="date" content="2024-08-21" />
 
 <title>WS2223_Höhere Mathematik II_Kurzlösung</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">WS2223_Höhere Mathematik II_Kurzlösung</h1>
 <h4 class="author">Author</h4>
-<h4 class="date">2024-08-20</h4>
+<h4 class="date">2024-08-21</h4>
 
 </div>
 
@@ -563,8 +563,10 @@ pprint(normal_vector)</code></pre>
 ## [8]
 ## [ ]
 ## [8]</code></pre>
-<pre class="python"><code>pprint(plane_eq)</code></pre>
-<pre><code>## 4*x1 + 8*x2 + 8*x3 - 36</code></pre>
+<pre class="python"><code>pprint(plane_eq / sp.sqrt(normal_vector.dot(normal_vector)))</code></pre>
+<pre><code>## x1   2*x2   2*x3    
+## -- + ---- + ---- - 3
+## 3     3      3</code></pre>
 <pre class="python"><code>print(distance)</code></pre>
 <pre><code>## 3</code></pre>
 <div style="page-break-after: always;"></div>
@@ -725,7 +727,7 @@ Hesse-Matrix: <span class="math display">\[
         \]</span> P1/P2: Sattelpunkt (Spur -/+) P3: Maximum (Spur
 -/-)</p>
 <p>Taylor-Entwicklung um den Punkt <span class="math inline">\((x_0,
-y_0) = (1, 2)\)</span>: <span class="math display">\[T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_xx(x-x_0)^2+\frac{1}{2}f_yy(y-y_0)^2+f_xy(x-x_0)(y-y0)\]</span></p>
+y_0) = (1, 2)\)</span>: <span class="math display">\[T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_{xx}(x-x_0)^2+\frac{1}{2}f_{yy}(y-y_0)^2+f_xy(x-x_0)(y-y0)\]</span></p>
 <p><span class="math display">\[f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad
 f_y(1, 2) = 4\ln(1) = 0
         \]</span> <span class="math display">\[

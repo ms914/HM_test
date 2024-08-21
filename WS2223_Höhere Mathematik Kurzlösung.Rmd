@@ -197,7 +197,7 @@ normal_vector = (p2 - p1).cross(p3 - p1)
 plane_eq = normal_vector.dot(sp.Matrix([sp.symbols('x1'), sp.symbols('x2'), sp.symbols('x3')]) - p1)
 distance = sp.Abs(plane_eq.subs({sp.symbols('x1'): g[0], sp.symbols('x2'): g[1], sp.symbols('x3'): g[2]})) / sp.sqrt(normal_vector.dot(normal_vector))
 pprint(normal_vector)
-pprint(plane_eq / sp.sqrt(normal_vector.dot(normal_vector))
+pprint(plane_eq / sp.sqrt(normal_vector.dot(normal_vector)))
 print(distance)
 ```
 
@@ -363,7 +363,7 @@ Natur der stationären Punkte bestimmen durch Einsetzen in die Hesse-Matrix: $$
         P3: Maximum (Spur -/-) 
 
 Taylor-Entwicklung um den Punkt $(x_0, y_0) = (1, 2)$:
-$$T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_xx(x-x_0)^2+\frac{1}{2}f_yy(y-y_0)^2+f_xy(x-x_0)(y-y0)$$
+$$T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_{xx}(x-x_0)^2+\frac{1}{2}f_{yy}(y-y_0)^2+f_xy(x-x_0)(y-y0)$$
 
 $$f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad f_y(1, 2) = 4\ln(1) = 0
         $$ $$
