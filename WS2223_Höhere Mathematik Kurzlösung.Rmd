@@ -363,7 +363,7 @@ Natur der stationären Punkte bestimmen durch Einsetzen in die Hesse-Matrix: $$
         P3: Maximum (Spur -/-) 
 
 Taylor-Entwicklung um den Punkt $(x_0, y_0) = (1, 2)$:
-$$T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y0)+\frac{1}{2}f_{xx}(x-x_0)^2+\frac{1}{2}f_{yy}(y-y_0)^2+f_xy(x-x_0)(y-y0)$$
+$$T_2(x,y)=f(x_0,y_0)+f_x(x-x_0)+f_y(y-y_0)+\frac{1}{2}f_{xx}(x-x_0)^2+\frac{1}{2}f_{yy}(y-y_0)^2+f_{xy}(x-x_0)(y-y_0)$$
 
 $$f(1, 2) = 0, \quad f_x(1, 2) = 3, \quad f_y(1, 2) = 4\ln(1) = 0
         $$ $$
